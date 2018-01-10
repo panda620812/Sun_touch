@@ -1,0 +1,8 @@
+; ==============================================
+; LEDX4_V16.AEX: create by CompSysFileMaker.
+; November 22, 2017 10:43:23
+; ==============================================
+
+EXTERN _LEDX4_V16_INITIAL:NEAR
+EXTERN _LEDX4_V16:NEAR
+

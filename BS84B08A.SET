@@ -1,0 +1,21 @@
+; system file 
+; Do not modify manually.
+["Vdd (for selections of Internal RC)"]
+DEFINE=vdd
+"5V"=1
+"3.0V"=2
+["HIRC frequency selection"]
+DEFINE=SystemClock
+"8MHz @ Vdd=3V"=0
+"8MHz @ Vdd=5V"=0
+"16MHz @ Vdd=5V"=2
+"12MHz @ Vdd=3V"=1
+"12MHz @ Vdd=5V"=1
+["I/O or RESB Function"]
+DEFINE= 
+"IO"= 
+
+[@option_setting@]
+count=1
+; addr, mask, value(BYTE data)
+S0="0x08,0x02,0x02"

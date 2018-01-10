@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tkproject>
+    <tkwsinfo>
+        <version>3.5.0.0</version>
+    </tkwsinfo>
+    <project>
+        <mcu>BS84B08A-3</mcu>
+        <package>20SOP-A</package>
+        <path>E:\MyWork\Sun\HTK_Project\Sun_test1\Sun_touch</path>
+        <name>SunTouch</name>
+        <library name="BS84B08A_LIBV413" version="BS84B08A_LIBV413" />
+    </project>
+    <global>
+        <option>
+            <property>Debounce Times</property>
+            <value>180mS</value>
+            <rvalue>15</rvalue>
+        </option>
+        <option>
+            <property>High Sensitive</property>
+            <value>check</value>
+            <rvalue>1</rvalue>
+        </option>
+        <option>
+            <property>Maximum Key HoldTime</property>
+            <value>Disable</value>
+            <rvalue>0</rvalue>
+        </option>
+        <option>
+            <property>Noise Protect</property>
+            <value>check</value>
+            <rvalue>1</rvalue>
+        </option>
+        <option>
+            <property>One Key Active</property>
+            <value>check</value>
+            <rvalue>1</rvalue>
+        </option>
+    </global>
+    <mcuconfig list_mode="0" list_simple="0">
+        <key index="1">
+            <match_pin>0</match_pin>
+            <attrib name="Threshold">255</attrib>
+        </key>
+        <key index="4">
+            <match_pin>3</match_pin>
+            <attrib name="Threshold">255</attrib>
+        </key>
+        <key index="5">
+            <match_pin>4</match_pin>
+            <attrib name="Threshold">255</attrib>
+        </key>
+        <component>
+            <rect x="192" y="65" width="80" hight="30" />
+            <lib>LEDX4</lib>
+            <child>
+                <perip_pin index="0">
+                    <match_pin>18</match_pin>
+                </perip_pin>
+                <perip_pin index="1">
+                    <match_pin>1</match_pin>
+                </perip_pin>
+                <perip_pin index="2">
+                    <match_pin>2</match_pin>
+                </perip_pin>
+                <perip_pin index="3">
+                    <match_pin>16</match_pin>
+                </perip_pin>
+                <perip_pin index="4">
+                    <match_pin>5</match_pin>
+                </perip_pin>
+            </child>
+        </component>
+    </mcuconfig>
+    <usrwnd>
+        <download flag="0" />
+        <ocds_mode>0</ocds_mode>
+    </usrwnd>
+</tkproject>
