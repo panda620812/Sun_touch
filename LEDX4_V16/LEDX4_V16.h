@@ -33,12 +33,12 @@ volatile unsigned char BeepCount ;
 #define KeyRelease      0
 #define KeySitchON      1
 #define KeySitchOFF     0
-
+volatile unsigned char KeyPressFlag;//0 有人 ，1 没人
 
 volatile unsigned char KeySwitchStatus ;
 volatile unsigned char KeyCount ;
 volatile unsigned char KeyCountOpenflag ;
-const unsigned short TempForm[]={	1673, 1589, 1509, 1434, 1363, 1295, 1232, 1172, 1115, 1061, 
+/*const unsigned short TempForm[]={	1673, 1589, 1509, 1434, 1363, 1295, 1232, 1172, 1115, 1061, 
 									1010, 962, 917, 873, 833, 794, 757, 722, 689, 658, 
 									628, 600, 573, 547, 523, 500, 478, 457, 437, 419, 
 									401, 384, 367, 352, 337, 323, 310, 297, 285, 273, 
@@ -49,6 +49,20 @@ const unsigned short TempForm[]={	1673, 1589, 1509, 1434, 1363, 1295, 1232, 1172
 									58, 56, 54, 53, 51, 49, 48, 46, 45, 43, 
 									42, 40, 39, 38, 37, 36, 34, 33, 32, 31, 
 									30 };
+*/									
+//
+const unsigned short TempForm[]={ 	1630, 1549, 1473, 1401, 1333, 1268, 1208, 1150, 1095, 1044, 
+									995, 948, 904, 863, 823, 786, 750, 716, 684, 654, 
+									625, 597, 571, 546, 522, 500, 479, 458, 439, 420, 
+									403, 386, 370, 355, 340, 326, 313, 300, 288, 277, 
+									266, 255, 245, 236, 227, 218, 209, 201, 194, 186, 
+									179, 173, 166, 160, 154, 149, 143, 138, 133, 128, 
+									123, 119, 115, 111, 107, 103, 100, 96, 93, 90, 
+									87, 84, 81, 78, 75, 73, 71, 68, 66, 64, 
+									62, 60, 58, 56, 54, 52, 51, 49, 48, 46, 
+									45, 43, 42, 41, 39, 38, 37, 36, 35, 34, 
+									33};
+									
 //TIM1628
 #define CLK1_C 	_pac7
 #define CLK1 	_pa7
@@ -154,6 +168,7 @@ volatile char PersonCheckDisable;//0 红外缺失  1 红外还在
 volatile short personTimerCount;
 
 volatile unsigned long NoneTimerCount;
+volatile unsigned long NoneErrorTimerCount;//屏幕开启后的关闭
 
 
 

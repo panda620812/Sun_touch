@@ -1,4 +1,4 @@
-				;file D:\Users\HOLDMC\Desktop\Sun_touch\MAIN_PROGRAM_V104\MAIN_PROGRAM_V104.asm
+				;file E:\MyWork\Sun\HTK_Project\Sun_test1\Sun_touch\MAIN_PROGRAM_V104\MAIN_PROGRAM_V104.asm
 				;1	
 				;2	message '****************************************************************'
 				;3	message '*PROJECT NAME :MAIN PROGRAM V104                               *'
@@ -180,7 +180,7 @@
 				;145	                EXTEND_FUNCTION_INITIAL
 04B1	208C	call    L008C
 04B2	200A	call    _USER_PROGRAM_INITIAL
-04B3	60EC	call    _LEDX4_V16_INITIAL
+04B3	60F2	call    _LEDX4_V16_INITIAL
 				;146	
 				;147	                ;;-----------------------
 				;148	MAIN_LOOP:      ;;- MAIN PROGRAM LOOP ---
@@ -223,7 +223,7 @@
 				;170	                EXTEND_FUNCTION
 04C2	2018	call    L0018
 04C3	200B	call    _USER_PROGRAM
-04C4	62FC	call    _LEDX4_V16
+04C4	6313	call    _LEDX4_V16
 				;171	                ;----------------
 				;172	                ;-SET POR ID  ---
 				;173	                ;----------------
@@ -607,7 +607,7 @@
 				;503	
 				;504	
 				;505	
-				;file D:\Users\HOLDMC\Desktop\Sun_touch\USER_PROGRAM\USER_PROGRAM.asm
+				;file E:\MyWork\Sun\HTK_Project\Sun_test1\Sun_touch\USER_PROGRAM\USER_PROGRAM.asm
 				;1	
 				;2	
 				;3	message '***************************************************************'
@@ -698,7 +698,7 @@
 				;83	
 				;84	
 				;85	
-				;file D:\Users\HOLDMC\Desktop\Sun_touch\LEDX4_V16\LEDX4_V16.c
+				;file E:\MyWork\Sun\HTK_Project\Sun_test1\Sun_touch\LEDX4_V16\LEDX4_V16.c
 				;1	// ==============================================
 				;2	// LEDX4_V16.C: create by CompSysFileMaker.
 				;3	// November 22, 2017 10:43:23
@@ -720,27 +720,27 @@
 				;19		TimerClose;\
 				_TimerSetFun:
 				_TimerSetFun:
-0782	361D	clr     TON
+0788	361D	clr     TON
 				;20		timerCount = 0;\
-0783	5F32	clr     timerCount[0]
-0784	5F33	clr     timerCount[1]
-0785	5F34	clr     timerCount[2]
-0786	5F35	clr     timerCount[3]
+0789	5F36	clr     timerCount[0]
+078A	5F37	clr     timerCount[1]
+078B	5F38	clr     timerCount[2]
+078C	5F39	clr     timerCount[3]
 				;21		timerCountSet = TimerCountValieSet;\
-0787	4758	mov     a, TimerCountValieSet[0]
-0788	40B6	mov     timerCountSet[0], a
-0789	4759	mov     a, TimerCountValieSet[1]
-078A	40B7	mov     timerCountSet[1], a
-078B	475A	mov     a, TimerCountValieSet[2]
-078C	40B8	mov     timerCountSet[2], a
-078D	475B	mov     a, TimerCountValieSet[3]
-078E	40B9	mov     timerCountSet[3], a
+078D	475D	mov     a, TimerCountValieSet[0]
+078E	40BA	mov     timerCountSet[0], a
+078F	475E	mov     a, TimerCountValieSet[1]
+0790	40BB	mov     timerCountSet[1], a
+0791	475F	mov     a, TimerCountValieSet[2]
+0792	40BC	mov     timerCountSet[2], a
+0793	4760	mov     a, TimerCountValieSet[3]
+0794	40BD	mov     timerCountSet[3], a
 				;22		TimerOpen;\
-078F	321D	set     TON
+0795	321D	set     TON
 				;23		timerFlag = Open;
-0790	0F01	mov     a, 1H
-0791	40B1	mov     timerFlag[0], a
-0792	0003	ret
+0796	0F01	mov     a, 1H
+0797	40B5	mov     timerFlag[0], a
+0798	0003	ret
 				;24	}
 				;25	void delay()
 				;26	{
@@ -748,39 +748,39 @@
 				;28	     for(i=0;i<50;i++)
 				_delay:
 				_delay:
-0793	5F5A	clr     i[0]
-0794	5F5B	clr     i[1]
-0795	2FA6	jmp     _L86
-				_L90:
-07A3	54DA	inc     i[0]
-07A4	3D0A	sz      Z
-07A5	54DB	inc     i[1]
-				_L86:
-07A6	0F31	mov     a, 31H
-07A7	425A	sub     a, i[0]
-07A8	0F00	mov     a, 0H
-07A9	525B	sbc     a, i[1]
-07AA	3C0A	sz      C
-07AB	2F96	jmp     _L89
-07AC	0003	ret
-				;29	     for(j=0;j<1000;j++)     
+0799	5F5F	clr     i[0]
+079A	5F60	clr     i[1]
+079B	2FAC	jmp     _L89
+				_L93:
+07A9	54DF	inc     i[0]
+07AA	3D0A	sz      Z
+07AB	54E0	inc     i[1]
 				_L89:
-0796	5F58	clr     j[0]
-0797	5F59	clr     j[1]
-				_L87:
-0798	0FE7	mov     a, E7H
-0799	4258	sub     a, j[0]
-079A	0F03	mov     a, 3H
-079B	5259	sbc     a, j[1]
-079C	380A	snz     C
-079D	2FA3	jmp     _L90
-079F	54D8	inc     j[0]
-07A0	3D0A	sz      Z
-07A1	54D9	inc     j[1]
-07A2	2F98	jmp     _L87
+07AC	0F31	mov     a, 31H
+07AD	425F	sub     a, i[0]
+07AE	0F00	mov     a, 0H
+07AF	5260	sbc     a, i[1]
+07B0	3C0A	sz      C
+07B1	2F9C	jmp     _L92
+07B2	0003	ret
+				;29	     for(j=0;j<1000;j++)     
+				_L92:
+079C	5F5D	clr     j[0]
+079D	5F5E	clr     j[1]
+				_L90:
+079E	0FE7	mov     a, E7H
+079F	425D	sub     a, j[0]
+07A0	0F03	mov     a, 3H
+07A1	525E	sbc     a, j[1]
+07A2	380A	snz     C
+07A3	2FA9	jmp     _L93
+07A5	54DD	inc     j[0]
+07A6	3D0A	sz      Z
+07A7	54DE	inc     j[1]
+07A8	2F9E	jmp     _L90
 				;30	     {
 				;31	     	GCC_CLRWDT();
-079E	0001	clr     wdt
+07A4	0001	clr     wdt
 				;32	     }	
 				;33	}
 				;34	//***********************************************************
@@ -791,11 +791,11 @@
 				;39	      _tmr= 0 ;//256-250;    // 设置2MS中断 
 				_timerInit:
 				_timerInit:
-07AD	1F1C	clr     TMR
+07B3	1F1C	clr     TMR
 				;40	      //从预置寄存器所载入的值开始计数， 到 FFH 时定时器溢出且会产生ISR
 				;41	      _tmrc=0x06;	   // TS=FSYS, TON=0，64分频	
-07AE	0F06	mov     a, 6H
-07AF	009D	mov     TMRC, a
+07B4	0F06	mov     a, 6H
+07B5	009D	mov     TMRC, a
 				;42	       //	0b00000011
 				;43	       //   	|| |||
 				;44	       //		|| 分频
@@ -810,14 +810,14 @@
 				;53			//定时 / 计数控制寄存器的第 4 位即 TON， 用于定时器开关控制， 设定为逻辑高时， 计数器开始计数， 而清零时则停止计数。 定时 / 计数控制寄存器的第 0~2
 				;54			//位用来控制输入时钟预分频器。 TS 位用来选择内部时钟源。
 				;55		  _te=1; 		   // 开定时器中断     
-07B0	318E	set     TE
+07B6	318E	set     TE
 				;56		  _tf=0;           // 清零溢出标记
-07B1	370E	clr     TF
+07B7	370E	clr     TF
 				;57	      _emi=1;          // 开总中断
-07B2	300E	set     EMI
+07B8	300E	set     EMI
 				;58	      _ton=0;	       // 定时器开始运行	
-07B3	361D	clr     TON
-07B4	0003	ret
+07B9	361D	clr     TON
+07BA	0003	ret
 				;59	}
 				;60	//***********************************************************
 				;61		
@@ -830,70 +830,70 @@
 				;68	 	GET_KEY_BITMAP();
 				_TouchFun:
 				_TouchFun:
-07B5	247F	call    L047F
+07BB	247F	call    L047F
 				;69		if(DATA_BUF[0]==0x01)  
-07B6	076B	mov     a, __pdpu[52]
-07B7	40DE	mov     _TouchFun_2, a
-07B8	575E	sdza    _TouchFun_2
-07B9	2FC0	jmp     _L93
+07BC	076B	mov     a, __pdpu[52]
+07BD	40E3	mov     _TouchFun_2, a
+07BE	5763	sdza    _TouchFun_2
+07BF	2FC6	jmp     _L96
 				;70		{
 				;71			if(KeyRelease == KeyStatus)
-07BA	50BA	sz      KeyStatus[0]
-07BB	2FD5	jmp     _L92
+07C0	50BE	sz      KeyStatus[0]
+07C1	2FDB	jmp     _L95
 				;72			{
 				;73				KeyStatus = KeyPress;
-07BC	0F01	mov     a, 1H
-07BD	40BA	mov     KeyStatus[0], a
+07C2	0F01	mov     a, 1H
+07C3	40BE	mov     KeyStatus[0], a
 				;74				KeySwitchProcess()	;
-07BE	2691	call    _KeySwitchProcess
-07BF	2FD5	jmp     _L92
+07C4	2695	call    _KeySwitchProcess
+07C5	2FDB	jmp     _L95
 				;75			}			
 				;76		}
 				;77		else if(DATA_BUF[0]==0x08) 
-				_L93:
-07C0	475E	mov     a, _TouchFun_2
-07C1	0A08	sub     a, 8H
-07C2	390A	snz     Z
-07C3	2FCA	jmp     _L95
+				_L96:
+07C6	4763	mov     a, _TouchFun_2
+07C7	0A08	sub     a, 8H
+07C8	390A	snz     Z
+07C9	2FD0	jmp     _L98
 				;78		{
 				;79			if(KeyRelease == KeyStatus)
-07C4	50BA	sz      KeyStatus[0]
-07C5	2FD5	jmp     _L92
+07CA	50BE	sz      KeyStatus[0]
+07CB	2FDB	jmp     _L95
 				;80			{
 				;81				KeyStatus = KeyPress;
-07C6	0F01	mov     a, 1H
-07C7	40BA	mov     KeyStatus[0], a
+07CC	0F01	mov     a, 1H
+07CD	40BE	mov     KeyStatus[0], a
 				;82				KeyDownProcess();
-07C8	2632	call    _KeyDownProcess
-07C9	2FD5	jmp     _L92
+07CE	2632	call    _KeyDownProcess
+07CF	2FDB	jmp     _L95
 				;83			}		
 				;84		}
 				;85		else if(DATA_BUF[0]==0x10)
-				_L95:
-07CA	475E	mov     a, _TouchFun_2
-07CB	0A10	sub     a, 10H
-07CC	390A	snz     Z
-07CD	2FD4	jmp     _L96
+				_L98:
+07D0	4763	mov     a, _TouchFun_2
+07D1	0A10	sub     a, 10H
+07D2	390A	snz     Z
+07D3	2FDA	jmp     _L99
 				;86		{
 				;87			if(KeyRelease == KeyStatus)
-07CE	50BA	sz      KeyStatus[0]
-07CF	2FD5	jmp     _L92
+07D4	50BE	sz      KeyStatus[0]
+07D5	2FDB	jmp     _L95
 				;88			{
 				;89				KeyStatus = KeyPress;
-07D0	0F01	mov     a, 1H
-07D1	40BA	mov     KeyStatus[0], a
+07D6	0F01	mov     a, 1H
+07D7	40BE	mov     KeyStatus[0], a
 				;90				KeyUpProcess()	;		
-07D2	2660	call    _KeyUpProcess
-07D3	2FD5	jmp     _L92
+07D8	2662	call    _KeyUpProcess
+07D9	2FDB	jmp     _L95
 				;91			}
 				;92		}		
 				;93		else
 				;94		{
 				;95			KeyStatus = KeyRelease ;
-				_L96:
-07D4	5F3A	clr     KeyStatus[0]
-				_L92:
-07D5	0003	ret
+				_L99:
+07DA	5F3E	clr     KeyStatus[0]
+				_L95:
+07DB	0003	ret
 				;96		}	
 				;97	 }
 				;98	//***********************************************************
@@ -908,117 +908,117 @@
 				;107		volatile unsigned char low = 0, mid =0, high = 100;
 				_TempValueSearch:
 				_TempValueSearch:
-07D6	5F5C	clr     low[0]
-07D7	5F5B	clr     mid[0]
-07D8	0F64	mov     a, 64H
-07D9	40DA	mov     high[0], a
+07DC	5F61	clr     low[0]
+07DD	5F60	clr     mid[0]
+07DE	0F64	mov     a, 64H
+07DF	40DF	mov     high[0], a
 				;108		while(high - low >= 1)
-				_L98:
-07DA	475C	mov     a, low[0]
-07DB	40D0	mov     rb, a
-07DC	5F51	clr     rc
-07DD	475A	mov     a, high[0]
-07DE	42D0	subm    a, rb
-07DF	1F05	clr     ACC
-07E0	52D1	sbcm    a, rc
-07E1	7FD1	sz      rc.7
-07E2	6833	jmp     _L105
-07E3	4750	mov     a, rb
-07E4	4551	or      a, rc
-07E5	3D0A	sz      Z
-07E6	6833	jmp     _L105
+				_L101:
+07E0	4761	mov     a, low[0]
+07E1	40D5	mov     rb, a
+07E2	5F56	clr     rc
+07E3	475F	mov     a, high[0]
+07E4	42D5	subm    a, rb
+07E5	1F05	clr     ACC
+07E6	52D6	sbcm    a, rc
+07E7	7FD6	sz      rc.7
+07E8	6839	jmp     _L108
+07E9	4755	mov     a, rb
+07EA	4556	or      a, rc
+07EB	3D0A	sz      Z
+07EC	6839	jmp     _L108
 				;109		{
 				;110			mid = (low +high)/2;
-07E7	475C	mov     a, low[0]
-07E8	40D0	mov     rb, a
-07E9	5F51	clr     rc
-07EA	475A	mov     a, high[0]
-07EB	43D0	addm    a, rb
-07EC	3C0A	sz      C
-07ED	54D1	inc     rc
-07EE	5A51	rlca    rc
-07EF	5BD1	rrc     rc
-07F0	5BD0	rrc     rb
-07F1	4750	mov     a, rb
-07F2	40DB	mov     mid[0], a
+07ED	4761	mov     a, low[0]
+07EE	40D5	mov     rb, a
+07EF	5F56	clr     rc
+07F0	475F	mov     a, high[0]
+07F1	43D5	addm    a, rb
+07F2	3C0A	sz      C
+07F3	54D6	inc     rc
+07F4	5A56	rlca    rc
+07F5	5BD6	rrc     rc
+07F6	5BD5	rrc     rb
+07F7	4755	mov     a, rb
+07F8	40E0	mov     mid[0], a
 				;111			if(Res <  TempForm[mid])
-07F3	475B	mov     a, mid[0]
-07F4	40D0	mov     rb, a
-07F5	5F51	clr     rc
-07F6	340A	clr     C
-07F7	5AD0	rlc     rb
-07F8	5AD1	rlc     rc
-07F9	0F02	mov     a, 2H
-07FA	4350	add     a, rb
-07FB	0083	mov     MP1, a
-07FC	0F8A	mov     a, 8AH
-07FD	5351	adc     a, rc
-07FE	0081	mov     MP0, a
-07FF	63CA	call    L0BCA
-0800	40D0	mov     rb, a
-0801	63C7	call    L0BC7
-0802	40D1	mov     rc, a
-0803	4758	mov     a, Res[0]
-0804	4250	sub     a, rb
-0805	4759	mov     a, Res[1]
-0806	5251	sbc     a, rc
-0807	3C0A	sz      C
-0808	680C	jmp     _L99
+07F9	4760	mov     a, mid[0]
+07FA	40D5	mov     rb, a
+07FB	5F56	clr     rc
+07FC	340A	clr     C
+07FD	5AD5	rlc     rb
+07FE	5AD6	rlc     rc
+07FF	0F02	mov     a, 2H
+0800	4355	add     a, rb
+0801	0083	mov     MP1, a
+0802	0F8A	mov     a, 8AH
+0803	5356	adc     a, rc
+0804	0081	mov     MP0, a
+0805	63E1	call    L0BE1
+0806	40D5	mov     rb, a
+0807	63DE	call    L0BDE
+0808	40D6	mov     rc, a
+0809	475D	mov     a, Res[0]
+080A	4255	sub     a, rb
+080B	475E	mov     a, Res[1]
+080C	5256	sbc     a, rc
+080D	3C0A	sz      C
+080E	6812	jmp     _L102
 				;112			{
 				;113				low = mid; //+1
-0809	475B	mov     a, mid[0]
-080A	40DC	mov     low[0], a
-080B	6824	jmp     _L107
+080F	4760	mov     a, mid[0]
+0810	40E1	mov     low[0], a
+0811	682A	jmp     _L110
 				;114				if(high -low<2)
 				;115				{
 				;116					return mid;
 				;117				}
 				;118			}
 				;119			else if(Res >  TempForm[mid] )
-				_L99:
-080C	475B	mov     a, mid[0]
-080D	40D0	mov     rb, a
-080E	5F51	clr     rc
-080F	340A	clr     C
-0810	5AD0	rlc     rb
-0811	5AD1	rlc     rc
-0812	0F02	mov     a, 2H
-0813	4350	add     a, rb
-0814	0083	mov     MP1, a
-0815	0F8A	mov     a, 8AH
-0816	5351	adc     a, rc
-0817	0081	mov     MP0, a
-0818	63CA	call    L0BCA
-0819	40D0	mov     rb, a
-081A	63C7	call    L0BC7
-081B	40D1	mov     rc, a
-081C	4750	mov     a, rb
-081D	4258	sub     a, Res[0]
-081E	4751	mov     a, rc
-081F	5259	sbc     a, Res[1]
-0820	3C0A	sz      C
-0821	6833	jmp     _L105
+				_L102:
+0812	4760	mov     a, mid[0]
+0813	40D5	mov     rb, a
+0814	5F56	clr     rc
+0815	340A	clr     C
+0816	5AD5	rlc     rb
+0817	5AD6	rlc     rc
+0818	0F02	mov     a, 2H
+0819	4355	add     a, rb
+081A	0083	mov     MP1, a
+081B	0F8A	mov     a, 8AH
+081C	5356	adc     a, rc
+081D	0081	mov     MP0, a
+081E	63E1	call    L0BE1
+081F	40D5	mov     rb, a
+0820	63DE	call    L0BDE
+0821	40D6	mov     rc, a
+0822	4755	mov     a, rb
+0823	425D	sub     a, Res[0]
+0824	4756	mov     a, rc
+0825	525E	sbc     a, Res[1]
+0826	3C0A	sz      C
+0827	6839	jmp     _L108
 				;120			{
 				;121				high = mid 	;//-1	
-0822	475B	mov     a, mid[0]
-0823	40DA	mov     high[0], a
+0828	4760	mov     a, mid[0]
+0829	40DF	mov     high[0], a
 				;122				if(high -low<2)
-				_L107:
-0824	475C	mov     a, low[0]
-0825	40D0	mov     rb, a
-0826	5F51	clr     rc
-0827	475A	mov     a, high[0]
-0828	42D0	subm    a, rb
-0829	1F05	clr     ACC
-082A	52D1	sbcm    a, rc
-082B	0F01	mov     a, 1H
-082C	4250	sub     a, rb
-082D	0F00	mov     a, 0H
-082E	5251	sbc     a, rc
-082F	1185	swap    ACC
-0830	040A	xor     a, STATUS
-0831	3D85	sz      ACC.3
-0832	2FDA	jmp     _L98
+				_L110:
+082A	4761	mov     a, low[0]
+082B	40D5	mov     rb, a
+082C	5F56	clr     rc
+082D	475F	mov     a, high[0]
+082E	42D5	subm    a, rb
+082F	1F05	clr     ACC
+0830	52D6	sbcm    a, rc
+0831	0F01	mov     a, 1H
+0832	4255	sub     a, rb
+0833	0F00	mov     a, 0H
+0834	5256	sbc     a, rc
+0835	1185	swap    ACC
+0836	040A	xor     a, STATUS
+0837	3D85	sz      ACC.3
+0838	2FE0	jmp     _L101
 				;123				{
 				;124					return mid;
 				;125				}	
@@ -1029,214 +1029,214 @@
 				;130			}		
 				;131		}
 				;132	 	return mid;
-				_L105:
-0833	475B	mov     a, mid[0]
-0834	40CF	mov     ra, a
+				_L108:
+0839	4760	mov     a, mid[0]
+083A	40D4	mov     ra, a
 				;133	 }
-0835	474F	mov     a, ra
-0836	0003	ret
+083B	4754	mov     a, ra
+083C	0003	ret
 				;134	void ADCGetFun(void)
 				;135	{
 				;136	    if(_eocb==0)//ad转换结束标记
 				_ADCGetFun:
 				_ADCGetFun:
-0837	3F30	sz      EOCB
-0838	68DE	jmp     _L108
+083D	3F30	sz      EOCB
+083E	68E4	jmp     _L111
 				;137		{
 				;138			dat = _adrh;        // 高8位AD转换 
-0839	072F	mov     a, ADRH
-083A	409C	mov     dat[0], a
-083B	5F1D	clr     dat[1]
+083F	072F	mov     a, ADRH
+0840	409C	mov     dat[0], a
+0841	5F1D	clr     dat[1]
 				;139			dat <<=4;
-083C	0F04	mov     a, 4H
+0842	0F04	mov     a, 4H
 				_LI3:
-083D	340A	clr     C
-083E	5A9C	rlc     dat[0]
-083F	5A9D	rlc     dat[1]
-0840	1785	sdz     ACC
-0841	683D	jmp     _LI3
+0843	340A	clr     C
+0844	5A9C	rlc     dat[0]
+0845	5A9D	rlc     dat[1]
+0846	1785	sdz     ACC
+0847	6843	jmp     _LI3
 				;140			dat += (_adrl>>4);  	 		      	  
-0842	112E	swapa   ADRL
-0843	0E0F	and     a, FH
-0844	40D0	mov     rb, a
-0845	5F51	clr     rc
-0846	4750	mov     a, rb
-0847	439C	addm    a, dat[0]
-0848	4751	mov     a, rc
-0849	539D	adcm    a, dat[1]
+0848	112E	swapa   ADRL
+0849	0E0F	and     a, FH
+084A	40D5	mov     rb, a
+084B	5F56	clr     rc
+084C	4755	mov     a, rb
+084D	439C	addm    a, dat[0]
+084E	4756	mov     a, rc
+084F	539D	adcm    a, dat[1]
 				;141	      	  
 				;142			intTemp1 = (4095 - dat);//串联电阻20K
-084A	0FFF	mov     a, FFH
-084B	421C	sub     a, dat[0]
-084C	40CF	mov     ra, a
-084D	0F0F	mov     a, FH
-084E	521D	sbc     a, dat[1]
-084F	40D0	mov     rb, a
-0850	474F	mov     a, ra
-0851	408B	mov     intTemp1[0], a
-0852	4750	mov     a, rb
-0853	408C	mov     intTemp1[1], a
+0850	0FFF	mov     a, FFH
+0851	421C	sub     a, dat[0]
+0852	40D4	mov     ra, a
+0853	0F0F	mov     a, FH
+0854	521D	sbc     a, dat[1]
+0855	40D5	mov     rb, a
+0856	4754	mov     a, ra
+0857	408B	mov     intTemp1[0], a
+0858	4755	mov     a, rb
+0859	408C	mov     intTemp1[1], a
 				;143			//longTemp1	= 200UL * dat ;
 				;144			
 				;145			R_value	= 200UL* dat/intTemp1;
-0854	471C	mov     a, dat[0]
-0855	40D2	mov     rd, a
-0856	471D	mov     a, dat[1]
-0857	40D3	mov     re, a
-0858	5F54	clr     rf
-0859	5F55	clr     rg
-085A	4752	mov     a, rd
-085B	40D8	mov     Res, a
-085C	4753	mov     a, re
-085D	40D9	mov     _DataSave_2, a
-085E	4754	mov     a, rf
-085F	40DA	mov     high, a
-0860	4755	mov     a, rg
-0861	40DB	mov     mid, a
-0862	0FC8	mov     a, C8H
-0863	40DC	mov     _SunControl_2, a
-0864	0F00	mov     a, 0H
-0865	40DD	mov     _SunControl_2[1], a
-0866	0F00	mov     a, 0H
-0867	40DE	mov     _TouchFun_2, a
-0868	0F00	mov     a, 0H
-0869	40DF	mov     _TouchFun_2[1], a
-086A	634C	call    L0B4C
-086B	4760	mov     a, _TouchFun_2[2]
-086C	40D2	mov     rd, a
-086D	4761	mov     a, _TouchFun_2[3]
-086E	40D3	mov     re, a
-086F	4762	mov     a, _TouchFun_2[4]
-0870	40D4	mov     rf, a
-0871	4763	mov     a, _TouchFun_2[5]
-0872	40D5	mov     rg, a
-0873	5F64	clr     _TouchFun_2[6]
-0874	4752	mov     a, rd
-0875	40D8	mov     Res, a
-0876	4753	mov     a, re
-0877	40D9	mov     _DataSave_2, a
-0878	4754	mov     a, rf
-0879	40DA	mov     high, a
-087A	4755	mov     a, rg
-087B	40DB	mov     mid, a
-087C	470B	mov     a, intTemp1[0]
-087D	40DC	mov     _SunControl_2, a
-087E	470C	mov     a, intTemp1[1]
-087F	40DD	mov     _SunControl_2[1], a
-0880	5F5E	clr     _TouchFun_2
-0881	5F5F	clr     _TouchFun_2[1]
-0882	636B	call    L0B6B
-0883	4758	mov     a, Res
-0884	4094	mov     R_value[0], a
-0885	4759	mov     a, _DataSave_2
-0886	4095	mov     R_value[1], a
-0887	475A	mov     a, high
-0888	4096	mov     R_value[2], a
-0889	475B	mov     a, mid
-088A	4097	mov     R_value[3], a
+085A	471C	mov     a, dat[0]
+085B	40D7	mov     rd, a
+085C	471D	mov     a, dat[1]
+085D	40D8	mov     re, a
+085E	5F59	clr     rf
+085F	5F5A	clr     rg
+0860	4757	mov     a, rd
+0861	40DD	mov     Res, a
+0862	4758	mov     a, re
+0863	40DE	mov     _DataSave_2, a
+0864	4759	mov     a, rf
+0865	40DF	mov     high, a
+0866	475A	mov     a, rg
+0867	40E0	mov     mid, a
+0868	0FC8	mov     a, C8H
+0869	40E1	mov     _SunControl_2, a
+086A	0F00	mov     a, 0H
+086B	40E2	mov     _SunControl_2[1], a
+086C	0F00	mov     a, 0H
+086D	40E3	mov     _TouchFun_2, a
+086E	0F00	mov     a, 0H
+086F	40E4	mov     _TouchFun_2[1], a
+0870	6363	call    L0B63
+0871	4765	mov     a, _TouchFun_2[2]
+0872	40D7	mov     rd, a
+0873	4766	mov     a, _TouchFun_2[3]
+0874	40D8	mov     re, a
+0875	4767	mov     a, _TouchFun_2[4]
+0876	40D9	mov     rf, a
+0877	4768	mov     a, _TouchFun_2[5]
+0878	40DA	mov     rg, a
+0879	5F69	clr     _TouchFun_2[6]
+087A	4757	mov     a, rd
+087B	40DD	mov     Res, a
+087C	4758	mov     a, re
+087D	40DE	mov     _DataSave_2, a
+087E	4759	mov     a, rf
+087F	40DF	mov     high, a
+0880	475A	mov     a, rg
+0881	40E0	mov     mid, a
+0882	470B	mov     a, intTemp1[0]
+0883	40E1	mov     _SunControl_2, a
+0884	470C	mov     a, intTemp1[1]
+0885	40E2	mov     _SunControl_2[1], a
+0886	5F63	clr     _TouchFun_2
+0887	5F64	clr     _TouchFun_2[1]
+0888	6382	call    L0B82
+0889	475D	mov     a, Res
+088A	4094	mov     R_value[0], a
+088B	475E	mov     a, _DataSave_2
+088C	4095	mov     R_value[1], a
+088D	475F	mov     a, high
+088E	4096	mov     R_value[2], a
+088F	4760	mov     a, mid
+0890	4097	mov     R_value[3], a
 				;146			if(R_value < 20) R_value = 1750;//初始检测，无值认为是0
-088B	0F13	mov     a, 13H
-088C	4214	sub     a, R_value[0]
-088D	0F00	mov     a, 0H
-088E	5215	sbc     a, R_value[1]
-088F	0F00	mov     a, 0H
-0890	5216	sbc     a, R_value[2]
-0891	0F00	mov     a, 0H
-0892	5217	sbc     a, R_value[3]
-0893	380A	snz     C
-0894	689B	jmp     _L110
-0895	0FD6	mov     a, D6H
-0896	4094	mov     R_value[0], a
-0897	0F06	mov     a, 6H
-0898	4095	mov     R_value[1], a
-0899	5F16	clr     R_value[2]
-089A	5F17	clr     R_value[3]
+0891	0F13	mov     a, 13H
+0892	4214	sub     a, R_value[0]
+0893	0F00	mov     a, 0H
+0894	5215	sbc     a, R_value[1]
+0895	0F00	mov     a, 0H
+0896	5216	sbc     a, R_value[2]
+0897	0F00	mov     a, 0H
+0898	5217	sbc     a, R_value[3]
+0899	380A	snz     C
+089A	68A1	jmp     _L113
+089B	0FD6	mov     a, D6H
+089C	4094	mov     R_value[0], a
+089D	0F06	mov     a, 6H
+089E	4095	mov     R_value[1], a
+089F	5F16	clr     R_value[2]
+08A0	5F17	clr     R_value[3]
 				;147			
 				;148			R_valueSum = R_valueSum + R_value ;
-				_L110:
-089B	4714	mov     a, R_value[0]
-089C	4390	addm    a, R_valueSum[0]
-089D	4715	mov     a, R_value[1]
-089E	5391	adcm    a, R_valueSum[1]
-089F	4716	mov     a, R_value[2]
-08A0	5392	adcm    a, R_valueSum[2]
-08A1	4717	mov     a, R_value[3]
-08A2	5393	adcm    a, R_valueSum[3]
+				_L113:
+08A1	4714	mov     a, R_value[0]
+08A2	4390	addm    a, R_valueSum[0]
+08A3	4715	mov     a, R_value[1]
+08A4	5391	adcm    a, R_valueSum[1]
+08A5	4716	mov     a, R_value[2]
+08A6	5392	adcm    a, R_valueSum[2]
+08A7	4717	mov     a, R_value[3]
+08A8	5393	adcm    a, R_valueSum[3]
 				;149			ADCCount ++;
-08A3	548E	inc     ADCCount[0]
-08A4	3D0A	sz      Z
-08A5	548F	inc     ADCCount[1]
+08A9	548E	inc     ADCCount[0]
+08AA	3D0A	sz      Z
+08AB	548F	inc     ADCCount[1]
 				;150			if(100 == ADCCount)
-08A6	470E	mov     a, ADCCount[0]
-08A7	0C64	xor     a, 64H
-08A8	450F	or      a, ADCCount[1]
-08A9	390A	snz     Z
-08AA	68DB	jmp     _L111
+08AC	470E	mov     a, ADCCount[0]
+08AD	0C64	xor     a, 64H
+08AE	450F	or      a, ADCCount[1]
+08AF	390A	snz     Z
+08B0	68E1	jmp     _L114
 				;151			{
 				;152				R_value 		= R_valueSum/100;
-08AB	5F64	clr     _TouchFun_2[6]
-08AC	4710	mov     a, R_valueSum[0]
-08AD	40D8	mov     Res, a
-08AE	4711	mov     a, R_valueSum[1]
-08AF	40D9	mov     _DataSave_2, a
-08B0	4712	mov     a, R_valueSum[2]
-08B1	40DA	mov     high, a
-08B2	4713	mov     a, R_valueSum[3]
-08B3	40DB	mov     mid, a
-08B4	0F64	mov     a, 64H
-08B5	40DC	mov     _SunControl_2, a
-08B6	0F00	mov     a, 0H
-08B7	40DD	mov     _SunControl_2[1], a
-08B8	5F5E	clr     _TouchFun_2
-08B9	5F5F	clr     _TouchFun_2[1]
-08BA	636B	call    L0B6B
-08BB	4758	mov     a, Res
-08BC	4094	mov     R_value[0], a
-08BD	4759	mov     a, _DataSave_2
-08BE	4095	mov     R_value[1], a
-08BF	475A	mov     a, high
-08C0	4096	mov     R_value[2], a
-08C1	475B	mov     a, mid
-08C2	4097	mov     R_value[3], a
+08B1	5F69	clr     _TouchFun_2[6]
+08B2	4710	mov     a, R_valueSum[0]
+08B3	40DD	mov     Res, a
+08B4	4711	mov     a, R_valueSum[1]
+08B5	40DE	mov     _DataSave_2, a
+08B6	4712	mov     a, R_valueSum[2]
+08B7	40DF	mov     high, a
+08B8	4713	mov     a, R_valueSum[3]
+08B9	40E0	mov     mid, a
+08BA	0F64	mov     a, 64H
+08BB	40E1	mov     _SunControl_2, a
+08BC	0F00	mov     a, 0H
+08BD	40E2	mov     _SunControl_2[1], a
+08BE	5F63	clr     _TouchFun_2
+08BF	5F64	clr     _TouchFun_2[1]
+08C0	6382	call    L0B82
+08C1	475D	mov     a, Res
+08C2	4094	mov     R_value[0], a
+08C3	475E	mov     a, _DataSave_2
+08C4	4095	mov     R_value[1], a
+08C5	475F	mov     a, high
+08C6	4096	mov     R_value[2], a
+08C7	4760	mov     a, mid
+08C8	4097	mov     R_value[3], a
 				;153				T_valueGet 		= TempValueSearch(R_value);
-08C3	4714	mov     a, R_value[0]
-08C4	40D2	mov     rd, a
-08C5	4715	mov     a, R_value[1]
-08C6	40D3	mov     re, a
-08C7	4716	mov     a, R_value[2]
-08C8	40D4	mov     rf, a
-08C9	4717	mov     a, R_value[3]
-08CA	40D5	mov     rg, a
-08CB	4752	mov     a, rd
-08CC	40D8	mov     Res, a
-08CD	4753	mov     a, re
-08CE	40D9	mov     _DataSave_2, a
-08CF	27D6	call    _TempValueSearch
-08D0	40CF	mov     ra, a
-08D1	474F	mov     a, ra
-08D2	409E	mov     T_valueGet[0], a
+08C9	4714	mov     a, R_value[0]
+08CA	40D7	mov     rd, a
+08CB	4715	mov     a, R_value[1]
+08CC	40D8	mov     re, a
+08CD	4716	mov     a, R_value[2]
+08CE	40D9	mov     rf, a
+08CF	4717	mov     a, R_value[3]
+08D0	40DA	mov     rg, a
+08D1	4757	mov     a, rd
+08D2	40DD	mov     Res, a
+08D3	4758	mov     a, re
+08D4	40DE	mov     _DataSave_2, a
+08D5	27DC	call    _TempValueSearch
+08D6	40D4	mov     ra, a
+08D7	4754	mov     a, ra
+08D8	409E	mov     T_valueGet[0], a
 				;154						
 				;155				ADCCount 		= 0;
-08D3	5F0E	clr     ADCCount[0]
-08D4	5F0F	clr     ADCCount[1]
+08D9	5F0E	clr     ADCCount[0]
+08DA	5F0F	clr     ADCCount[1]
 				;156				R_valueSum 		= 0;
-08D5	5F10	clr     R_valueSum[0]
-08D6	5F11	clr     R_valueSum[1]
-08D7	5F12	clr     R_valueSum[2]
-08D8	5F13	clr     R_valueSum[3]
+08DB	5F10	clr     R_valueSum[0]
+08DC	5F11	clr     R_valueSum[1]
+08DD	5F12	clr     R_valueSum[2]
+08DE	5F13	clr     R_valueSum[3]
 				;157				ADCCompleteFlag = 1;
-08D9	0F01	mov     a, 1H
-08DA	408D	mov     ADCCompleteFlag[0], a
+08DF	0F01	mov     a, 1H
+08E0	408D	mov     ADCCompleteFlag[0], a
 				;158			}
 				;159			_start=0;//0 → 1 → 0： 启动
-				_L111:
-08DB	37B0	clr     START
+				_L114:
+08E1	37B0	clr     START
 				;160			_start=1;
-08DC	33B0	set     START
+08E2	33B0	set     START
 				;161			_start=0; 
-08DD	37B0	clr     START
-				_L108:
-08DE	0003	ret
+08E3	37B0	clr     START
+				_L111:
+08E4	0003	ret
 				;162		} 
 				;163	}    
 				;164	void ErrorProcess(void)
@@ -1245,29 +1245,29 @@
 				;167		RelayHeatClose;	// Heat Close ; PV Open
 				_ErrorProcess:
 				_ErrorProcess:
-08DF	3414	clr     PA0
+08E5	3414	clr     PA0
 				;168		RelayPVClose;
-08E0	3114	set     PA2
+08E6	3114	set     PA2
 				;169		TimerClose;//定时器 关闭		
-08E1	361D	clr     TON
-08E2	0F0A	mov     a, AH
-08E3	40DC	mov     _SunControl_2, a
+08E7	361D	clr     TON
+08E8	0F0A	mov     a, AH
+08E9	40E1	mov     _SunControl_2, a
 				;170		for(i = 0;i<10;i++ )//蜂鸣器报警10声	
 				;171		{
 				;172			Beep1 =  BeepOpen;
-				_L114:
-08E4	3194	set     PA3
+				_L117:
+08EA	3194	set     PA3
 				;173			delay();
-08E5	2793	call    _delay
+08EB	2799	call    _delay
 				;174			delay();
-08E6	2793	call    _delay
+08EC	2799	call    _delay
 				;175			Beep1 =  BeepClose;
-08E7	3594	clr     PA3
+08ED	3594	clr     PA3
 				;176			delay();			
-08E8	2793	call    _delay
-08E9	57DC	sdz     _SunControl_2
-08EA	68E4	jmp     _L114
-08EB	0003	ret
+08EE	2799	call    _delay
+08EF	57E1	sdz     _SunControl_2
+08F0	68EA	jmp     _L117
+08F1	0003	ret
 				;177			//喂狗
 				;178		}
 				;179	}
@@ -1278,99 +1278,99 @@
 				;184		if((T_valueGet < 3)&&(0 == E2WaringFlag)&&(1!= E1WaringFlag))
 				_ADC_Check:
 				_ADC_Check:
-0A07	0F02	mov     a, 2H
-0A08	421E	sub     a, T_valueGet[0]
-0A09	380A	snz     C
-0A0A	6A1A	jmp     _L137
-0A0B	50A0	sz      E2WaringFlag[0]
-0A0C	6A1A	jmp     _L137
-0A0D	571F	sdza    E1WaringFlag[0]
-0A0E	6A10	jmp     _LI4
-0A0F	6A1A	jmp     _L137
+0A0B	0F02	mov     a, 2H
+0A0C	421E	sub     a, T_valueGet[0]
+0A0D	380A	snz     C
+0A0E	6A1E	jmp     _L143
+0A0F	50A0	sz      E2WaringFlag[0]
+0A10	6A1E	jmp     _L143
+0A11	571F	sdza    E1WaringFlag[0]
+0A12	6A14	jmp     _LI4
+0A13	6A1E	jmp     _L143
 				;185		{
 				;186			E2WaringFlag = 1;//报警标记
 				_LI4:
-0A10	0F01	mov     a, 1H
-0A11	40A0	mov     E2WaringFlag[0], a
+0A14	0F01	mov     a, 1H
+0A15	40A0	mov     E2WaringFlag[0], a
 				;187			D_E2;//显示“E2”				
-0A12	5F47	clr     C_Display[0]
-0A13	0F0E	mov     a, EH
-0A14	40DA	mov     high, a
-0A15	0FC0	mov     a, C0H
-0A16	25A5	call    _display16
-0A17	0F02	mov     a, 2H
-0A18	40DA	mov     high, a
-0A19	6A2C	jmp     _L148
+0A16	5F4B	clr     C_Display[0]
+0A17	0F0E	mov     a, EH
+0A18	40DF	mov     high, a
+0A19	0FC0	mov     a, C0H
+0A1A	25A5	call    _display16
+0A1B	0F02	mov     a, 2H
+0A1C	40DF	mov     high, a
+0A1D	6A30	jmp     _L154
 				;188			ErrorProcess();
 				;189			return 0;
 				;190		}	
-				;191		else if(( T_valueGet > 90)&&(0 == E1WaringFlag)&&(1 != E2WaringFlag))
-				_L137:
-0A1A	0F5A	mov     a, 5AH
-0A1B	421E	sub     a, T_valueGet[0]
-0A1C	3C0A	sz      C
-0A1D	6A34	jmp     _L139
-0A1E	509F	sz      E1WaringFlag[0]
-0A1F	6A34	jmp     _L139
-0A20	5720	sdza    E2WaringFlag[0]
-0A21	6A23	jmp     _LI5
-0A22	6A34	jmp     _L139
+				;191		else if(( T_valueGet > 98)&&(0 == E1WaringFlag)&&(1 != E2WaringFlag))
+				_L143:
+0A1E	0F62	mov     a, 62H
+0A1F	421E	sub     a, T_valueGet[0]
+0A20	3C0A	sz      C
+0A21	6A38	jmp     _L145
+0A22	509F	sz      E1WaringFlag[0]
+0A23	6A38	jmp     _L145
+0A24	5720	sdza    E2WaringFlag[0]
+0A25	6A27	jmp     _LI5
+0A26	6A38	jmp     _L145
 				;192		{
 				;193			E1WaringFlag = 1;
 				_LI5:
-0A23	0F01	mov     a, 1H
-0A24	409F	mov     E1WaringFlag[0], a
+0A27	0F01	mov     a, 1H
+0A28	409F	mov     E1WaringFlag[0], a
 				;194			D_E1;//显示“E1”	
-0A25	5F47	clr     C_Display[0]
-0A26	0F0E	mov     a, EH
-0A27	40DA	mov     high, a
-0A28	0FC0	mov     a, C0H
-0A29	25A5	call    _display16
-0A2A	0F01	mov     a, 1H
-0A2B	40DA	mov     high, a
-				_L148:
-0A2C	0FC4	mov     a, C4H
+0A29	5F4B	clr     C_Display[0]
+0A2A	0F0E	mov     a, EH
+0A2B	40DF	mov     high, a
+0A2C	0FC0	mov     a, C0H
 0A2D	25A5	call    _display16
-0A2E	0F10	mov     a, 10H
-0A2F	40DA	mov     high, a
-0A30	0FCC	mov     a, CCH
+0A2E	0F01	mov     a, 1H
+0A2F	40DF	mov     high, a
+				_L154:
+0A30	0FC4	mov     a, C4H
 0A31	25A5	call    _display16
+0A32	0F10	mov     a, 10H
+0A33	40DF	mov     high, a
+0A34	0FCC	mov     a, CCH
+0A35	25A5	call    _display16
 				;195			ErrorProcess();
-0A32	60DF	call    _ErrorProcess
-0A33	6A41	jmp     _L141
+0A36	60E5	call    _ErrorProcess
+0A37	6A45	jmp     _L147
 				;196			return 0;
 				;197		}
 				;198		if((1 == E2WaringFlag)||(1 == E2WaringFlag))
-				_L139:
-0A34	4720	mov     a, E2WaringFlag[0]
-0A35	0A01	sub     a, 1H
-0A36	3D0A	sz      Z
-0A37	6A41	jmp     _L141
-0A38	0A00	sub     a, 0H
-0A39	3D0A	sz      Z
-0A3A	6A41	jmp     _L141
+				_L145:
+0A38	4720	mov     a, E2WaringFlag[0]
+0A39	0A01	sub     a, 1H
+0A3A	3D0A	sz      Z
+0A3B	6A45	jmp     _L147
+0A3C	0A00	sub     a, 0H
+0A3D	3D0A	sz      Z
+0A3E	6A45	jmp     _L147
 				;199		{
 				;200			return 0;
-				_L141:
-0A41	5F4F	clr     ra
+				_L147:
+0A45	5F54	clr     ra
 				;201		}
 				;202		else
 				;203		{	
 				;204			E1WaringFlag = E2WaringFlag = 0;	//报警标记 Clear 
-0A3B	5F20	clr     E2WaringFlag[0]
-0A3C	5F1F	clr     E1WaringFlag[0]
+0A3F	5F20	clr     E2WaringFlag[0]
+0A40	5F1F	clr     E1WaringFlag[0]
 				;205			//工作状态检查，是否是空闲
 				;206			SunControl();
-0A3D	6143	call    _SunControl
+0A41	6147	call    _SunControl
 				;207			return 1;
-0A3E	0F01	mov     a, 1H
-0A3F	40CF	mov     ra, a
-0A40	6A42	jmp     _L138
+0A42	0F01	mov     a, 1H
+0A43	40D4	mov     ra, a
+0A44	6A46	jmp     _L144
 				;208		}	
 				;209	}
-				_L138:
-0A42	474F	mov     a, ra
-0A43	0003	ret
+				_L144:
+0A46	4754	mov     a, ra
+0A47	0003	ret
 				;210	
 				;211	//***********************************************************
 				;212	//*SUB. NAME:USER INITIAL PROGRAM                           *
@@ -1387,151 +1387,151 @@
 				;223		LEDSwitch_C = 0;
 				_LEDX4_V16_INITIAL:
 				_LEDX4_V16_INITIAL:
-08EC	3495	clr     PAC1
+08F2	3495	clr     PAC1
 				;224		LEDSwitch	= LedOpen;//Open
-08ED	3494	clr     PA1
+08F3	3494	clr     PA1
 				;225	  	LED_DOWN_C	= 0;
-08EE	3521	clr     PBC2
+08F4	3521	clr     PBC2
 				;226		LED_DOWN  	= LedOpen;
-08EF	3520	clr     PB2
+08F5	3520	clr     PB2
 				;227	 	LED_UP_C 	= 0;
-08F0	34A1	clr     PBC1
+08F6	34A1	clr     PBC1
 				;228	 	LED_UP  	= LedOpen;
-08F1	34A0	clr     PB1
+08F7	34A0	clr     PB1
 				;229	 	Beep1_C = 0;//Close
-08F2	3595	clr     PAC3
+08F8	3595	clr     PAC3
 				;230	 	Beep1   = BeepOpen; 
-08F3	3194	set     PA3
+08F9	3194	set     PA3
 				;231	// Relay 
 				;232		Relay_HEAT_C  	=  0;
-08F4	3415	clr     PAC0
+08FA	3415	clr     PAC0
 				;233		RelayHeatClose;
-08F5	3414	clr     PA0
+08FB	3414	clr     PA0
 				;234		Relay_PV_C 		=  0;
-08F6	3515	clr     PAC2
+08FC	3515	clr     PAC2
 				;235		RelayPVOpen;
-08F7	3514	clr     PA2
+08FD	3514	clr     PA2
 				;236	//数码管引脚初始化
 				;237		CLK1_C	= 0;
-08F8	3795	clr     PAC7
+08FE	3795	clr     PAC7
 				;238		CLK1	= 0;
-08F9	3794	clr     PA7
+08FF	3794	clr     PA7
 				;239		DIO1_C	= 0;
-08FA	3615	clr     PAC4
+0900	3615	clr     PAC4
 				;240		DIO1	= 0;
-08FB	3614	clr     PA4
+0901	3614	clr     PA4
 				;241		STB1_C	= 0;//
-08FC	34B6	clr     PDC1
+0902	34B6	clr     PDC1
 				;242		STB1	= 0;
-08FD	34B5	clr     PD1
+0903	34B5	clr     PD1
 				;243	//人体感应
 				;244		_pdpu7	= 1;	
-08FE	33B7	set     PDPU7
+0904	33B7	set     PDPU7
 				;245		_pdc7 	= 1;//		 
-08FF	33B6	set     PDC7
+0905	33B6	set     PDC7
 				;246		_pd7 	= 0;		
-0900	37B5	clr     PD7
+0906	37B5	clr     PD7
 				;247	//红外引脚初始化
 				;248		_pbpu5  =  1;  //设置上拉电阻
-0901	32A2	set     PBPU5
+0907	32A2	set     PBPU5
 				;249		_pbc5   =  1;	//设置为输入
-0902	32A1	set     PBC5
+0908	32A1	set     PBC5
 				;250		_pbpu4  =  1;  //设置上拉电阻
-0903	3222	set     PBPU4
+0909	3222	set     PBPU4
 				;251		_pbpu7  =  1;  //设置上拉电阻
-0904	33A2	set     PBPU7
+090A	33A2	set     PBPU7
 				;252		// _pdpu0  =  1;
 				;253	//adc 初始化	
 				;254		 _adcr0=0b00000000;   // 选择 A/D 通道AN0--Pd0   
-0905	1F30	clr     ADCR0
+090B	1F30	clr     ADCR0
 				;255		 _adcr1=0b00000100;   // 定义 ADC 时钟源=Fsys/16
-0906	0F04	mov     a, 4H
-0907	00B1	mov     ADCR1, a
+090C	0F04	mov     a, 4H
+090D	00B1	mov     ADCR1, a
 				;256		 _acerl=0b00000001;   // 定义 Pd0 为 A/D 输入AN0		
-0908	0F01	mov     a, 1H
-0909	00B2	mov     ACERL, a
+090E	0F01	mov     a, 1H
+090F	00B2	mov     ACERL, a
 				;257		
 				;258		_start=0;
-090A	37B0	clr     START
+0910	37B0	clr     START
 				;259		_start=1;
-090B	33B0	set     START
+0911	33B0	set     START
 				;260		_start=0;
-090C	37B0	clr     START
+0912	37B0	clr     START
 				;261	//变量initial	
 				;262		
 				;263	//Time初始化
 				;264		timerInit();
-090D	27AD	call    _timerInit
+0913	27B3	call    _timerInit
 				;265		//A 接通电源 蜂鸣器短鸣一声，数码屏所有灯点亮二秒
 				;266		delay()	;
-090E	2793	call    _delay
+0914	2799	call    _delay
 				;267		Beep1 = BeepClose;
-090F	3594	clr     PA3
+0915	3594	clr     PA3
 				;268		//数码管All Open
 				;269		displayClear(0xffff);
-0910	5FDA	set     high
-0911	5FDB	set     mid
-0912	2592	call    _displayClear
+0916	5FDF	set     high
+0917	5FE0	set     mid
+0918	2592	call    _displayClear
 				;270		// displayTwst(0xc0,0xffff); 
 				;271		delay()	;	
-0913	2793	call    _delay
+0919	2799	call    _delay
 				;272		delay()	;
-0914	2793	call    _delay
+091A	2799	call    _delay
 				;273		delay()	;	
-0915	2793	call    _delay
+091B	2799	call    _delay
 				;274		delay()	;	
-0916	2793	call    _delay
+091C	2799	call    _delay
 				;275		//数码管显示清零	
 				;276		displayClear(0);
-0917	5F5A	clr     high
-0918	5F5B	clr     mid
-0919	2592	call    _displayClear
+091D	5F5F	clr     high
+091E	5F60	clr     mid
+091F	2592	call    _displayClear
 				;277		C_Display = 0x70;
-091A	0F70	mov     a, 70H
-091B	40C7	mov     C_Display[0], a
+0920	0F70	mov     a, 70H
+0921	40CB	mov     C_Display[0], a
 				;278		Temp_Num1_L	= 5 ;
-091C	0F05	mov     a, 5H
-091D	40BE	mov     Temp_Num1_L[0], a
+0922	0F05	mov     a, 5H
+0923	40C2	mov     Temp_Num1_L[0], a
 				;279		Temp_Num1_H	= 8 ;
-091E	0F08	mov     a, 8H
-091F	40BD	mov     Temp_Num1_H[0], a
+0924	0F08	mov     a, 8H
+0925	40C1	mov     Temp_Num1_H[0], a
 				;280		//默认设置温度为85℃
 				;281		//显示屏显示内胆当前温度	
 				;282		LEDSwitch = LED_DOWN = LED_UP = LedClose;	
-0920	30A0	set     PB1
-0921	3120	set     PB2
-0922	3094	set     PA1
+0926	30A0	set     PB1
+0927	3120	set     PB2
+0928	3094	set     PA1
 				;283		//
 				;284		NoneFlag = 0;
-0923	5F28	clr     NoneFlag[0]
-0924	0003	ret
+0929	5F2C	clr     NoneFlag[0]
+092A	0003	ret
 				;285	}
 				;286	void HeatCompleteBeep(void)
 				;287	{
-				;288		if(timerCount > 1800000 - 300)//计时
+				;288		if(timerCount > 900000 - 300)//计时
 				_HeatCompleteBeep:
 				_HeatCompleteBeep:
-0925	0F14	mov     a, 14H
-0926	4232	sub     a, timerCount[0]
-0927	0F76	mov     a, 76H
-0928	5233	sbc     a, timerCount[1]
-0929	0F1B	mov     a, 1BH
-092A	5234	sbc     a, timerCount[2]
-092B	0F00	mov     a, 0H
-092C	5235	sbc     a, timerCount[3]
-092D	3C0A	sz      C
-092E	6934	jmp     _L116
+092B	0F74	mov     a, 74H
+092C	4236	sub     a, timerCount[0]
+092D	0FBA	mov     a, BAH
+092E	5237	sbc     a, timerCount[1]
+092F	0F0D	mov     a, DH
+0930	5238	sbc     a, timerCount[2]
+0931	0F00	mov     a, 0H
+0932	5239	sbc     a, timerCount[3]
+0933	3C0A	sz      C
+0934	693A	jmp     _L119
 				;289		{
 				;290			Beep1 = BeepOpen;
-092F	3194	set     PA3
+0935	3194	set     PA3
 				;291			KeyCountOpenflag = 1;
-0930	0F01	mov     a, 1H
-0931	40CB	mov     KeyCountOpenflag[0], a
+0936	0F01	mov     a, 1H
+0937	40CF	mov     KeyCountOpenflag[0], a
 				;292			ControlFlag = StatusSwitchOFF;//进入加热结束状态	//
-0932	0F02	mov     a, 2H
-0933	408A	mov     ControlFlag[0], a
-				_L116:
-0934	0003	ret
+0938	0F02	mov     a, 2H
+0939	408A	mov     ControlFlag[0], a
+				_L119:
+093A	0003	ret
 				;293		}	
 				;294	}
 				;295	void PersonCheckDisableFun(void)//红外检测失效处理
@@ -1539,736 +1539,773 @@
 				;297		if((1 == PersonCheck))//有人
 				_PersonCheckDisableFun:
 				_PersonCheckDisableFun:
-0935	3BB5	snz     PD7
-0936	693C	jmp     _L119
+093B	3BB5	snz     PD7
+093C	6940	jmp     _L122
 				;298		{
-				;299			RelayPVClose;
-0937	3114	set     PA2
-				;300			RelayHeatClose;//电磁阀关闭
-0938	3414	clr     PA0
-				;301			ND_Heat();
-0939	5F48	clr     CaValue[0]
-				;302			ND_PV();
-093A	5F4A	clr     C8Value[0]
-093B	6942	jmp     _L118
-				;303		}
-				;304		else
-				;305		{	
-				;306			D_Heat();
-				_L119:
-093C	0F10	mov     a, 10H
-093D	40C8	mov     CaValue[0], a
-				;307			D_PV();
-093E	0F10	mov     a, 10H
-093F	40CA	mov     C8Value[0], a
-				;308			RelayHeatOpen;//电磁阀打开
-0940	3014	set     PA0
-				;309			RelayPVOpen;
-0941	3514	clr     PA2
-				_L118:
-0942	0003	ret
-				;310		}					
-				;311	}
-				;312	
-				;313	void SunControl(void)
-				;314	{	
-				;315		switch(ControlFlag)
+				;299			ND_Heat();RelayHeatClose;//电磁阀关闭
+093D	5F4C	clr     CaValue[0]
+093E	3414	clr     PA0
+093F	6946	jmp     _L121
+				;300			// ND_PV();RelayPVClose;
+				;301		}
+				;302		else
+				;303		{	
+				;304			D_Heat();RelayHeatOpen;//电磁阀打开
+				_L122:
+0940	0F10	mov     a, 10H
+0941	40CC	mov     CaValue[0], a
+0942	3014	set     PA0
+				;305			D_PV();RelayPVOpen;		
+0943	0F10	mov     a, 10H
+0944	40CE	mov     C8Value[0], a
+0945	3514	clr     PA2
+				_L121:
+0946	0003	ret
+				;306		}					
+				;307	}
+				;308	
+				;309	void SunControl(void)
+				;310	{	
+				;311		switch(ControlFlag)
 				_SunControl:
 				_SunControl:
-0943	470A	mov     a, ControlFlag[0]
-0944	40DC	mov     _SunControl_2, a
-0945	475C	mov     a, _SunControl_2
-0946	0A00	sub     a, 0H
-0947	3D0A	sz      Z
-0948	6958	jmp     _L123
-0949	0A01	sub     a, 1H
-094A	3D0A	sz      Z
-094B	6972	jmp     _L124
-094C	475C	mov     a, _SunControl_2
-094D	0A02	sub     a, 2H
+0947	470A	mov     a, ControlFlag[0]
+0948	40E1	mov     _SunControl_2, a
+0949	4761	mov     a, _SunControl_2
+094A	0A00	sub     a, 0H
+094B	3D0A	sz      Z
+094C	695C	jmp     _L126
+094D	0A01	sub     a, 1H
 094E	3D0A	sz      Z
-094F	6991	jmp     _L125
-0950	0A01	sub     a, 1H
-0951	3D0A	sz      Z
-0952	699F	jmp     _L126
-0953	475C	mov     a, _SunControl_2
-0954	0A05	sub     a, 5H
-0955	390A	snz     Z
-0956	6A06	jmp     _L121
-0957	69DA	jmp     _L135
-				;316		{
-				;317			case StatusIdle:
-				;318				if(T_valueGet  < 35)//内胆温度低于35℃,自动加热，是否有其他开启条件
-				_L123:
-0958	0F22	mov     a, 22H
-0959	421E	sub     a, T_valueGet[0]
-095A	380A	snz     C
-095B	695E	jmp     _L128
+094F	697B	jmp     _L127
+0950	4761	mov     a, _SunControl_2
+0951	0A02	sub     a, 2H
+0952	3D0A	sz      Z
+0953	699A	jmp     _L128
+0954	0A01	sub     a, 1H
+0955	3D0A	sz      Z
+0956	69A7	jmp     _L129
+0957	4761	mov     a, _SunControl_2
+0958	0A05	sub     a, 5H
+0959	390A	snz     Z
+095A	6A0A	jmp     _L124
+095B	69DF	jmp     _L141
+				;312		{
+				;313			case StatusIdle:
+				;314				if(T_valueGet  < 30)//内胆温度低于35℃,自动加热，是否有其他开启条件
+				_L126:
+095C	0F1D	mov     a, 1DH
+095D	421E	sub     a, T_valueGet[0]
+095E	380A	snz     C
+095F	6962	jmp     _L131
+				;315				{
+				;316					PersonCheckDisableFun();
+0960	613B	call    _PersonCheckDisableFun
+0961	6A0A	jmp     _L124
+				;317				}
+				;318				else if(T_valueGet  < 35)
+				_L131:
+0962	0F22	mov     a, 22H
+0963	421E	sub     a, T_valueGet[0]
+0964	380A	snz     C
+0965	696A	jmp     _L132
 				;319				{
-				;320					PersonCheckDisableFun();
-095C	6135	call    _PersonCheckDisableFun
-095D	6A06	jmp     _L121
+				;320					D_PV();RelayPVOpen;
+0966	0F10	mov     a, 10H
+0967	40CE	mov     C8Value[0], a
+0968	3514	clr     PA2
+0969	6A0A	jmp     _L124
 				;321				}
-				;322				else if(T_valueGet < 85)
-				_L128:
-095E	0F54	mov     a, 54H
-095F	421E	sub     a, T_valueGet[0]
-0960	380A	snz     C
-0961	696D	jmp     _L129
+				;322				else if(T_valueGet < 80)
+				_L132:
+096A	0F4F	mov     a, 4FH
+096B	421E	sub     a, T_valueGet[0]
+096C	380A	snz     C
+096D	6972	jmp     _L133
 				;323				{
-				;324					if((1 == PersonCheck))//有人
-0962	3BB5	snz     PD7
-0963	6969	jmp     _L130
-				;325					{
-				;326						RelayPVClose;
-0964	3114	set     PA2
-				;327						RelayHeatClose;//电磁阀关闭
-0965	3414	clr     PA0
-				;328						ND_Heat();
-0966	5F48	clr     CaValue[0]
-				;329						ND_PV();
-0967	5F4A	clr     C8Value[0]
-0968	6A06	jmp     _L121
-				;330					}
-				;331					else
-				;332					{	
-				;333						D_PV();
-				_L130:
-0969	0F10	mov     a, 10H
-096A	40CA	mov     C8Value[0], a
-				;334						RelayPVOpen;
-096B	3514	clr     PA2
-096C	6A06	jmp     _L121
-				;335					}
-				;336				}
-				;337				else
-				;338				{
-				;339					RelayHeatClose;
-				_L129:
-096D	3414	clr     PA0
-				;340					RelayPVClose;
-096E	3114	set     PA2
-				;341					ND_PV();
-096F	5F4A	clr     C8Value[0]
-				;342					ND_Heat();
-0970	5F48	clr     CaValue[0]
-0971	6A06	jmp     _L121
+				;324					// if((1 == PersonCheck))//有人
+				;325					// {
+				;326						// ND_PV();RelayPVClose;
+				;327					// }
+				;328					// else
+				;329					// {	
+				;330						D_PV();RelayPVOpen;
+096E	0F10	mov     a, 10H
+096F	40CE	mov     C8Value[0], a
+0970	3514	clr     PA2
+0971	6978	jmp     _L140
+				;331					// }
+				;332					ND_Heat();RelayHeatClose;//电磁阀关闭
+				;333				
+				;334				}
+				;335				else if(T_valueGet <85)
+				_L133:
+0972	0F54	mov     a, 54H
+0973	421E	sub     a, T_valueGet[0]
+0974	3C0A	sz      C
+0975	6A0A	jmp     _L124
+				;336				{
+				;337					
+				;338				}
+				;339				else
+				;340				{
+				;341					ND_PV();RelayPVClose;
+0976	5F4E	clr     C8Value[0]
+0977	3114	set     PA2
+				;342					ND_Heat();RelayHeatClose;
+				_L140:
+0978	5F4C	clr     CaValue[0]
+0979	3414	clr     PA0
+097A	6A0A	jmp     _L124
 				;343				}	
 				;344			break;
 				;345			case StatusSwitchON:
 				;346				if(Close == timer3sFlag)
-				_L124:
-0972	50B0	sz      timer3sFlag[0]
-0973	6981	jmp     _L131
+				_L127:
+097B	50B4	sz      timer3sFlag[0]
+097C	698A	jmp     _L135
 				;347				{
 				;348					if((Close == timerFlag)&&(KeyRelease == KeyStatus  ))
-0974	50B1	sz      timerFlag[0]
-0975	6981	jmp     _L131
-0976	50BA	sz      KeyStatus[0]
-0977	6981	jmp     _L131
+097D	50B5	sz      timerFlag[0]
+097E	698A	jmp     _L135
+097F	50BE	sz      KeyStatus[0]
+0980	698A	jmp     _L135
 				;349					{
 				;350						TimerSetFun(2000);	
-0978	0FD0	mov     a, D0H
-0979	40D8	mov     Res, a
-097A	0F07	mov     a, 7H
-097B	40D9	mov     _DataSave_2, a
-097C	5F5A	clr     high
-097D	5F5B	clr     mid
-097E	2782	call    _TimerSetFun
+0981	0FD0	mov     a, D0H
+0982	40DD	mov     Res, a
+0983	0F07	mov     a, 7H
+0984	40DE	mov     _DataSave_2, a
+0985	5F5F	clr     high
+0986	5F60	clr     mid
+0987	2788	call    _TimerSetFun
 				;351						timer3sFlag = Open;
-097F	0F01	mov     a, 1H
-0980	40B0	mov     timer3sFlag[0], a
+0988	0F01	mov     a, 1H
+0989	40B4	mov     timer3sFlag[0], a
 				;352					}
 				;353				}
 				;354				if(timerCount > 1800)
-				_L131:
-0981	0F08	mov     a, 8H
-0982	4232	sub     a, timerCount[0]
-0983	0F07	mov     a, 7H
-0984	5233	sbc     a, timerCount[1]
-0985	0F00	mov     a, 0H
-0986	5234	sbc     a, timerCount[2]
-0987	0F00	mov     a, 0H
-0988	5235	sbc     a, timerCount[3]
-0989	3C0A	sz      C
-098A	6A06	jmp     _L121
+				_L135:
+098A	0F08	mov     a, 8H
+098B	4236	sub     a, timerCount[0]
+098C	0F07	mov     a, 7H
+098D	5237	sbc     a, timerCount[1]
+098E	0F00	mov     a, 0H
+098F	5238	sbc     a, timerCount[2]
+0990	0F00	mov     a, 0H
+0991	5239	sbc     a, timerCount[3]
+0992	3C0A	sz      C
+0993	6A0A	jmp     _L124
 				;355				{
 				;356					Beep1 = BeepOpen;
-098B	3194	set     PA3
+0994	3194	set     PA3
 				;357					KeyCountOpenflag = 1;
-098C	0F01	mov     a, 1H
-098D	40CB	mov     KeyCountOpenflag[0], a
+0995	0F01	mov     a, 1H
+0996	40CF	mov     KeyCountOpenflag[0], a
 				;358					ControlFlag = StatusHeatOpen;//进入加热状态
-098E	0F03	mov     a, 3H
-098F	408A	mov     ControlFlag[0], a
-0990	6A06	jmp     _L121
+0997	0F03	mov     a, 3H
+0998	408A	mov     ControlFlag[0], a
+0999	6A0A	jmp     _L124
 				;359				}
 				;360			break;
 				;361			case StatusSwitchOFF: //StatusHeatComplete
 				;362				KeySwitchStatus = KeySitchOFF;	
-				_L125:
-0991	5F4D	clr     KeySwitchStatus[0]
+				_L128:
+099A	5F51	clr     KeySwitchStatus[0]
 				;363				LEDSwitch = LedClose;
-0992	3094	set     PA1
+099B	3094	set     PA1
 				;364				
 				;365				timer1hourFlag = timer3sFlag = timerFlag = Close;	
-0993	5F31	clr     timerFlag[0]
-0994	5F30	clr     timer3sFlag[0]
-0995	5F2F	clr     timer1hourFlag[0]
+099C	5F35	clr     timerFlag[0]
+099D	5F34	clr     timer3sFlag[0]
+099E	5F33	clr     timer1hourFlag[0]
 				;366				timerCount = 0;
-0996	5F32	clr     timerCount[0]
-0997	5F33	clr     timerCount[1]
-0998	5F34	clr     timerCount[2]
-0999	5F35	clr     timerCount[3]
+099F	5F36	clr     timerCount[0]
+09A0	5F37	clr     timerCount[1]
+09A1	5F38	clr     timerCount[2]
+09A2	5F39	clr     timerCount[3]
 				;367				
 				;368				TimerClose;		
-099A	361D	clr     TON
+09A3	361D	clr     TON
 				;369				//RelayHeatClose;//加热关闭
 				;370				//ND_Heat();//关闭加热显示
 				;371				ND_WarmKeep();//关闭保温显示
-099B	5F49	clr     C8Value2[0]
+09A4	5F4D	clr     C8Value2[0]
 				;372				ControlFlag = StatusIdle;	
-099C	5F0A	clr     ControlFlag[0]
-				;373				KeyFirstPressFlag = 0;
-099D	5F46	clr     KeyFirstPressFlag[0]
+09A5	5F0A	clr     ControlFlag[0]
+				;373	//			KeyFirstPressFlag = 0;
 				;374			break;
-099E	6A06	jmp     _L121
+09A6	6A0A	jmp     _L124
 				;375			case StatusHeatOpen:
-				;376				KeyFirstPressFlag = 0;	
-				_L126:
-099F	5F46	clr     KeyFirstPressFlag[0]
+				;376	//			KeyFirstPressFlag = 0;	
 				;377				
 				;378				if(Close == timerFlag)//定时器空闲
-09A0	50B1	sz      timerFlag[0]
-09A1	69AE	jmp     _L132
+				_L129:
+09A7	50B5	sz      timerFlag[0]
+09A8	69B5	jmp     _L137
 				;379				{
 				;380					if(Close == timer1hourFlag)
-09A2	50AF	sz      timer1hourFlag[0]
-09A3	69AE	jmp     _L132
+09A9	50B3	sz      timer1hourFlag[0]
+09AA	69B5	jmp     _L137
 				;381					{
 				;382						timer1hourFlag = Open;
-09A4	0F01	mov     a, 1H
-09A5	40AF	mov     timer1hourFlag[0], a
-				;383						TimerSetFun(1800000);//30000	
-09A6	0F40	mov     a, 40H
-09A7	40D8	mov     Res, a
-09A8	0F77	mov     a, 77H
-09A9	40D9	mov     _DataSave_2, a
-09AA	0F1B	mov     a, 1BH
-09AB	40DA	mov     high, a
-09AC	5F5B	clr     mid
-09AD	2782	call    _TimerSetFun
+09AB	0F01	mov     a, 1H
+09AC	40B3	mov     timer1hourFlag[0], a
+				;383						TimerSetFun(900000);//30000	1h 1800000
+09AD	0FA0	mov     a, A0H
+09AE	40DD	mov     Res, a
+09AF	0FBB	mov     a, BBH
+09B0	40DE	mov     _DataSave_2, a
+09B1	0F0D	mov     a, DH
+09B2	40DF	mov     high, a
+09B3	5F60	clr     mid
+09B4	2788	call    _TimerSetFun
 				;384					}
 				;385					//开始
 				;386				}
 				;387				if(T_valueGet > Temp_Num1)//ADC 加滤波
-				_L132:
-09AE	471E	mov     a, T_valueGet[0]
-09AF	40D2	mov     rd, a
-09B0	5F53	clr     re
-09B1	473D	mov     a, Temp_Num1_H[0]
-09B2	40D0	mov     rb, a
-09B3	5F51	clr     rc
-09B4	340A	clr     C
-09B5	5A50	rlca    rb
-09B6	40D4	mov     rf, a
-09B7	5A51	rlca    rc
-09B8	40D5	mov     rg, a
-09B9	340A	clr     C
-09BA	5AD4	rlc     rf
-09BB	5AD5	rlc     rg
-09BC	4754	mov     a, rf
-09BD	43D0	addm    a, rb
-09BE	4755	mov     a, rg
-09BF	53D1	adcm    a, rc
+				_L137:
+09B5	471E	mov     a, T_valueGet[0]
+09B6	40D7	mov     rd, a
+09B7	5F58	clr     re
+09B8	4741	mov     a, Temp_Num1_H[0]
+09B9	40D5	mov     rb, a
+09BA	5F56	clr     rc
+09BB	340A	clr     C
+09BC	5A55	rlca    rb
+09BD	40D9	mov     rf, a
+09BE	5A56	rlca    rc
+09BF	40DA	mov     rg, a
 09C0	340A	clr     C
-09C1	5AD0	rlc     rb
-09C2	5AD1	rlc     rc
-09C3	473E	mov     a, Temp_Num1_L[0]
-09C4	43D0	addm    a, rb
-09C5	3C0A	sz      C
-09C6	54D1	inc     rc
-09C7	4750	mov     a, rb
-09C8	4252	sub     a, rd
-09C9	4751	mov     a, rc
-09CA	5253	sbc     a, re
-09CB	1185	swap    ACC
-09CC	040A	xor     a, STATUS
-09CD	3985	snz     ACC.3
-09CE	69D8	jmp     _L133
+09C1	5AD9	rlc     rf
+09C2	5ADA	rlc     rg
+09C3	4759	mov     a, rf
+09C4	43D5	addm    a, rb
+09C5	475A	mov     a, rg
+09C6	53D6	adcm    a, rc
+09C7	340A	clr     C
+09C8	5AD5	rlc     rb
+09C9	5AD6	rlc     rc
+09CA	4742	mov     a, Temp_Num1_L[0]
+09CB	43D5	addm    a, rb
+09CC	3C0A	sz      C
+09CD	54D6	inc     rc
+09CE	4755	mov     a, rb
+09CF	4257	sub     a, rd
+09D0	4756	mov     a, rc
+09D1	5258	sbc     a, re
+09D2	1185	swap    ACC
+09D3	040A	xor     a, STATUS
+09D4	3985	snz     ACC.3
+09D5	69DD	jmp     _L138
 				;388				{
-				;389					RelayHeatClose;//关闭加热
-09CF	3414	clr     PA0
-				;390					RelayPVClose;
-09D0	3114	set     PA2
-				;391					ND_PV();
-09D1	5F4A	clr     C8Value[0]
-				;392					ND_Heat(); 
-09D2	5F48	clr     CaValue[0]
-				;393					
-				;394					D_WarmKeep();
-09D3	0F20	mov     a, 20H
-09D4	40C9	mov     C8Value2[0], a
-				;395					ControlFlag = StatusWarmHold;//进入温度保持	
-09D5	0F05	mov     a, 5H
-09D6	408A	mov     ControlFlag[0], a
-09D7	6A06	jmp     _L121
-				;396				}
-				;397				else
-				;398				{					
-				;399					PersonCheckDisableFun();
-				_L133:
-09D8	6135	call    _PersonCheckDisableFun
-09D9	6A05	jmp     _L134
-				;400					HeatCompleteBeep();
-				;401				}	
-				;402			break;
-				;403			case StatusWarmHold:
-				;404				KeyFirstPressFlag = 0;			
-				_L135:
-09DA	5F46	clr     KeyFirstPressFlag[0]
-				;405				if(T_valueGet < Temp_Num1-5)//ADC 加滤波
-09DB	471E	mov     a, T_valueGet[0]
-09DC	40DC	mov     _SunControl_2, a
-09DD	5F5D	clr     _SunControl_2[1]
-09DE	0FFB	mov     a, FBH
-09DF	433E	add     a, Temp_Num1_L[0]
-09E0	40D2	mov     rd, a
-09E1	0FFF	mov     a, FFH
-09E2	5F53	clr     re
-09E3	53D3	adcm    a, re
-09E4	473D	mov     a, Temp_Num1_H[0]
-09E5	40D0	mov     rb, a
-09E6	5F51	clr     rc
-09E7	340A	clr     C
-09E8	5A50	rlca    rb
-09E9	40D4	mov     rf, a
-09EA	5A51	rlca    rc
-09EB	40D5	mov     rg, a
-09EC	340A	clr     C
-09ED	5AD4	rlc     rf
-09EE	5AD5	rlc     rg
-09EF	4754	mov     a, rf
-09F0	43D0	addm    a, rb
-09F1	4755	mov     a, rg
-09F2	53D1	adcm    a, rc
-09F3	340A	clr     C
-09F4	5AD0	rlc     rb
-09F5	5AD1	rlc     rc
-09F6	4750	mov     a, rb
-09F7	43D2	addm    a, rd
-09F8	4751	mov     a, rc
-09F9	53D3	adcm    a, re
-09FA	475C	mov     a, _SunControl_2
-09FB	4252	sub     a, rd
-09FC	475D	mov     a, _SunControl_2[1]
-09FD	5253	sbc     a, re
-09FE	1185	swap    ACC
-09FF	040A	xor     a, STATUS
-0A00	3985	snz     ACC.3
-0A01	6A05	jmp     _L134
-				;406				{
-				;407					ND_WarmKeep();
-0A02	5F49	clr     C8Value2[0]
-				;408					ControlFlag = StatusHeatOpen;//进入加热状态	
-0A03	0F03	mov     a, 3H
-0A04	408A	mov     ControlFlag[0], a
-				;409				}
-				;410				HeatCompleteBeep();	
-				_L134:
-0A05	6125	call    _HeatCompleteBeep
-				_L121:
-0A06	0003	ret
-				;411			break;
-				;412			default: break;
-				;413		}
-				;414	}
-				;415	//屏幕显示
-				;416	void ScreenDisplay(void)
-				;417	{
-				;418		BarTimerCount ++;
+				;389					// ND_PV();RelayPVClose;
+				;390					ND_Heat();RelayHeatClose;//关闭加热 
+09D6	5F4C	clr     CaValue[0]
+09D7	3414	clr     PA0
+				;391					
+				;392					D_WarmKeep();
+09D8	0F20	mov     a, 20H
+09D9	40CD	mov     C8Value2[0], a
+				;393					ControlFlag = StatusWarmHold;//进入温度保持	
+09DA	0F05	mov     a, 5H
+09DB	408A	mov     ControlFlag[0], a
+09DC	6A0A	jmp     _L124
+				;394				}
+				;395				else
+				;396				{					
+				;397					PersonCheckDisableFun();
+				_L138:
+09DD	613B	call    _PersonCheckDisableFun
+09DE	6A09	jmp     _L139
+				;398					HeatCompleteBeep();
+				;399				}	
+				;400			break;
+				;401			case StatusWarmHold:
+				;402	//			KeyFirstPressFlag = 0;			
+				;403				if(T_valueGet < Temp_Num1-5)//ADC 加滤波
+				_L141:
+09DF	471E	mov     a, T_valueGet[0]
+09E0	40E1	mov     _SunControl_2, a
+09E1	5F62	clr     _SunControl_2[1]
+09E2	0FFB	mov     a, FBH
+09E3	4342	add     a, Temp_Num1_L[0]
+09E4	40D7	mov     rd, a
+09E5	0FFF	mov     a, FFH
+09E6	5F58	clr     re
+09E7	53D8	adcm    a, re
+09E8	4741	mov     a, Temp_Num1_H[0]
+09E9	40D5	mov     rb, a
+09EA	5F56	clr     rc
+09EB	340A	clr     C
+09EC	5A55	rlca    rb
+09ED	40D9	mov     rf, a
+09EE	5A56	rlca    rc
+09EF	40DA	mov     rg, a
+09F0	340A	clr     C
+09F1	5AD9	rlc     rf
+09F2	5ADA	rlc     rg
+09F3	4759	mov     a, rf
+09F4	43D5	addm    a, rb
+09F5	475A	mov     a, rg
+09F6	53D6	adcm    a, rc
+09F7	340A	clr     C
+09F8	5AD5	rlc     rb
+09F9	5AD6	rlc     rc
+09FA	4755	mov     a, rb
+09FB	43D7	addm    a, rd
+09FC	4756	mov     a, rc
+09FD	53D8	adcm    a, re
+09FE	4761	mov     a, _SunControl_2
+09FF	4257	sub     a, rd
+0A00	4762	mov     a, _SunControl_2[1]
+0A01	5258	sbc     a, re
+0A02	1185	swap    ACC
+0A03	040A	xor     a, STATUS
+0A04	3985	snz     ACC.3
+0A05	6A09	jmp     _L139
+				;404				{
+				;405					ND_WarmKeep();
+0A06	5F4D	clr     C8Value2[0]
+				;406					ControlFlag = StatusHeatOpen;//进入加热状态	
+0A07	0F03	mov     a, 3H
+0A08	408A	mov     ControlFlag[0], a
+				;407				}
+				;408				HeatCompleteBeep();	
+				_L139:
+0A09	612B	call    _HeatCompleteBeep
+				_L124:
+0A0A	0003	ret
+				;409			break;
+				;410			default: break;
+				;411		}
+				;412	}
+				;413	//屏幕显示
+				;414	void ScreenDisplay(void)
+				;415	{
+				;416		BarTimerCount ++;
 				_ScreenDisplay:
 				_ScreenDisplay:
-0A44	54C3	inc     BarTimerCount[0]
-0A45	3D0A	sz      Z
-0A46	54C4	inc     BarTimerCount[1]
-				;419		if(BarTimerCount>250)
-0A47	0FFA	mov     a, FAH
-0A48	4243	sub     a, BarTimerCount[0]
-0A49	0F00	mov     a, 0H
-0A4A	5244	sbc     a, BarTimerCount[1]
-0A4B	3C0A	sz      C
-0A4C	6AB2	jmp     _L149
-				;420		{
-				;421			if(BarNum >10)
-0A4D	0F0A	mov     a, AH
-0A4E	4245	sub     a, BarNum[0]
+0A48	54C7	inc     BarTimerCount[0]
+0A49	3D0A	sz      Z
+0A4A	54C8	inc     BarTimerCount[1]
+				;417		if(BarTimerCount>250)
+0A4B	0FFA	mov     a, FAH
+0A4C	4247	sub     a, BarTimerCount[0]
+0A4D	0F00	mov     a, 0H
+0A4E	5248	sbc     a, BarTimerCount[1]
 0A4F	3C0A	sz      C
-0A50	6A56	jmp     _L151
-				;422			{
-				;423				BarDisplayNum1 = BarDisplayNum2 = BarDisplayNum3 = BarDisplayNum4 = 0;				
-0A51	5F3F	clr     BarDisplayNum4[0]
-0A52	5F40	clr     BarDisplayNum3[0]
-0A53	5F41	clr     BarDisplayNum2[0]
-0A54	5F42	clr     BarDisplayNum1[0]
-				;424				BarNum = 0;
-0A55	5F45	clr     BarNum[0]
-				;425			}
-				;426			if(StatusHeatOpen == ControlFlag)
-				_L151:
-0A56	470A	mov     a, ControlFlag[0]
-0A57	0A03	sub     a, 3H
-0A58	3D0A	sz      Z
-0A59	6A5E	jmp     _L152
-				;427			{
-				;428			}
-				;429			else
-				;430			{
-				;431				BarDisplayNum1 = BarDisplayNum2 = BarDisplayNum3 =	BarDisplayNum4 = 0;			
-0A5A	5F3F	clr     BarDisplayNum4[0]
-0A5B	5F40	clr     BarDisplayNum3[0]
-0A5C	5F41	clr     BarDisplayNum2[0]
-0A5D	5F42	clr     BarDisplayNum1[0]
-				;432			}	
-				;433			if(BarNum == 0)				BarDisplayNum1 = BarDisplayNum1 + 0x10;			
-				_L152:
-0A5E	50C5	sz      BarNum[0]
-0A5F	6A63	jmp     _L153
-0A60	0F10	mov     a, 10H
-0A61	43C2	addm    a, BarDisplayNum1[0]
-0A62	6A9F	jmp     _L154
-				;434			else if(BarNum == 1)		BarDisplayNum1 = BarDisplayNum1 + 0x20;			
-				_L153:
-0A63	5745	sdza    BarNum[0]
-0A64	6A68	jmp     _L155
-0A65	0F20	mov     a, 20H
-0A66	43C2	addm    a, BarDisplayNum1[0]
-0A67	6A9F	jmp     _L154
-				;435			else if(BarNum == 2)		BarDisplayNum1 = BarDisplayNum1 + 0x40;			
-				_L155:
-0A68	4745	mov     a, BarNum[0]
-0A69	0A02	sub     a, 2H
-0A6A	390A	snz     Z
-0A6B	6A6F	jmp     _L156
-0A6C	0F40	mov     a, 40H
-0A6D	43C2	addm    a, BarDisplayNum1[0]
-0A6E	6A9F	jmp     _L154
-				;436			else if(BarNum == 3)		BarDisplayNum2 = BarDisplayNum2 + 0x10;			
-				_L156:
-0A6F	4745	mov     a, BarNum[0]
-0A70	0A03	sub     a, 3H
-0A71	390A	snz     Z
-0A72	6A76	jmp     _L157
-0A73	0F10	mov     a, 10H
-0A74	43C1	addm    a, BarDisplayNum2[0]
-0A75	6A9F	jmp     _L154
-				;437			else if(BarNum == 4)		BarDisplayNum2 = BarDisplayNum2 + 0x20;			
+0A50	6AB6	jmp     _L155
+				;418		{
+				;419			if(BarNum >10)
+0A51	0F0A	mov     a, AH
+0A52	4249	sub     a, BarNum[0]
+0A53	3C0A	sz      C
+0A54	6A5A	jmp     _L157
+				;420			{
+				;421				BarDisplayNum1 = BarDisplayNum2 = BarDisplayNum3 = BarDisplayNum4 = 0;				
+0A55	5F43	clr     BarDisplayNum4[0]
+0A56	5F44	clr     BarDisplayNum3[0]
+0A57	5F45	clr     BarDisplayNum2[0]
+0A58	5F46	clr     BarDisplayNum1[0]
+				;422				BarNum = 0;
+0A59	5F49	clr     BarNum[0]
+				;423			}
+				;424			if(StatusHeatOpen == ControlFlag)
 				_L157:
-0A76	4745	mov     a, BarNum[0]
-0A77	0A04	sub     a, 4H
-0A78	390A	snz     Z
-0A79	6A7D	jmp     _L158
-0A7A	0F20	mov     a, 20H
-0A7B	43C1	addm    a, BarDisplayNum2[0]
-0A7C	6A9F	jmp     _L154
-				;438			else if(BarNum == 5)		BarDisplayNum2 = BarDisplayNum2 + 0x40;			
+0A5A	470A	mov     a, ControlFlag[0]
+0A5B	0A03	sub     a, 3H
+0A5C	3D0A	sz      Z
+0A5D	6A62	jmp     _L158
+				;425			{
+				;426			}
+				;427			else
+				;428			{
+				;429				BarDisplayNum1 = BarDisplayNum2 = BarDisplayNum3 =	BarDisplayNum4 = 0;			
+0A5E	5F43	clr     BarDisplayNum4[0]
+0A5F	5F44	clr     BarDisplayNum3[0]
+0A60	5F45	clr     BarDisplayNum2[0]
+0A61	5F46	clr     BarDisplayNum1[0]
+				;430			}	
+				;431			if(BarNum == 0)				BarDisplayNum1 = BarDisplayNum1 + 0x10;			
 				_L158:
-0A7D	4745	mov     a, BarNum[0]
-0A7E	0A05	sub     a, 5H
-0A7F	390A	snz     Z
-0A80	6A84	jmp     _L159
-0A81	0F40	mov     a, 40H
-0A82	43C1	addm    a, BarDisplayNum2[0]
-0A83	6A9F	jmp     _L154
-				;439			else if(BarNum == 6)		BarDisplayNum3 = BarDisplayNum3 + 0x10;			
+0A62	50C9	sz      BarNum[0]
+0A63	6A67	jmp     _L159
+0A64	0F10	mov     a, 10H
+0A65	43C6	addm    a, BarDisplayNum1[0]
+0A66	6AA3	jmp     _L160
+				;432			else if(BarNum == 1)		BarDisplayNum1 = BarDisplayNum1 + 0x20;			
 				_L159:
-0A84	4745	mov     a, BarNum[0]
-0A85	0A06	sub     a, 6H
-0A86	390A	snz     Z
-0A87	6A8B	jmp     _L160
-0A88	0F10	mov     a, 10H
-0A89	43C0	addm    a, BarDisplayNum3[0]
-0A8A	6A9F	jmp     _L154
-				;440			else if(BarNum == 7)		BarDisplayNum3 = BarDisplayNum3 + 0x20;			
-				_L160:
-0A8B	4745	mov     a, BarNum[0]
-0A8C	0A07	sub     a, 7H
-0A8D	390A	snz     Z
-0A8E	6A92	jmp     _L161
-0A8F	0F20	mov     a, 20H
-0A90	43C0	addm    a, BarDisplayNum3[0]
-0A91	6A9F	jmp     _L154
-				;441			else if(BarNum == 8)		BarDisplayNum3 = BarDisplayNum3 + 0x40; 	
+0A67	5749	sdza    BarNum[0]
+0A68	6A6C	jmp     _L161
+0A69	0F20	mov     a, 20H
+0A6A	43C6	addm    a, BarDisplayNum1[0]
+0A6B	6AA3	jmp     _L160
+				;433			else if(BarNum == 2)		BarDisplayNum1 = BarDisplayNum1 + 0x40;			
 				_L161:
-0A92	4745	mov     a, BarNum[0]
-0A93	0A08	sub     a, 8H
-0A94	390A	snz     Z
-0A95	6A99	jmp     _L162
-0A96	0F40	mov     a, 40H
-0A97	43C0	addm    a, BarDisplayNum3[0]
-0A98	6A9F	jmp     _L154
-				;442			else if(BarNum == 9)		BarDisplayNum4 = BarDisplayNum4 + 0x40; 		
+0A6C	4749	mov     a, BarNum[0]
+0A6D	0A02	sub     a, 2H
+0A6E	390A	snz     Z
+0A6F	6A73	jmp     _L162
+0A70	0F40	mov     a, 40H
+0A71	43C6	addm    a, BarDisplayNum1[0]
+0A72	6AA3	jmp     _L160
+				;434			else if(BarNum == 3)		BarDisplayNum2 = BarDisplayNum2 + 0x10;			
 				_L162:
-0A99	4745	mov     a, BarNum[0]
-0A9A	0A09	sub     a, 9H
-0A9B	390A	snz     Z
-0A9C	6A9F	jmp     _L154
-0A9D	0F40	mov     a, 40H
-0A9E	43BF	addm    a, BarDisplayNum4[0]
-				;443			
-				;444			BarTimerCount = 0;
-				_L154:
-0A9F	5F43	clr     BarTimerCount[0]
-0AA0	5F44	clr     BarTimerCount[1]
-				;445			D_NUM1(Temp_Num2_H);
-0AA1	473B	mov     a, Temp_Num2_H[0]
-0AA2	40DA	mov     high, a
-0AA3	0FC0	mov     a, C0H
-0AA4	25A5	call    _display16
-				;446			D_NUM2(Temp_Num2_L);
-0AA5	473C	mov     a, Temp_Num2_L[0]
-0AA6	40DA	mov     high, a
-0AA7	0FC4	mov     a, C4H
-0AA8	25A5	call    _display16
-				;447			D_NUM3(Temp_Num1_H);
-0AA9	473D	mov     a, Temp_Num1_H[0]
-0AAA	40DA	mov     high, a
-0AAB	0FC8	mov     a, C8H
-0AAC	25A5	call    _display16
-				;448		 	D_NUM4(Temp_Num1_L);
-0AAD	473E	mov     a, Temp_Num1_L[0]
-0AAE	40DA	mov     high, a
-0AAF	0FCA	mov     a, CAH
-0AB0	25A5	call    _display16
-				;449			BarNum ++;
-0AB1	54C5	inc     BarNum[0]
-				_L149:
-0AB2	0003	ret
-				;450		}		
-				;451	}
-				;452	void NoPersonCheckFun(void)
-				;453	{
-				;454		if(KeyStatus == KeyPress)//改成while？？？
-				_NoPersonCheckFun:
-				_NoPersonCheckFun:
-0AB3	573A	sdza    KeyStatus[0]
-0AB4	6AB7	jmp     _L167
-				;455		{
-				;456			KeyCountOpenflag = 1;// delay();		
-0AB5	0F01	mov     a, 1H
-0AB6	40CB	mov     KeyCountOpenflag[0], a
-				;457		}
-				;458		if(1 == KeyCountOpenflag)
-				_L167:
-0AB7	574B	sdza    KeyCountOpenflag[0]
-0AB8	6AC2	jmp     _L169
-				;459		{
-				;460			KeyCount++;
-0AB9	54CC	inc     KeyCount[0]
-				;461			if(KeyCount>150)
-0ABA	0F96	mov     a, 96H
-0ABB	424C	sub     a, KeyCount[0]
-0ABC	3C0A	sz      C
-0ABD	6AC2	jmp     _L169
-				;462			{
-				;463				KeyCount = 0;
-0ABE	5F4C	clr     KeyCount[0]
-				;464				KeyCountOpenflag = 0;
-0ABF	5F4B	clr     KeyCountOpenflag[0]
-				;465				//Beep1 = BeepClose;
-				;466				LED_UP = LED_DOWN = LedClose;//	= LEDSwitch 		
-0AC0	3120	set     PB2
-0AC1	30A0	set     PB1
-				;467			}
-				;468		}	
-				;469		if(0 == PersonCheck)//
-				_L169:
-0AC2	3FB5	sz      PD7
-0AC3	6ADD	jmp     _L171
-				;470		{	
-				;471			NoneTimerCount ++;
-0AC4	0F01	mov     a, 1H
-0AC5	43A1	addm    a, NoneTimerCount[0]
-0AC6	0F00	mov     a, 0H
-0AC7	53A2	adcm    a, NoneTimerCount[1]
-0AC8	53A3	adcm    a, NoneTimerCount[2]
-0AC9	53A4	adcm    a, NoneTimerCount[3]
-				;472			personTimerCount = 0;
-0ACA	5F25	clr     personTimerCount[0]
-0ACB	5F26	clr     personTimerCount[1]
-				;473			if(NoneTimerCount > 20000)//3min   10000 ---》30s
-0ACC	0F20	mov     a, 20H
-0ACD	4221	sub     a, NoneTimerCount[0]
-0ACE	0F4E	mov     a, 4EH
-0ACF	5222	sbc     a, NoneTimerCount[1]
-0AD0	0F00	mov     a, 0H
-0AD1	5223	sbc     a, NoneTimerCount[2]
-0AD2	0F00	mov     a, 0H
-0AD3	5224	sbc     a, NoneTimerCount[3]
-0AD4	3C0A	sz      C
-0AD5	6AEF	jmp     _L173
-				;474			{								//60000 --- 》160s
-				;475				NoneFlag = 1;//无人
-0AD6	0F01	mov     a, 1H
-0AD7	40A8	mov     NoneFlag[0], a
-				;476				NoneTimerCount = 0;
-0AD8	5F21	clr     NoneTimerCount[0]
-0AD9	5F22	clr     NoneTimerCount[1]
-0ADA	5F23	clr     NoneTimerCount[2]
-0ADB	5F24	clr     NoneTimerCount[3]
-0ADC	6AEF	jmp     _L173
-				;477			}
-				;478		}	
-				;479		else
-				;480		{	
-				;481			NoneTimerCount = 0;
-				_L171:
-0ADD	5F21	clr     NoneTimerCount[0]
-0ADE	5F22	clr     NoneTimerCount[1]
-0ADF	5F23	clr     NoneTimerCount[2]
-0AE0	5F24	clr     NoneTimerCount[3]
-				;482			personTimerCount ++;
-0AE1	54A5	inc     personTimerCount[0]
-0AE2	3D0A	sz      Z
-0AE3	54A6	inc     personTimerCount[1]
-				;483		
-				;484			if(personTimerCount > 300)
-0AE4	0F2C	mov     a, 2CH
-0AE5	4225	sub     a, personTimerCount[0]
-0AE6	0F01	mov     a, 1H
-0AE7	5226	sbc     a, personTimerCount[1]
-0AE8	1185	swap    ACC
-0AE9	040A	xor     a, STATUS
-0AEA	3985	snz     ACC.3
-0AEB	6AEF	jmp     _L173
-				;485			{
-				;486				personTimerCount = 0;
-0AEC	5F25	clr     personTimerCount[0]
-0AED	5F26	clr     personTimerCount[1]
-				;487				NoneFlag = 0;
-0AEE	5F28	clr     NoneFlag[0]
-				;488			}
-				;489		}
-				;490		if((1 == NoneFlag)&&(1 == KeyFirstPressFlag))//屏幕关闭状态下，有按键
-				_L173:
-0AEF	5728	sdza    NoneFlag[0]
-0AF0	6AF4	jmp     _L175
-0AF1	5746	sdza    KeyFirstPressFlag[0]
-0AF2	6AF4	jmp     _L175
-				;491		{
-				;492			// KeyFirstPressFlag = 0;
-				;493			NoneFlag = 0;	
-0AF3	5F28	clr     NoneFlag[0]
-				;494		}
-				;495		if(0 == NoneFlag)//有人
-				_L175:
-0AF4	50A8	sz      NoneFlag[0]
-0AF5	6AF8	jmp     _L176
-				;496		{
-				;497			ScreenDisplay();
-0AF6	6244	call    _ScreenDisplay
-0AF7	6AFB	jmp     _L166
-				;498		}
-				;499		else			//无人
-				;500		{
-				;501			displayClear(0);
-				_L176:
-0AF8	5F5A	clr     high
-0AF9	5F5B	clr     mid
-0AFA	2592	call    _displayClear
+0A73	4749	mov     a, BarNum[0]
+0A74	0A03	sub     a, 3H
+0A75	390A	snz     Z
+0A76	6A7A	jmp     _L163
+0A77	0F10	mov     a, 10H
+0A78	43C5	addm    a, BarDisplayNum2[0]
+0A79	6AA3	jmp     _L160
+				;435			else if(BarNum == 4)		BarDisplayNum2 = BarDisplayNum2 + 0x20;			
+				_L163:
+0A7A	4749	mov     a, BarNum[0]
+0A7B	0A04	sub     a, 4H
+0A7C	390A	snz     Z
+0A7D	6A81	jmp     _L164
+0A7E	0F20	mov     a, 20H
+0A7F	43C5	addm    a, BarDisplayNum2[0]
+0A80	6AA3	jmp     _L160
+				;436			else if(BarNum == 5)		BarDisplayNum2 = BarDisplayNum2 + 0x40;			
+				_L164:
+0A81	4749	mov     a, BarNum[0]
+0A82	0A05	sub     a, 5H
+0A83	390A	snz     Z
+0A84	6A88	jmp     _L165
+0A85	0F40	mov     a, 40H
+0A86	43C5	addm    a, BarDisplayNum2[0]
+0A87	6AA3	jmp     _L160
+				;437			else if(BarNum == 6)		BarDisplayNum3 = BarDisplayNum3 + 0x10;			
+				_L165:
+0A88	4749	mov     a, BarNum[0]
+0A89	0A06	sub     a, 6H
+0A8A	390A	snz     Z
+0A8B	6A8F	jmp     _L166
+0A8C	0F10	mov     a, 10H
+0A8D	43C4	addm    a, BarDisplayNum3[0]
+0A8E	6AA3	jmp     _L160
+				;438			else if(BarNum == 7)		BarDisplayNum3 = BarDisplayNum3 + 0x20;			
 				_L166:
-0AFB	0003	ret
-				;502		}		
-				;503		
-				;504	}
-				;505	//***********************************************************
-				;506	//*SUB. NAME:USER Main PROGRAM                              *
-				;507	//*INPUT    :                                               *
-				;508	//*OUTPUT   :                                               *
-				;509	//*USED REG.:                                               *
-				;510	//*FUNCTION :                                               *
-				;511	//***********************************************************
-				;512	void LEDX4_V16()
-				;513	{
-				;514		unsigned char flag;
-				;515		if(1 == Beep1)
-				_LEDX4_V16:
-				_LEDX4_V16:
-0AFC	3994	snz     PA3
-0AFD	6B05	jmp     _L179
-				;516		{
-				;517			BeepCount++;
-0AFE	54CE	inc     BeepCount[0]
-				;518			if(BeepCount > 150)
-0AFF	0F96	mov     a, 96H
-0B00	424E	sub     a, BeepCount[0]
-0B01	3C0A	sz      C
-0B02	6B06	jmp     _L180
-				;519				Beep1 = 0;
-0B03	3594	clr     PA3
-0B04	6B06	jmp     _L180
-				;520		}
-				;521		else
-				;522			BeepCount = 0;
+0A8F	4749	mov     a, BarNum[0]
+0A90	0A07	sub     a, 7H
+0A91	390A	snz     Z
+0A92	6A96	jmp     _L167
+0A93	0F20	mov     a, 20H
+0A94	43C4	addm    a, BarDisplayNum3[0]
+0A95	6AA3	jmp     _L160
+				;439			else if(BarNum == 8)		BarDisplayNum3 = BarDisplayNum3 + 0x40; 	
+				_L167:
+0A96	4749	mov     a, BarNum[0]
+0A97	0A08	sub     a, 8H
+0A98	390A	snz     Z
+0A99	6A9D	jmp     _L168
+0A9A	0F40	mov     a, 40H
+0A9B	43C4	addm    a, BarDisplayNum3[0]
+0A9C	6AA3	jmp     _L160
+				;440			else if(BarNum == 9)		BarDisplayNum4 = BarDisplayNum4 + 0x40; 		
+				_L168:
+0A9D	4749	mov     a, BarNum[0]
+0A9E	0A09	sub     a, 9H
+0A9F	390A	snz     Z
+0AA0	6AA3	jmp     _L160
+0AA1	0F40	mov     a, 40H
+0AA2	43C3	addm    a, BarDisplayNum4[0]
+				;441			
+				;442			BarTimerCount = 0;
+				_L160:
+0AA3	5F47	clr     BarTimerCount[0]
+0AA4	5F48	clr     BarTimerCount[1]
+				;443			D_NUM1(Temp_Num2_H);
+0AA5	473F	mov     a, Temp_Num2_H[0]
+0AA6	40DF	mov     high, a
+0AA7	0FC0	mov     a, C0H
+0AA8	25A5	call    _display16
+				;444			D_NUM2(Temp_Num2_L);
+0AA9	4740	mov     a, Temp_Num2_L[0]
+0AAA	40DF	mov     high, a
+0AAB	0FC4	mov     a, C4H
+0AAC	25A5	call    _display16
+				;445			D_NUM3(Temp_Num1_H);
+0AAD	4741	mov     a, Temp_Num1_H[0]
+0AAE	40DF	mov     high, a
+0AAF	0FC8	mov     a, C8H
+0AB0	25A5	call    _display16
+				;446		 	D_NUM4(Temp_Num1_L);
+0AB1	4742	mov     a, Temp_Num1_L[0]
+0AB2	40DF	mov     high, a
+0AB3	0FCA	mov     a, CAH
+0AB4	25A5	call    _display16
+				;447			BarNum ++;
+0AB5	54C9	inc     BarNum[0]
+				_L155:
+0AB6	0003	ret
+				;448		}		
+				;449	}
+				;450	void NoPersonCheckFun(void)
+				;451	{
+				;452		if(KeyStatus == KeyPress)//改成while？？？
+				_NoPersonCheckFun:
+				_NoPersonCheckFun:
+0AB7	573E	sdza    KeyStatus[0]
+0AB8	6ABB	jmp     _L173
+				;453		{
+				;454			KeyCountOpenflag = 1;// delay();		
+0AB9	0F01	mov     a, 1H
+0ABA	40CF	mov     KeyCountOpenflag[0], a
+				;455		}
+				;456		if(1 == KeyCountOpenflag)
+				_L173:
+0ABB	574F	sdza    KeyCountOpenflag[0]
+0ABC	6AC6	jmp     _L175
+				;457		{
+				;458			KeyCount++;
+0ABD	54D0	inc     KeyCount[0]
+				;459			if(KeyCount>150)
+0ABE	0F96	mov     a, 96H
+0ABF	4250	sub     a, KeyCount[0]
+0AC0	3C0A	sz      C
+0AC1	6AC6	jmp     _L175
+				;460			{
+				;461				KeyCount = 0;
+0AC2	5F50	clr     KeyCount[0]
+				;462				KeyCountOpenflag = 0;
+0AC3	5F4F	clr     KeyCountOpenflag[0]
+				;463				//Beep1 = Be																					epClose;
+				;464				LED_UP = LED_DOWN = LedClose;//	= LEDSwitch 		
+0AC4	3120	set     PB2
+0AC5	30A0	set     PB1
+				;465			}
+				;466		}	
+				;467		if(0 == PersonCheck)//
+				_L175:
+0AC6	3FB5	sz      PD7
+0AC7	6AE1	jmp     _L177
+				;468		{	
+				;469			NoneTimerCount ++;
+0AC8	0F01	mov     a, 1H
+0AC9	43A5	addm    a, NoneTimerCount[0]
+0ACA	0F00	mov     a, 0H
+0ACB	53A6	adcm    a, NoneTimerCount[1]
+0ACC	53A7	adcm    a, NoneTimerCount[2]
+0ACD	53A8	adcm    a, NoneTimerCount[3]
+				;470			personTimerCount = 0;
+0ACE	5F29	clr     personTimerCount[0]
+0ACF	5F2A	clr     personTimerCount[1]
+				;471		
+				;472			if(NoneTimerCount > 20000)//3min   10000 ---》30s
+0AD0	0F20	mov     a, 20H
+0AD1	4225	sub     a, NoneTimerCount[0]
+0AD2	0F4E	mov     a, 4EH
+0AD3	5226	sbc     a, NoneTimerCount[1]
+0AD4	0F00	mov     a, 0H
+0AD5	5227	sbc     a, NoneTimerCount[2]
+0AD6	0F00	mov     a, 0H
+0AD7	5228	sbc     a, NoneTimerCount[3]
+0AD8	3C0A	sz      C
+0AD9	6AF3	jmp     _L179
+				;473			{								//60000 --- 》160s
+				;474				NoneFlag = 1;//无人
+0ADA	0F01	mov     a, 1H
+0ADB	40AC	mov     NoneFlag[0], a
+				;475				NoneTimerCount = 0;
+0ADC	5F25	clr     NoneTimerCount[0]
+0ADD	5F26	clr     NoneTimerCount[1]
+0ADE	5F27	clr     NoneTimerCount[2]
+0ADF	5F28	clr     NoneTimerCount[3]
+0AE0	6AF3	jmp     _L179
+				;476			}
+				;477		}	
+				;478		else
+				;479		{	
+				;480			NoneTimerCount = 0;
+				_L177:
+0AE1	5F25	clr     NoneTimerCount[0]
+0AE2	5F26	clr     NoneTimerCount[1]
+0AE3	5F27	clr     NoneTimerCount[2]
+0AE4	5F28	clr     NoneTimerCount[3]
+				;481			personTimerCount ++;
+0AE5	54A9	inc     personTimerCount[0]
+0AE6	3D0A	sz      Z
+0AE7	54AA	inc     personTimerCount[1]
+				;482		
+				;483			if(personTimerCount > 300)
+0AE8	0F2C	mov     a, 2CH
+0AE9	4229	sub     a, personTimerCount[0]
+0AEA	0F01	mov     a, 1H
+0AEB	522A	sbc     a, personTimerCount[1]
+0AEC	1185	swap    ACC
+0AED	040A	xor     a, STATUS
+0AEE	3985	snz     ACC.3
+0AEF	6AF3	jmp     _L179
+				;484			{
+				;485				personTimerCount = 0;
+0AF0	5F29	clr     personTimerCount[0]
+0AF1	5F2A	clr     personTimerCount[1]
+				;486				NoneFlag = 0;
+0AF2	5F2C	clr     NoneFlag[0]
+				;487			}
+				;488		}
+				;489	//	if((1 == NoneFlag)&&(1 == KeyFirstPressFlag))//屏幕关闭状态下，有按键
+				;490	//	{
+				;491			// KeyFirstPressFlag = 0;
+				;492	//		NoneFlag = 0;	
+				;493			// NoneErrorTimerCount++;
+				;494	//	}
+				;495		// if(NoneErrorTimerCount > 60000)//时间待确认
+				;496		// {
+				;497			// NoneErrorTimerCount = 0;
+				;498			// KeyFirstPressFlag = 0;
+				;499		// }
+				;500		if(1 == KeyFirstPressFlag)
 				_L179:
-0B05	5F4E	clr     BeepCount[0]
-				;523		
-				;524		Temp_Num2_L = T_valueGet%10;
-				_L180:
-0B06	5F5B	clr     mid
-0B07	471E	mov     a, T_valueGet[0]
-0B08	40D8	mov     Res, a
-0B09	0F0A	mov     a, AH
-0B0A	40D9	mov     _DataSave_2, a
-0B0B	63AE	call    L0BAE
-0B0C	475A	mov     a, high
-0B0D	40BC	mov     Temp_Num2_L[0], a
-				;525		Temp_Num2_H = T_valueGet/10;
-0B0E	5F5B	clr     mid
-0B0F	471E	mov     a, T_valueGet[0]
-0B10	40D8	mov     Res, a
-0B11	0F0A	mov     a, AH
-0B12	40D9	mov     _DataSave_2, a
-0B13	63AE	call    L0BAE
-0B14	4758	mov     a, Res
-0B15	40BB	mov     Temp_Num2_H[0], a
-				;526		ADCGetFun();
-0B16	6037	call    _ADCGetFun
-				;527		if(1 == ADCCompleteFlag)
-0B17	570D	sdza    ADCCompleteFlag[0]
-0B18	6B1C	jmp     _L181
-				;528		{ 
-				;529			ADCCompleteFlag = 0;
-0B19	5F0D	clr     ADCCompleteFlag[0]
-				;530			flag =  ADC_Check();	//1;//
-0B1A	6207	call    _ADC_Check
-0B1B	40E6	mov     flag[0], a
-				;531		}		
-				;532		if(1 == flag)
+0AF3	574A	sdza    KeyFirstPressFlag[0]
+0AF4	6AFC	jmp     _L181
+				;501		{
+				;502			NoneFlag = 0;
+0AF5	5F2C	clr     NoneFlag[0]
+				;503			NoneErrorTimerCount++;
+0AF6	0F01	mov     a, 1H
+0AF7	43A1	addm    a, NoneErrorTimerCount[0]
+0AF8	0F00	mov     a, 0H
+0AF9	53A2	adcm    a, NoneErrorTimerCount[1]
+0AFA	53A3	adcm    a, NoneErrorTimerCount[2]
+0AFB	53A4	adcm    a, NoneErrorTimerCount[3]
+				;504			
+				;505		}
+				;506		if(NoneErrorTimerCount>600000)
 				_L181:
-0B1C	5766	sdza    flag[0]
-0B1D	6B21	jmp     _L178
-				;533		{
-				;534			NoPersonCheckFun();	
-0B1E	62B3	call    _NoPersonCheckFun
-				;535			TouchFun();
-0B1F	27B5	call    _TouchFun
-				;536			IR_FUN();
-0B20	275C	call    _IR_FUN
-				_L178:
-0B21	0003	ret
-				;537		}
-				;538	}
-				;539	/******************************/
-				;540	//void  time( )
-				;541	/******************************/
-				;542	void  isr_timer(void)
-				;543	{
+0AFC	0FC0	mov     a, C0H
+0AFD	4221	sub     a, NoneErrorTimerCount[0]
+0AFE	0F27	mov     a, 27H
+0AFF	5222	sbc     a, NoneErrorTimerCount[1]
+0B00	0F09	mov     a, 9H
+0B01	5223	sbc     a, NoneErrorTimerCount[2]
+0B02	0F00	mov     a, 0H
+0B03	5224	sbc     a, NoneErrorTimerCount[3]
+0B04	3C0A	sz      C
+0B05	6B0B	jmp     _L182
+				;507		{
+				;508			KeyFirstPressFlag = 0;
+0B06	5F4A	clr     KeyFirstPressFlag[0]
+				;509			NoneErrorTimerCount = 0;
+0B07	5F21	clr     NoneErrorTimerCount[0]
+0B08	5F22	clr     NoneErrorTimerCount[1]
+0B09	5F23	clr     NoneErrorTimerCount[2]
+0B0A	5F24	clr     NoneErrorTimerCount[3]
+				;510		}	
+				;511			
+				;512		
+				;513		if(0 == NoneFlag)//有人
+				_L182:
+0B0B	50AC	sz      NoneFlag[0]
+0B0C	6B0F	jmp     _L183
+				;514		{
+				;515			ScreenDisplay();
+0B0D	6248	call    _ScreenDisplay
+0B0E	6B12	jmp     _L172
+				;516		}
+				;517		else			//无人
+				;518		{
+				;519			displayClear(0);
+				_L183:
+0B0F	5F5F	clr     high
+0B10	5F60	clr     mid
+0B11	2592	call    _displayClear
+				_L172:
+0B12	0003	ret
+				;520		}		
+				;521		
+				;522	}
+				;523	//***********************************************************
+				;524	//*SUB. NAME:USER Main PROGRAM                              *
+				;525	//*INPUT    :                                               *
+				;526	//*OUTPUT   :                                               *
+				;527	//*USED REG.:                                               *
+				;528	//*FUNCTION :                                               *
+				;529	//***********************************************************
+				;530	void LEDX4_V16()
+				;531	{
+				;532		unsigned char flag;
+				;533		if(1 == Beep1)
+				_LEDX4_V16:
+				_LEDX4_V16:
+0B13	3994	snz     PA3
+0B14	6B1C	jmp     _L186
+				;534		{
+				;535			BeepCount++;
+0B15	54D3	inc     BeepCount[0]
+				;536			if(BeepCount > 150)
+0B16	0F96	mov     a, 96H
+0B17	4253	sub     a, BeepCount[0]
+0B18	3C0A	sz      C
+0B19	6B1D	jmp     _L187
+				;537				Beep1 = 0;
+0B1A	3594	clr     PA3
+0B1B	6B1D	jmp     _L187
+				;538		}
+				;539		else
+				;540			BeepCount = 0;
+				_L186:
+0B1C	5F53	clr     BeepCount[0]
+				;541		
+				;542		Temp_Num2_L = T_valueGet%10;
+				_L187:
+0B1D	5F60	clr     mid
+0B1E	471E	mov     a, T_valueGet[0]
+0B1F	40DD	mov     Res, a
+0B20	0F0A	mov     a, AH
+0B21	40DE	mov     _DataSave_2, a
+0B22	63C5	call    L0BC5
+0B23	475F	mov     a, high
+0B24	40C0	mov     Temp_Num2_L[0], a
+				;543		Temp_Num2_H = T_valueGet/10;
+0B25	5F60	clr     mid
+0B26	471E	mov     a, T_valueGet[0]
+0B27	40DD	mov     Res, a
+0B28	0F0A	mov     a, AH
+0B29	40DE	mov     _DataSave_2, a
+0B2A	63C5	call    L0BC5
+0B2B	475D	mov     a, Res
+0B2C	40BF	mov     Temp_Num2_H[0], a
+				;544		ADCGetFun();
+0B2D	603D	call    _ADCGetFun
+				;545		if(1 == ADCCompleteFlag)
+0B2E	570D	sdza    ADCCompleteFlag[0]
+0B2F	6B33	jmp     _L188
+				;546		{ 
+				;547			ADCCompleteFlag = 0;
+0B30	5F0D	clr     ADCCompleteFlag[0]
+				;548			flag =  ADC_Check();	//1;//
+0B31	620B	call    _ADC_Check
+0B32	40EB	mov     flag[0], a
+				;549		}		
+				;550		if(1 == flag)
+				_L188:
+0B33	576B	sdza    flag[0]
+0B34	6B38	jmp     _L185
+				;551		{
+				;552			NoPersonCheckFun();	
+0B35	62B7	call    _NoPersonCheckFun
+				;553			TouchFun();
+0B36	27BB	call    _TouchFun
+				;554			IR_FUN();
+0B37	2762	call    _IR_FUN
+				_L185:
+0B38	0003	ret
+				;555		}
+				;556	}
+				;557	/******************************/
+				;558	//void  time( )
+				;559	/******************************/
+				;560	void  isr_timer(void)
+				;561	{
 				@isr_timer_code .SECTION 'CODE'
-000C	40D6	mov     r100, a
+000C	40DB	mov     r100, a
 000D	070A	mov     a, STATUS
-000E	40D7	mov     r200, a
-000F	6B22	jmp     _isr_timer
+000E	40DC	mov     r200, a
+000F	6B39	jmp     _isr_timer
 				@dummy12 .SECTION 'CODE'
 0010	0000	nop
 0011	0000	nop
@@ -3438,222 +3475,222 @@
 					----
 					----
 					----
-				;544		 _tf=0;	       // 清除溢出标记 
+				;562		 _tf=0;	       // 清除溢出标记 
 				_isr_timer:
 				_isr_timer:
-0B22	370E	clr     TF
-				;545		 timerCount ++;
-0B23	0F01	mov     a, 1H
-0B24	43B2	addm    a, timerCount[0]
-0B25	0F00	mov     a, 0H
-0B26	53B3	adcm    a, timerCount[1]
-0B27	53B4	adcm    a, timerCount[2]
-0B28	53B5	adcm    a, timerCount[3]
-				;546		 if(timerCount > timerCountSet)   //1S LED8灯闪烁一次
-0B29	4736	mov     a, timerCountSet[0]
-0B2A	4232	sub     a, timerCount[0]
-0B2B	4737	mov     a, timerCountSet[1]
-0B2C	5233	sbc     a, timerCount[1]
-0B2D	4738	mov     a, timerCountSet[2]
-0B2E	5234	sbc     a, timerCount[2]
-0B2F	4739	mov     a, timerCountSet[3]
-0B30	5235	sbc     a, timerCount[3]
-0B31	3C0A	sz      C
-0B32	6B3A	jmp     _L183
-				;547		 { 
-				;548			timerCount = 0;		
-0B33	5F32	clr     timerCount[0]
-0B34	5F33	clr     timerCount[1]
-0B35	5F34	clr     timerCount[2]
-0B36	5F35	clr     timerCount[3]
-				;549			timerFlag = Close;
-0B37	5F31	clr     timerFlag[0]
-				;550			timer3sFlag = Close;
-0B38	5F30	clr     timer3sFlag[0]
-				;551			TimerClose;	
-0B39	361D	clr     TON
-				_L183:
-0B3A	4757	mov     a, r200
-0B3B	008A	mov     STATUS, a
-0B3C	4756	mov     a, r100
-0B3D	0004	reti
-0B3E	0000	nop
-0B3F	0000	nop
-				L0B40:
-0B40	0000	nop
-0B41	0000	nop
-				L0B42:
-0B42	0000	nop
-				L0B43:
-0B43	0000	nop
-0B44	1785	sdz     ACC
-0B45	6B43	jmp     L0B43
-				L0B46:
-0B46	0000	nop
-0B47	1785	sdz     ACC
-0B48	6B46	jmp     L0B46
-0B49	57D8	sdz     Res
-0B4A	6B46	jmp     L0B46
-0B4B	0003	ret
-				L0B4C:
-0B4C	5F60	clr     _TouchFun_2[2]
-0B4D	5F61	clr     _TouchFun_2[3]
-0B4E	5F62	clr     _TouchFun_2[4]
-0B4F	5F63	clr     _TouchFun_2[5]
-				L0B50:
-0B50	785C	snz     _SunControl_2.0
-0B51	6B5A	jmp     L0B5A
-0B52	4758	mov     a, Res
-0B53	43E0	addm    a, _TouchFun_2[2]
-0B54	4759	mov     a, _DataSave_2
-0B55	53E1	adcm    a, _TouchFun_2[3]
-0B56	475A	mov     a, high
-0B57	53E2	adcm    a, _TouchFun_2[4]
-0B58	475B	mov     a, mid
-0B59	53E3	adcm    a, _TouchFun_2[5]
+0B39	370E	clr     TF
+				;563		 timerCount ++;
+0B3A	0F01	mov     a, 1H
+0B3B	43B6	addm    a, timerCount[0]
+0B3C	0F00	mov     a, 0H
+0B3D	53B7	adcm    a, timerCount[1]
+0B3E	53B8	adcm    a, timerCount[2]
+0B3F	53B9	adcm    a, timerCount[3]
+				;564		 if(timerCount > timerCountSet)   //1S LED8灯闪烁一次
+0B40	473A	mov     a, timerCountSet[0]
+0B41	4236	sub     a, timerCount[0]
+0B42	473B	mov     a, timerCountSet[1]
+0B43	5237	sbc     a, timerCount[1]
+0B44	473C	mov     a, timerCountSet[2]
+0B45	5238	sbc     a, timerCount[2]
+0B46	473D	mov     a, timerCountSet[3]
+0B47	5239	sbc     a, timerCount[3]
+0B48	3C0A	sz      C
+0B49	6B51	jmp     _L190
+				;565		 { 
+				;566			timerCount = 0;		
+0B4A	5F36	clr     timerCount[0]
+0B4B	5F37	clr     timerCount[1]
+0B4C	5F38	clr     timerCount[2]
+0B4D	5F39	clr     timerCount[3]
+				;567			timerFlag = Close;
+0B4E	5F35	clr     timerFlag[0]
+				;568			timer3sFlag = Close;
+0B4F	5F34	clr     timer3sFlag[0]
+				;569			TimerClose;	
+0B50	361D	clr     TON
+				_L190:
+0B51	475C	mov     a, r200
+0B52	008A	mov     STATUS, a
+0B53	475B	mov     a, r100
+0B54	0004	reti
+0B55	0000	nop
+0B56	0000	nop
+				L0B57:
+0B57	0000	nop
+0B58	0000	nop
+				L0B59:
+0B59	0000	nop
 				L0B5A:
-0B5A	340A	clr     C
-0B5B	5AD8	rlc     Res
-0B5C	5AD9	rlc     _DataSave_2
-0B5D	5ADA	rlc     high
-0B5E	5ADB	rlc     mid
-0B5F	340A	clr     C
-0B60	5BDF	rrc     _TouchFun_2[1]
-0B61	5BDE	rrc     _TouchFun_2
-0B62	5BDD	rrc     _SunControl_2[1]
-0B63	5BDC	rrc     _SunControl_2
-0B64	475C	mov     a, _SunControl_2
-0B65	455D	or      a, _SunControl_2[1]
-0B66	455E	or      a, _TouchFun_2
-0B67	455F	or      a, _TouchFun_2[1]
-0B68	390A	snz     Z
-0B69	6B50	jmp     L0B50
-0B6A	0003	ret
-				L0B6B:
-0B6B	5F60	clr     _TouchFun_2[2]
-0B6C	5F61	clr     _TouchFun_2[3]
-0B6D	5F62	clr     _TouchFun_2[4]
-0B6E	5F63	clr     _TouchFun_2[5]
-0B6F	0F20	mov     a, 20H
-0B70	40E5	mov     _TouchFun_2[7], a
+0B5A	0000	nop
+0B5B	1785	sdz     ACC
+0B5C	6B5A	jmp     L0B5A
+				L0B5D:
+0B5D	0000	nop
+0B5E	1785	sdz     ACC
+0B5F	6B5D	jmp     L0B5D
+0B60	57DD	sdz     Res
+0B61	6B5D	jmp     L0B5D
+0B62	0003	ret
+				L0B63:
+0B63	5F65	clr     _TouchFun_2[2]
+0B64	5F66	clr     _TouchFun_2[3]
+0B65	5F67	clr     _TouchFun_2[4]
+0B66	5F68	clr     _TouchFun_2[5]
+				L0B67:
+0B67	7861	snz     _SunControl_2.0
+0B68	6B71	jmp     L0B71
+0B69	475D	mov     a, Res
+0B6A	43E5	addm    a, _TouchFun_2[2]
+0B6B	475E	mov     a, _DataSave_2
+0B6C	53E6	adcm    a, _TouchFun_2[3]
+0B6D	475F	mov     a, high
+0B6E	53E7	adcm    a, _TouchFun_2[4]
+0B6F	4760	mov     a, mid
+0B70	53E8	adcm    a, _TouchFun_2[5]
 				L0B71:
 0B71	340A	clr     C
-0B72	5AD8	rlc     Res
-0B73	5AD9	rlc     _DataSave_2
-0B74	5ADA	rlc     high
-0B75	5ADB	rlc     mid
-0B76	5AE0	rlc     _TouchFun_2[2]
-0B77	5AE1	rlc     _TouchFun_2[3]
-0B78	5AE2	rlc     _TouchFun_2[4]
-0B79	5AE3	rlc     _TouchFun_2[5]
-0B7A	4760	mov     a, _TouchFun_2[2]
-0B7B	425C	sub     a, _SunControl_2
-0B7C	4761	mov     a, _TouchFun_2[3]
-0B7D	525D	sbc     a, _SunControl_2[1]
-0B7E	4762	mov     a, _TouchFun_2[4]
-0B7F	525E	sbc     a, _TouchFun_2
-0B80	4763	mov     a, _TouchFun_2[5]
-0B81	525F	sbc     a, _TouchFun_2[1]
-0B82	380A	snz     C
-0B83	6B91	jmp     L0B91
-0B84	4760	mov     a, _TouchFun_2[2]
-0B85	425C	sub     a, _SunControl_2
-0B86	40E0	mov     _TouchFun_2[2], a
-0B87	4761	mov     a, _TouchFun_2[3]
-0B88	525D	sbc     a, _SunControl_2[1]
-0B89	40E1	mov     _TouchFun_2[3], a
-0B8A	4762	mov     a, _TouchFun_2[4]
-0B8B	525E	sbc     a, _TouchFun_2
-0B8C	40E2	mov     _TouchFun_2[4], a
-0B8D	4763	mov     a, _TouchFun_2[5]
-0B8E	525F	sbc     a, _TouchFun_2[1]
-0B8F	40E3	mov     _TouchFun_2[5], a
-0B90	54D8	inc     Res
-				L0B91:
-0B91	57E5	sdz     _TouchFun_2[7]
-0B92	6B71	jmp     L0B71
-0B93	7864	snz     _TouchFun_2[6].0
-0B94	6BA0	jmp     L0BA0
-0B95	41E0	cpl     _TouchFun_2[2]
-0B96	41E1	cpl     _TouchFun_2[3]
-0B97	41E2	cpl     _TouchFun_2[4]
-0B98	41E3	cpl     _TouchFun_2[5]
-0B99	54E0	inc     _TouchFun_2[2]
-0B9A	3D0A	sz      Z
-0B9B	54E1	inc     _TouchFun_2[3]
-0B9C	3D0A	sz      Z
-0B9D	54E2	inc     _TouchFun_2[4]
-0B9E	3D0A	sz      Z
-0B9F	54E3	inc     _TouchFun_2[5]
-				L0BA0:
-0BA0	78E4	snz     _TouchFun_2[6].1
-0BA1	6BAD	jmp     L0BAD
-0BA2	41D8	cpl     Res
-0BA3	41D9	cpl     _DataSave_2
-0BA4	41DA	cpl     high
-0BA5	41DB	cpl     mid
-0BA6	54D8	inc     Res
-0BA7	3D0A	sz      Z
-0BA8	54D9	inc     _DataSave_2
-0BA9	3D0A	sz      Z
-0BAA	54DA	inc     high
-0BAB	3D0A	sz      Z
-0BAC	54DB	inc     mid
-				L0BAD:
-0BAD	0003	ret
-				L0BAE:
-0BAE	5F5A	clr     high
-0BAF	0F08	mov     a, 8H
-0BB0	40DC	mov     _SunControl_2, a
-				L0BB1:
-0BB1	340A	clr     C
-0BB2	5AD8	rlc     Res
-0BB3	5ADA	rlc     high
-0BB4	475A	mov     a, high
-0BB5	4259	sub     a, _DataSave_2
-0BB6	380A	snz     C
-0BB7	6BBC	jmp     L0BBC
-0BB8	475A	mov     a, high
-0BB9	4259	sub     a, _DataSave_2
-0BBA	40DA	mov     high, a
-0BBB	54D8	inc     Res
-				L0BBC:
-0BBC	57DC	sdz     _SunControl_2
-0BBD	6BB1	jmp     L0BB1
-0BBE	7C5B	sz      mid.0
-0BBF	41DA	cpl     high
-0BC0	7C5B	sz      mid.0
-0BC1	54DA	inc     high
-0BC2	7CDB	sz      mid.1
-0BC3	41D8	cpl     Res
-0BC4	7CDB	sz      mid.1
-0BC5	54D8	inc     Res
-0BC6	0003	ret
-				L0BC7:
-0BC7	1483	inc     MP1
-0BC8	3D0A	sz      Z
-0BC9	1481	inc     MP0
-				L0BCA:
-0BCA	3F81	sz      MP0.7
-0BCB	6BD0	jmp     L0BD0
-0BCC	0701	mov     a, MP0
-0BCD	0084	mov     BP, a
-0BCE	0702	mov     a, [02H]
-0BCF	0003	ret
-				L0BD0:
-0BD0	1B01	rrca    MP0
-0BD1	0E3F	and     a, 3FH
-0BD2	0089	mov     TBHP, a
-0BD3	1B03	rrca    MP1
-0BD4	0087	mov     TBLP, a
-0BD5	1D05	tabrd   ACC
-0BD6	3C0A	sz      C
-0BD7	0708	mov     a, TBLH
-0BD8	0003	ret
-				;552		 }  
-				;553	}
-				;554	
-				;file D:\Users\HOLDMC\Desktop\Sun_touch\LEDX4_V16\LEDX4_V16.h
+0B72	5ADD	rlc     Res
+0B73	5ADE	rlc     _DataSave_2
+0B74	5ADF	rlc     high
+0B75	5AE0	rlc     mid
+0B76	340A	clr     C
+0B77	5BE4	rrc     _TouchFun_2[1]
+0B78	5BE3	rrc     _TouchFun_2
+0B79	5BE2	rrc     _SunControl_2[1]
+0B7A	5BE1	rrc     _SunControl_2
+0B7B	4761	mov     a, _SunControl_2
+0B7C	4562	or      a, _SunControl_2[1]
+0B7D	4563	or      a, _TouchFun_2
+0B7E	4564	or      a, _TouchFun_2[1]
+0B7F	390A	snz     Z
+0B80	6B67	jmp     L0B67
+0B81	0003	ret
+				L0B82:
+0B82	5F65	clr     _TouchFun_2[2]
+0B83	5F66	clr     _TouchFun_2[3]
+0B84	5F67	clr     _TouchFun_2[4]
+0B85	5F68	clr     _TouchFun_2[5]
+0B86	0F20	mov     a, 20H
+0B87	40EA	mov     _TouchFun_2[7], a
+				L0B88:
+0B88	340A	clr     C
+0B89	5ADD	rlc     Res
+0B8A	5ADE	rlc     _DataSave_2
+0B8B	5ADF	rlc     high
+0B8C	5AE0	rlc     mid
+0B8D	5AE5	rlc     _TouchFun_2[2]
+0B8E	5AE6	rlc     _TouchFun_2[3]
+0B8F	5AE7	rlc     _TouchFun_2[4]
+0B90	5AE8	rlc     _TouchFun_2[5]
+0B91	4765	mov     a, _TouchFun_2[2]
+0B92	4261	sub     a, _SunControl_2
+0B93	4766	mov     a, _TouchFun_2[3]
+0B94	5262	sbc     a, _SunControl_2[1]
+0B95	4767	mov     a, _TouchFun_2[4]
+0B96	5263	sbc     a, _TouchFun_2
+0B97	4768	mov     a, _TouchFun_2[5]
+0B98	5264	sbc     a, _TouchFun_2[1]
+0B99	380A	snz     C
+0B9A	6BA8	jmp     L0BA8
+0B9B	4765	mov     a, _TouchFun_2[2]
+0B9C	4261	sub     a, _SunControl_2
+0B9D	40E5	mov     _TouchFun_2[2], a
+0B9E	4766	mov     a, _TouchFun_2[3]
+0B9F	5262	sbc     a, _SunControl_2[1]
+0BA0	40E6	mov     _TouchFun_2[3], a
+0BA1	4767	mov     a, _TouchFun_2[4]
+0BA2	5263	sbc     a, _TouchFun_2
+0BA3	40E7	mov     _TouchFun_2[4], a
+0BA4	4768	mov     a, _TouchFun_2[5]
+0BA5	5264	sbc     a, _TouchFun_2[1]
+0BA6	40E8	mov     _TouchFun_2[5], a
+0BA7	54DD	inc     Res
+				L0BA8:
+0BA8	57EA	sdz     _TouchFun_2[7]
+0BA9	6B88	jmp     L0B88
+0BAA	7869	snz     _TouchFun_2[6].0
+0BAB	6BB7	jmp     L0BB7
+0BAC	41E5	cpl     _TouchFun_2[2]
+0BAD	41E6	cpl     _TouchFun_2[3]
+0BAE	41E7	cpl     _TouchFun_2[4]
+0BAF	41E8	cpl     _TouchFun_2[5]
+0BB0	54E5	inc     _TouchFun_2[2]
+0BB1	3D0A	sz      Z
+0BB2	54E6	inc     _TouchFun_2[3]
+0BB3	3D0A	sz      Z
+0BB4	54E7	inc     _TouchFun_2[4]
+0BB5	3D0A	sz      Z
+0BB6	54E8	inc     _TouchFun_2[5]
+				L0BB7:
+0BB7	78E9	snz     _TouchFun_2[6].1
+0BB8	6BC4	jmp     L0BC4
+0BB9	41DD	cpl     Res
+0BBA	41DE	cpl     _DataSave_2
+0BBB	41DF	cpl     high
+0BBC	41E0	cpl     mid
+0BBD	54DD	inc     Res
+0BBE	3D0A	sz      Z
+0BBF	54DE	inc     _DataSave_2
+0BC0	3D0A	sz      Z
+0BC1	54DF	inc     high
+0BC2	3D0A	sz      Z
+0BC3	54E0	inc     mid
+				L0BC4:
+0BC4	0003	ret
+				L0BC5:
+0BC5	5F5F	clr     high
+0BC6	0F08	mov     a, 8H
+0BC7	40E1	mov     _SunControl_2, a
+				L0BC8:
+0BC8	340A	clr     C
+0BC9	5ADD	rlc     Res
+0BCA	5ADF	rlc     high
+0BCB	475F	mov     a, high
+0BCC	425E	sub     a, _DataSave_2
+0BCD	380A	snz     C
+0BCE	6BD3	jmp     L0BD3
+0BCF	475F	mov     a, high
+0BD0	425E	sub     a, _DataSave_2
+0BD1	40DF	mov     high, a
+0BD2	54DD	inc     Res
+				L0BD3:
+0BD3	57E1	sdz     _SunControl_2
+0BD4	6BC8	jmp     L0BC8
+0BD5	7C60	sz      mid.0
+0BD6	41DF	cpl     high
+0BD7	7C60	sz      mid.0
+0BD8	54DF	inc     high
+0BD9	7CE0	sz      mid.1
+0BDA	41DD	cpl     Res
+0BDB	7CE0	sz      mid.1
+0BDC	54DD	inc     Res
+0BDD	0003	ret
+				L0BDE:
+0BDE	1483	inc     MP1
+0BDF	3D0A	sz      Z
+0BE0	1481	inc     MP0
+				L0BE1:
+0BE1	3F81	sz      MP0.7
+0BE2	6BE7	jmp     L0BE7
+0BE3	0701	mov     a, MP0
+0BE4	0084	mov     BP, a
+0BE5	0702	mov     a, [02H]
+0BE6	0003	ret
+				L0BE7:
+0BE7	1B01	rrca    MP0
+0BE8	0E3F	and     a, 3FH
+0BE9	0089	mov     TBHP, a
+0BEA	1B03	rrca    MP1
+0BEB	0087	mov     TBLP, a
+0BEC	1D05	tabrd   ACC
+0BED	3C0A	sz      C
+0BEE	0708	mov     a, TBLH
+0BEF	0003	ret
+				;570		 }  
+				;571	}
+				;572	
+				;file E:\MyWork\Sun\HTK_Project\Sun_test1\Sun_touch\LEDX4_V16\LEDX4_V16.h
 				;1	/*************************************************************************************************************************
 				;2	 * Created by: Holtek Touch MCU Workshop, Version 3.5.0.0
 				;3	 * LEDX4_V16.H
@@ -3689,125 +3726,12 @@
 				;33	#define KeyRelease      0
 				;34	#define KeySitchON      1
 				;35	#define KeySitchOFF     0
-				;36	
+				;36	volatile unsigned char KeyPressFlag;//0 有人 ，1 没人
 				;37	
 				;38	volatile unsigned char KeySwitchStatus ;
 				;39	volatile unsigned char KeyCount ;
 				;40	volatile unsigned char KeyCountOpenflag ;
-				;41	const unsigned short TempForm[]={	1673, 1589, 1509, 1434, 1363, 1295, 1232, 1172, 1115, 1061, 
-0501	0689	andm    a, TBHP
-0502	0635	and     a, PD
-0503	05E5	orm     a, __pdpu[46]
-0504	059A	orm     a, WDTC
-0505	0553	or      a, TKM1C1
-0506	050F	or      a, INTC1
-0507	04D0	xorm    a, TKM1ROL
-0508	0494	xorm    a, PA
-0509	045B	xor     a, __pdpu[36]
-050A	0425	xor     a, SIMC1
-050B	03F2	addm    a, __pdpu[59]
-050C	03C2	addm    a, __pdpu[11]
-050D	0395	addm    a, PAC
-050E	0369	add     a, __pdpu[50]
-050F	0341	add     a, __pdpu[10]
-0510	031A	add     a, WDTC
-0511	02F5	subm    a, __pdpu[62]
-0512	02D2	subm    a, TKM1C0
-0513	02B1	subm    a, ADCR1
-0514	0292	subm    a, __intc0[4]
-0515	0274	sub     a, __pdpu[61]
-0516	0258	sub     a, __pdpu[33]
-0517	023D	sub     a, __pdpu[6]
-0518	0223	sub     a, I2CTOC
-0519	020B	sub     a, SMOD
-051A	01F4	cpl     __pdpu[61]
-051B	01DE	cpl     __pdpu[39]
-051C	01C9	cpl     TKM016DH
-051D	01B5	cpl     PD
-051E	01A3	cpl     I2CTOC
-051F	0191	cpl     __intc0[3]
-0520	0180	cpl     [00H]
-0521	016F	cpla    __pdpu[56]
-0522	0160	cpla    __pdpu[41]
-0523	0151	cpla    TKM1ROH
-0524	0143	cpla    TKTMR
-0525	0136	cpla    PDC
-0526	0129	cpla    __pbpu[7]
-0527	011D	cpla    TMRC
-0528	0111	cpla    __intc0[3]
-0529	0106	cpla    PCL
-052A	00FB	mov     __pdpu[68], a
-052B	00F1	mov     __pdpu[58], a
-052C	00E7	mov     __pdpu[48], a
-052D	00DE	mov     __pdpu[39], a
-052E	00D5	mov     __pdpu[30], a
-052F	00CD	mov     TKM0C1, a
-0530	00C5	mov     TK16DL, a
-0531	00BD	mov     __pdpu[6], a
-0532	00B6	mov     PDC, a
-0533	00AF	mov     ADRH, a
-0534	00A8	mov     __pbpu[6], a
-0535	00A2	mov     PBPU, a
-0536	009B	mov     TBC, a
-0537	0096	mov     PAPU, a
-0538	0090	mov     __intc0[2], a
-0539	008B	mov     SMOD, a
-053A	0085	mov     ACC, a
-053B	0080	mov     [00H], a
-053C	007C	dc	0007CH
-053D	0077	dc	00077H
-053E	0073	dc	00073H
-053F	006F	dc	0006FH
-0540	006B	dc	0006BH
-0541	0067	dc	00067H
-0542	0063	dc	00063H
-0543	005F	dc	0005FH
-0544	005C	dc	0005CH
-0545	0059	dc	00059H
-0546	0056	dc	00056H
-0547	0053	dc	00053H
-0548	0050	dc	00050H
-0549	004D	dc	0004DH
-054A	004A	dc	0004AH
-054B	0048	dc	00048H
-054C	0045	dc	00045H
-054D	0043	dc	00043H
-054E	0041	dc	00041H
-054F	003E	dc	0003EH
-0550	003C	dc	0003CH
-0551	003A	dc	0003AH
-0552	0038	dc	00038H
-0553	0036	dc	00036H
-0554	0035	dc	00035H
-0555	0033	dc	00033H
-0556	0031	dc	00031H
-0557	0030	dc	00030H
-0558	002E	dc	0002EH
-0559	002D	dc	0002DH
-055A	002B	dc	0002BH
-055B	002A	dc	0002AH
-055C	0028	dc	00028H
-055D	0027	dc	00027H
-055E	0026	dc	00026H
-055F	0025	dc	00025H
-0560	0024	dc	00024H
-0561	0022	dc	00022H
-0562	0021	dc	00021H
-0563	0020	dc	00020H
-0564	001F	dc	0001FH
-0565	001E	dc	0001EH
-				@ROMDATA_BASE .SECTION 'CODE'
-				@ROMDATA_BASE .SECTION 'CODE'
-				@ROMDATA_BASE .SECTION 'CODE'
-				@ROMDATA_BASE .SECTION 'CODE'
-0566	0004	reti
-0567	0085	mov     ACC, a
-0568	0000	nop
-0569	0000	nop
-056A	0000	nop
-056B	0046	dc	00046H
-056C	0089	mov     TBHP, a
-056D	0000	nop
+				;41	/*const unsigned short TempForm[]={	1673, 1589, 1509, 1434, 1363, 1295, 1232, 1172, 1115, 1061, 
 				;42										1010, 962, 917, 873, 833, 794, 757, 722, 689, 658, 
 				;43										628, 600, 573, 547, 523, 500, 478, 457, 437, 419, 
 				;44										401, 384, 367, 352, 337, 323, 310, 297, 285, 273, 
@@ -3818,53 +3742,180 @@
 				;49										58, 56, 54, 53, 51, 49, 48, 46, 45, 43, 
 				;50										42, 40, 39, 38, 37, 36, 34, 33, 32, 31, 
 				;51										30 };
-				;52	//TIM1628
-				;53	#define CLK1_C 	_pac7
-				;54	#define CLK1 	_pa7
-				;55	#define DIO1_C 	_pac4
-				;56	#define DIO1 	_pa4
-				;57	#define STB1_C 	_pdc1
-				;58	#define STB1 	_pd1
-				;59	//adc relay
-				;60	#define Relay_HEAT_C    _pac0//加热
-				;61	#define Relay_HEAT    	_pa0//加热
-				;62	#define Relay_PV_C   	_pac2//光伏
-				;63	#define Relay_PV    	_pa2//光伏
-				;64	#define RelayHeatOpen   _pa0 = 1;//
-				;65	#define RelayHeatClose  _pa0 = 0;//
-				;66	#define RelayPVOpen    	_pa2 = 0;//
-				;67	#define RelayPVClose    _pa2 = 1;//
-				;68	//去除显示
-				;69	#define ND_ERROR 	   	display16(0xcc,0x0010); 
-				;70	//显示
-				;71	#define D_PV() 			C8Value = 0x10;///display16(0xc8,0 , 0x0010);
-				;72	#define ND_PV() 		C8Value = 0x00;///display16(0xc8,0 , 0x0010);	
-				;73	#define D_WarmKeep()	C8Value2 = 0x20;//display16(0xc8,x,0);		
-				;74	#define ND_WarmKeep()	C8Value2 = 0x00;//display16(0xc8,x,0);	
-				;75	#define D_Heat() 		CaValue = 0x10;// display16(0xca,0 , 0x1000);
-				;76	#define ND_Heat() 		CaValue = 0x00;//display16(0xca,0 , 0x0000);
-				;77	#define D_ERROR() 	   	display16(0xcc,0); 
-				;78	
-				;79	
-				;80	#define D_NUM1(x) display16(0xc0,x);
-				;81	#define D_NUM2(x) display16(0xc4,x);
-				;82	#define D_NUM3(x) display16(0xc8,x);
-				;83	#define D_NUM4(x) display16(0xca,x);
-				;84	// #define D_E2 display16(0xc0,0x0e,0);display16(0xc4,0x02,0);
-				;85	#define D_E2 C_Display = 0;display16(0xc0,0x0e);display16(0xc4,0x02);	display16(0xcc,0x10); 
-				;86	// #define D_E1 display16(0xc0,0x0e,0);display16(0xc4,0x01,0);
-				;87	#define D_E1 C_Display = 0;display16(0xc0,0x0e);display16(0xc4,0x01);	display16(0xcc,0x10); 
-				;88	
-				;89	volatile unsigned char C8Value ;//用与光伏  
-				;90	volatile unsigned char C8Value2 ;//用与  保温 
-				;91	volatile unsigned char CaValue ;
-				;92	volatile unsigned char C_Display;//C c显示
-				;93	volatile unsigned char KeyFirstPressFlag ;
-				;94	//volatile unsigned char CCValue = 0;
-				;95	
-				;96	volatile unsigned char BarNum 		;
-				;97	volatile unsigned short BarTimerCount ;
-				;98	short const CODE[]={ 0x0387,0x0180,0x030B,0x0389,0x018C,0x028D,0x028F,0x0380,0x038F,0x038D,\
+				;52	*/									
+				;53	//
+				;54	const unsigned short TempForm[]={ 	1630, 1549, 1473, 1401, 1333, 1268, 1208, 1150, 1095, 1044, 
+0501	065E	and     a, __pdpu[39]
+0502	060D	and     a, INTEG
+0503	05C1	orm     a, __pdpu[10]
+0504	0579	or      a, __pdpu[66]
+0505	0535	or      a, PD
+0506	04F4	xorm    a, __pdpu[61]
+0507	04B8	xorm    a, __pdpu[1]
+0508	047E	xor     a, __pdpu[71]
+0509	0447	xor     a, TKC1
+050A	0414	xor     a, PA
+050B	03E3	addm    a, __pdpu[44]
+050C	03B4	addm    a, __acerl[2]
+050D	0388	addm    a, TBLH
+050E	035F	add     a, __pdpu[40]
+050F	0337	add     a, PDPU
+0510	0312	add     a, __intc0[4]
+0511	02EE	subm    a, __pdpu[55]
+0512	02CC	subm    a, TKM0C0
+0513	02AC	subm    a, __pbpu[10]
+0514	028E	subm    a, INTC0
+0515	0271	sub     a, __pdpu[58]
+0516	0255	sub     a, __pdpu[30]
+0517	023B	sub     a, __pdpu[4]
+0518	0222	sub     a, PBPU
+0519	020A	sub     a, STATUS
+051A	01F4	cpl     __pdpu[61]
+051B	01DF	cpl     __pdpu[40]
+051C	01CA	cpl     TKM0ROL
+051D	01B7	cpl     PDPU
+051E	01A4	cpl     SIMC0
+051F	0193	cpl     LVRC
+0520	0182	cpl     [02H]
+0521	0172	cpla    __pdpu[59]
+0522	0163	cpla    __pdpu[44]
+0523	0154	cpla    __pdpu[29]
+0524	0146	cpla    TK16DH
+0525	0139	cpla    __pdpu[2]
+0526	012C	cpla    __pbpu[10]
+0527	0120	cpla    PB
+0528	0115	cpla    PAC
+0529	010A	cpla    STATUS
+052A	00FF	mov     __pdpu[72], a
+052B	00F5	mov     __pdpu[62], a
+052C	00EC	mov     __pdpu[53], a
+052D	00E3	mov     __pdpu[44], a
+052E	00DA	mov     __pdpu[35], a
+052F	00D1	mov     TKM1ROH, a
+0530	00C9	mov     TKM016DH, a
+0531	00C2	mov     __pdpu[11], a
+0532	00BA	mov     __pdpu[3], a
+0533	00B3	mov     __acerl[1], a
+0534	00AD	mov     __pbpu[11], a
+0535	00A6	mov     SIMD, a
+0536	00A0	mov     PB, a
+0537	009A	mov     WDTC, a
+0538	0095	mov     PAC, a
+0539	008F	mov     INTC1, a
+053A	008A	mov     STATUS, a
+053B	0085	mov     ACC, a
+053C	0080	mov     [00H], a
+053D	007B	dc	0007BH
+053E	0077	dc	00077H
+053F	0073	dc	00073H
+0540	006F	dc	0006FH
+0541	006B	dc	0006BH
+0542	0067	dc	00067H
+0543	0064	dc	00064H
+0544	0060	dc	00060H
+0545	005D	dc	0005DH
+0546	005A	dc	0005AH
+0547	0057	dc	00057H
+0548	0054	dc	00054H
+0549	0051	dc	00051H
+054A	004E	dc	0004EH
+054B	004B	dc	0004BH
+054C	0049	dc	00049H
+054D	0047	dc	00047H
+054E	0044	dc	00044H
+054F	0042	dc	00042H
+0550	0040	dc	00040H
+0551	003E	dc	0003EH
+0552	003C	dc	0003CH
+0553	003A	dc	0003AH
+0554	0038	dc	00038H
+0555	0036	dc	00036H
+0556	0034	dc	00034H
+0557	0033	dc	00033H
+0558	0031	dc	00031H
+0559	0030	dc	00030H
+055A	002E	dc	0002EH
+055B	002D	dc	0002DH
+055C	002B	dc	0002BH
+055D	002A	dc	0002AH
+055E	0029	dc	00029H
+055F	0027	dc	00027H
+0560	0026	dc	00026H
+0561	0025	dc	00025H
+0562	0024	dc	00024H
+0563	0023	dc	00023H
+0564	0022	dc	00022H
+0565	0021	dc	00021H
+				@ROMDATA_BASE .SECTION 'CODE'
+				@ROMDATA_BASE .SECTION 'CODE'
+				@ROMDATA_BASE .SECTION 'CODE'
+				@ROMDATA_BASE .SECTION 'CODE'
+0566	0004	reti
+0567	0085	mov     ACC, a
+0568	0000	nop
+0569	0000	nop
+056A	0000	nop
+056B	004B	dc	0004BH
+056C	0089	mov     TBHP, a
+056D	0000	nop
+				;55										995, 948, 904, 863, 823, 786, 750, 716, 684, 654, 
+				;56										625, 597, 571, 546, 522, 500, 479, 458, 439, 420, 
+				;57										403, 386, 370, 355, 340, 326, 313, 300, 288, 277, 
+				;58										266, 255, 245, 236, 227, 218, 209, 201, 194, 186, 
+				;59										179, 173, 166, 160, 154, 149, 143, 138, 133, 128, 
+				;60										123, 119, 115, 111, 107, 103, 100, 96, 93, 90, 
+				;61										87, 84, 81, 78, 75, 73, 71, 68, 66, 64, 
+				;62										62, 60, 58, 56, 54, 52, 51, 49, 48, 46, 
+				;63										45, 43, 42, 41, 39, 38, 37, 36, 35, 34, 
+				;64										33};
+				;65										
+				;66	//TIM1628
+				;67	#define CLK1_C 	_pac7
+				;68	#define CLK1 	_pa7
+				;69	#define DIO1_C 	_pac4
+				;70	#define DIO1 	_pa4
+				;71	#define STB1_C 	_pdc1
+				;72	#define STB1 	_pd1
+				;73	//adc relay
+				;74	#define Relay_HEAT_C    _pac0//加热
+				;75	#define Relay_HEAT    	_pa0//加热
+				;76	#define Relay_PV_C   	_pac2//光伏
+				;77	#define Relay_PV    	_pa2//光伏
+				;78	#define RelayHeatOpen   _pa0 = 1;//
+				;79	#define RelayHeatClose  _pa0 = 0;//
+				;80	#define RelayPVOpen    	_pa2 = 0;//
+				;81	#define RelayPVClose    _pa2 = 1;//
+				;82	//去除显示
+				;83	#define ND_ERROR 	   	display16(0xcc,0x0010); 
+				;84	//显示
+				;85	#define D_PV() 			C8Value = 0x10;///display16(0xc8,0 , 0x0010);
+				;86	#define ND_PV() 		C8Value = 0x00;///display16(0xc8,0 , 0x0010);	
+				;87	#define D_WarmKeep()	C8Value2 = 0x20;//display16(0xc8,x,0);		
+				;88	#define ND_WarmKeep()	C8Value2 = 0x00;//display16(0xc8,x,0);	
+				;89	#define D_Heat() 		CaValue = 0x10;// display16(0xca,0 , 0x1000);
+				;90	#define ND_Heat() 		CaValue = 0x00;//display16(0xca,0 , 0x0000);
+				;91	#define D_ERROR() 	   	display16(0xcc,0); 
+				;92	
+				;93	
+				;94	#define D_NUM1(x) display16(0xc0,x);
+				;95	#define D_NUM2(x) display16(0xc4,x);
+				;96	#define D_NUM3(x) display16(0xc8,x);
+				;97	#define D_NUM4(x) display16(0xca,x);
+				;98	// #define D_E2 display16(0xc0,0x0e,0);display16(0xc4,0x02,0);
+				;99	#define D_E2 C_Display = 0;display16(0xc0,0x0e);display16(0xc4,0x02);	display16(0xcc,0x10); 
+				;100	// #define D_E1 display16(0xc0,0x0e,0);display16(0xc4,0x01,0);
+				;101	#define D_E1 C_Display = 0;display16(0xc0,0x0e);display16(0xc4,0x01);	display16(0xcc,0x10); 
+				;102	
+				;103	volatile unsigned char C8Value ;//用与光伏  
+				;104	volatile unsigned char C8Value2 ;//用与  保温 
+				;105	volatile unsigned char CaValue ;
+				;106	volatile unsigned char C_Display;//C c显示
+				;107	volatile unsigned char KeyFirstPressFlag ;
+				;108	//volatile unsigned char CCValue = 0;
+				;109	
+				;110	volatile unsigned char BarNum 		;
+				;111	volatile unsigned short BarTimerCount ;
+				;112	short const CODE[]={ 0x0387,0x0180,0x030B,0x0389,0x018C,0x028D,0x028F,0x0380,0x038F,0x038D,\
 04F0	0387	addm    a, TBLP
 04F1	0180	cpl     [00H]
 04F2	030B	add     a, SMOD
@@ -3882,146 +3933,147 @@
 04FE	020F	sub     a, INTC1
 04FF	020E	sub     a, INTC0
 0500	0000	nop
-				;99	0x038E,0x008F,0x0207,0x018B,0x020F,0x020E,0x0000}; //数码管0-F的编码  
-				;100	//a     b      c     d     e      f       
-				;101	volatile unsigned char BarDisplayNum1 ;
-				;102	volatile unsigned char BarDisplayNum2 ;
-				;103	volatile unsigned char BarDisplayNum3 ;
-				;104	volatile unsigned char BarDisplayNum4 ;
-				;105	
-				;106	#define Temp_Num1  Temp_Num1_H*10 + Temp_Num1_L
-				;107	volatile unsigned char Temp_Num1_L;//预设值
-				;108	volatile unsigned char Temp_Num1_H;
-				;109	#define Temp_Num2  Temp_Num2_H*10 + Temp_Num2_L
-				;110	volatile unsigned char Temp_Num2_L ;
-				;111	volatile unsigned char Temp_Num2_H ;
-				;112	volatile unsigned char KeyStatus ;
-				;113	
-				;114	
-				;115	
-				;116	//Timer
-				;117	#define Open        1
-				;118	#define Close       0
+				;113	0x038E,0x008F,0x0207,0x018B,0x020F,0x020E,0x0000}; //数码管0-F的编码  
+				;114	//a     b      c     d     e      f       
+				;115	volatile unsigned char BarDisplayNum1 ;
+				;116	volatile unsigned char BarDisplayNum2 ;
+				;117	volatile unsigned char BarDisplayNum3 ;
+				;118	volatile unsigned char BarDisplayNum4 ;
 				;119	
-				;120	volatile unsigned long 		timerCountSet ;
-				;121	//volatile unsigned char 	timerVoerFlag = 0;
-				;122	volatile unsigned long 		timerCount ;
-				;123	// volatile unsigned int  		timerBaseCount = 0;
-				;124	
-				;125	volatile unsigned char 		timerFlag ;
-				;126	
-				;127	volatile unsigned char 		timer3sFlag ;//switch on/off 3s检查标记
-				;128	volatile unsigned char 		timer1hourFlag;//HeatOpen 1 hour 检查标记
+				;120	#define Temp_Num1  Temp_Num1_H*10 + Temp_Num1_L
+				;121	volatile unsigned char Temp_Num1_L;//预设值
+				;122	volatile unsigned char Temp_Num1_H;
+				;123	#define Temp_Num2  Temp_Num2_H*10 + Temp_Num2_L
+				;124	volatile unsigned char Temp_Num2_L ;
+				;125	volatile unsigned char Temp_Num2_H ;
+				;126	volatile unsigned char KeyStatus ;
+				;127	
+				;128	
 				;129	
-				;130	
-				;131	#define  TimerOpen	_ton = 1;	
-				;132	#define	 TimerClose _ton = 0;
-				;133	// 红外
-				;134	#define IR_Out  	_pb5//对应红外引脚输入
-				;135	#define Delay1us  	GCC_DELAY(2) 
-				;136	#define Delay1ms  	GCC_DELAY(2000) 
-				;137	#define Delay800us  GCC_DELAY(1600) 
-				;138	#define Delay1150us GCC_DELAY(2300) 
-				;139	#define Delay2272us GCC_DELAY(4544) 
+				;130	//Timer
+				;131	#define Open        1
+				;132	#define Close       0
+				;133	
+				;134	volatile unsigned long 		timerCountSet ;
+				;135	//volatile unsigned char 	timerVoerFlag = 0;
+				;136	volatile unsigned long 		timerCount ;
+				;137	// volatile unsigned int  		timerBaseCount = 0;
+				;138	
+				;139	volatile unsigned char 		timerFlag ;
 				;140	
-				;141	
-				;142	volatile unsigned long 	IRCount ;
+				;141	volatile unsigned char 		timer3sFlag ;//switch on/off 3s检查标记
+				;142	volatile unsigned char 		timer1hourFlag;//HeatOpen 1 hour 检查标记
 				;143	
 				;144	
-				;145	
-				;146	volatile unsigned char _datasave[4] = {};
-				;147	volatile unsigned char StartFlag ;
-				;148	volatile unsigned char BOOT_REPEATING_CODE_Flag ;  
-				;149	//人体感应
-				;150	#define PersonCheck_C 	_pdc7//对应红外引脚输入
-				;151	#define PersonCheck 	_pd7//对应红外引脚输入
-				;152	volatile char NoneFlag;//0 有人 ，1 没人
-				;153	volatile char PersonCheckDisable;//0 红外缺失  1 红外还在
-				;154	volatile short personTimerCount;
+				;145	#define  TimerOpen	_ton = 1;	
+				;146	#define	 TimerClose _ton = 0;
+				;147	// 红外
+				;148	#define IR_Out  	_pb5//对应红外引脚输入
+				;149	#define Delay1us  	GCC_DELAY(2) 
+				;150	#define Delay1ms  	GCC_DELAY(2000) 
+				;151	#define Delay800us  GCC_DELAY(1600) 
+				;152	#define Delay1150us GCC_DELAY(2300) 
+				;153	#define Delay2272us GCC_DELAY(4544) 
+				;154	
 				;155	
-				;156	volatile unsigned long NoneTimerCount;
+				;156	volatile unsigned long 	IRCount ;
 				;157	
 				;158	
 				;159	
-				;160	
-				;161	
-				;162	
-				;163	
-				;164	//Warning
-				;165	volatile unsigned char E2WaringFlag ;
-				;166	volatile unsigned char E1WaringFlag ;
-				;167	
-				;168	//Adc
-				;169	// volatile float T_value ;
-				;170	volatile unsigned char T_valueGet ;
-				;171	
-				;172	volatile unsigned int dat;
+				;160	volatile unsigned char _datasave[4] = {};
+				;161	volatile unsigned char StartFlag ;
+				;162	volatile unsigned char BOOT_REPEATING_CODE_Flag ;  
+				;163	//人体感应
+				;164	#define PersonCheck_C 	_pdc7//对应红外引脚输入
+				;165	#define PersonCheck 	_pd7//对应红外引脚输入
+				;166	volatile char NoneFlag;//0 有人 ，1 没人
+				;167	volatile char PersonCheckDisable;//0 红外缺失  1 红外还在
+				;168	volatile short personTimerCount;
+				;169	
+				;170	volatile unsigned long NoneTimerCount;
+				;171	volatile unsigned long NoneErrorTimerCount;//屏幕开启后的关闭
+				;172	
 				;173	
-				;174	volatile unsigned long T_value ;//电阻阻值 
-				;175	volatile unsigned long R_value ;//电阻阻值 
-				;176	volatile unsigned long R_valueSum ;//电阻阻值 
-				;177	volatile unsigned short ADCCount ;//电阻阻值 
-				;178	volatile unsigned char ADCCompleteFlag ;//电阻阻值 
-				;179	volatile unsigned int intTemp1 ;//电阻阻值 
-				;180	// volatile unsigned int intTemp2 ;//电阻阻值 
-				;181	// volatile unsigned int intTemp3 ;//电阻阻值 
-				;182	// volatile unsigned long longTemp1 ;//电阻阻值 
-				;183	// volatile unsigned long longTemp2 ;//电阻阻值 
-				;184	// volatile unsigned long longTemp3 ;//电阻阻值 
-				;185	// volatile unsigned long longTemp4 ;//电阻阻值 
+				;174	
+				;175	
+				;176	
+				;177	
+				;178	
+				;179	//Warning
+				;180	volatile unsigned char E2WaringFlag ;
+				;181	volatile unsigned char E1WaringFlag ;
+				;182	
+				;183	//Adc
+				;184	// volatile float T_value ;
+				;185	volatile unsigned char T_valueGet ;
 				;186	
-				;187	// const unsigned char R = 20;	 //串联电阻阻值
-				;188	// const float a = 0.001021;
-				;189	// const float b = -0.3775;
-				;190	// const float c = 32.69;
-				;191	// const float d = 481.3;
-				;192	// const float e = -1428;
-				;193	// const unsigned short f = 1838;
-				;194	// volatile float a ;
-				;195	// volatile float b ;
-				;196	// volatile float c ;
-				;197	// volatile float d ;
-				;198	// volatile float e ;
-				;199	// volatile unsigned short f ;
-				;200	//	R_value = 33;//预设值，待修改
-				;201	// 加热
-				;202	// volatile unsigned char RelayHeatFlag = 0;
-				;203	
-				;204	//
-				;205	#define StatusIdle			0 
-				;206	#define StatusSwitchON		1
-				;207	#define StatusSwitchOFF		2
-				;208	#define StatusHeatOpen		3
-				;209	#define StatusHeatcontinue	4
-				;210	#define StatusWarmHold 		5
-				;211	#define StatusHeatComplete	6
-				;212	#define StatusE1			7
-				;213	#define StatusE2			8
-				;214	// #define StatusIdle 			5
-				;215	volatile unsigned char ControlFlag ;
-				;216	void TimerSetFun( unsigned long TimerCsountValieSet );
-				;217	void SunControl(void);
-				;218	void NoPersonCheckFun(void);
-				;219	
-				;220	// #define TimerSetFun(x)	TimerClose;\
-				;221						// timerCount = 0;\
-				;222						// timerCountSet = x;\
-				;223						// TimerOpen;\
-				;224						// timerFlag = Open;
-				;225	
-				;226	
-				;227	/*				
-				;228						timerCount = 0; //定时器计数清零
-				;229						timerCountSet = 2000;//鸣笛定时 3s  //计数量设置
-				;230						TimerOpen;//定时器打开
-				;231						timerFlag = Open; //定时器 标记 开始	
-				;232	
-				;233	*/
+				;187	volatile unsigned int dat;
+				;188	
+				;189	volatile unsigned long T_value ;//电阻阻值 
+				;190	volatile unsigned long R_value ;//电阻阻值 
+				;191	volatile unsigned long R_valueSum ;//电阻阻值 
+				;192	volatile unsigned short ADCCount ;//电阻阻值 
+				;193	volatile unsigned char ADCCompleteFlag ;//电阻阻值 
+				;194	volatile unsigned int intTemp1 ;//电阻阻值 
+				;195	// volatile unsigned int intTemp2 ;//电阻阻值 
+				;196	// volatile unsigned int intTemp3 ;//电阻阻值 
+				;197	// volatile unsigned long longTemp1 ;//电阻阻值 
+				;198	// volatile unsigned long longTemp2 ;//电阻阻值 
+				;199	// volatile unsigned long longTemp3 ;//电阻阻值 
+				;200	// volatile unsigned long longTemp4 ;//电阻阻值 
+				;201	
+				;202	// const unsigned char R = 20;	 //串联电阻阻值
+				;203	// const float a = 0.001021;
+				;204	// const float b = -0.3775;
+				;205	// const float c = 32.69;
+				;206	// const float d = 481.3;
+				;207	// const float e = -1428;
+				;208	// const unsigned short f = 1838;
+				;209	// volatile float a ;
+				;210	// volatile float b ;
+				;211	// volatile float c ;
+				;212	// volatile float d ;
+				;213	// volatile float e ;
+				;214	// volatile unsigned short f ;
+				;215	//	R_value = 33;//预设值，待修改
+				;216	// 加热
+				;217	// volatile unsigned char RelayHeatFlag = 0;
+				;218	
+				;219	//
+				;220	#define StatusIdle			0 
+				;221	#define StatusSwitchON		1
+				;222	#define StatusSwitchOFF		2
+				;223	#define StatusHeatOpen		3
+				;224	#define StatusHeatcontinue	4
+				;225	#define StatusWarmHold 		5
+				;226	#define StatusHeatComplete	6
+				;227	#define StatusE1			7
+				;228	#define StatusE2			8
+				;229	// #define StatusIdle 			5
+				;230	volatile unsigned char ControlFlag ;
+				;231	void TimerSetFun( unsigned long TimerCsountValieSet );
+				;232	void SunControl(void);
+				;233	void NoPersonCheckFun(void);
 				;234	
-				;235	
-				;236	
-				;237	
-				;file D:\Users\HOLDMC\Desktop\Sun_touch\LEDX4_V16\Src\TIM1628.c
+				;235	// #define TimerSetFun(x)	TimerClose;\
+				;236						// timerCount = 0;\
+				;237						// timerCountSet = x;\
+				;238						// TimerOpen;\
+				;239						// timerFlag = Open;
+				;240	
+				;241	
+				;242	/*				
+				;243						timerCount = 0; //定时器计数清零
+				;244						timerCountSet = 2000;//鸣笛定时 3s  //计数量设置
+				;245						TimerOpen;//定时器打开
+				;246						timerFlag = Open; //定时器 标记 开始	
+				;247	
+				;248	*/
+				;249	
+				;250	
+				;251	
+				;252	
+				;file E:\MyWork\Sun\HTK_Project\Sun_test1\Sun_touch\LEDX4_V16\Src\TIM1628.c
 				;1	/*****************************
 				;2	
 				;3		TM1628
@@ -4033,15 +4085,15 @@
 				;9	{ 
 				_send_8bit:
 				_send_8bit:
-056E	40D8	mov     dat[0], a
+056E	40DD	mov     dat[0], a
 056F	0F08	mov     a, 8H
-0570	40CF	mov     ra, a
+0570	40D4	mov     ra, a
 				;10	  	unsigned char i; 
 				;11		for(i=0;i<8;i++) 
 				;12	   	{ 
 				;13			if(dat&0x01)
 				L0571:
-0571	7858	snz     dat[0].0
+0571	785D	snz     dat[0].0
 0572	2D75	jmp     L0575
 				;14				DIO1=1; 
 0573	3214	set     PA4
@@ -4059,8 +4111,8 @@
 				;20	
 				;21	    	dat=dat>>1; 
 0578	340A	clr     C
-0579	5BD8	rrc     dat[0]
-057A	57CF	sdz     ra
+0579	5BDD	rrc     dat[0]
+057A	57D4	sdz     ra
 057B	2D71	jmp     L0571
 057C	0003	ret
 				;22		} 
@@ -4071,7 +4123,7 @@
 				_send_16bit:
 				_send_16bit:
 057D	0F10	mov     a, 10H
-057E	40CF	mov     ra, a
+057E	40D4	mov     ra, a
 				;27	  	unsigned char i; 
 				;28		// unsigned char value ;
 				;29		// value = dat;
@@ -4083,7 +4135,7 @@
 				;35	   	 { 
 				;36			if(dat&0x01)
 				_L11:
-057F	7858	snz     dat[0].0
+057F	785D	snz     dat[0].0
 0580	2D83	jmp     _L8
 				;37				DIO1=1; 
 0581	3214	set     PA4
@@ -4099,9 +4151,9 @@
 0585	3394	set     PA7
 				;42	    	dat=dat>>1; 
 0586	340A	clr     C
-0587	5BD9	rrc     dat[1]
-0588	5BD8	rrc     dat[0]
-0589	57CF	sdz     ra
+0587	5BDE	rrc     dat[1]
+0588	5BDD	rrc     dat[0]
+0589	57D4	sdz     ra
 058A	2D7F	jmp     _L11
 058B	0003	ret
 				;43		 } 
@@ -4111,13 +4163,13 @@
 				;47	{ 
 				_command:
 				_command:
-058C	40D9	mov     com[0], a
+058C	40DE	mov     com[0], a
 				;48		STB1 = 1; //为低后第一个字节为命令
 058D	30B5	set     PD1
 				;49		STB1 = 0; 
 058E	34B5	clr     PD1
 				;50		send_8bit(com); 
-058F	4759	mov     a, com[0]
+058F	475E	mov     a, com[0]
 0590	256E	call    _send_8bit
 0591	0003	ret
 				;51	}
@@ -4139,17 +4191,17 @@
 0596	0FC0	mov     a, C0H
 0597	258C	call    _command
 0598	0F0A	mov     a, AH
-0599	40DC	mov     _SunControl_2, a
+0599	40E1	mov     _SunControl_2, a
 				;61	  	for(i=0;i<10;i++)    //发送显示数据 
 				;62	  	{ 
 				;63			send_16bit(value);     //从C0H
 				_L15:
-059A	475A	mov     a, value[0]
-059B	40D8	mov     Res, a
-059C	475B	mov     a, value[1]
-059D	40D9	mov     _DataSave_2, a
+059A	475F	mov     a, value[0]
+059B	40DD	mov     Res, a
+059C	4760	mov     a, value[1]
+059D	40DE	mov     _DataSave_2, a
 059E	257D	call    _send_16bit
-059F	57DC	sdz     _SunControl_2
+059F	57E1	sdz     _SunControl_2
 05A0	2D9A	jmp     _L15
 				;64		} 
 				;65		command(0x8F);          //
@@ -4164,7 +4216,7 @@
 				;70	{ 
 				_display16:
 				_display16:
-05A5	40DB	mov     adress[0], a
+05A5	40E0	mov     adress[0], a
 				;71	
 				;72		command(0x03);      	//设置显示模式，7位10段模式  //	2 6位11段 --	//待修改
 05A6	0F03	mov     a, 3H
@@ -4173,22 +4225,22 @@
 05A8	0F40	mov     a, 40H
 05A9	258C	call    _command
 				;74	  	command(adress);      	//设置显示地址，从C0H开始 			//	
-05AA	475B	mov     a, adress[0]
+05AA	4760	mov     a, adress[0]
 05AB	258C	call    _command
 				;75	  	
 				;76		switch ( adress)
-05AC	475B	mov     a, adress[0]
+05AC	4760	mov     a, adress[0]
 05AD	0AC0	sub     a, C0H
 05AE	3D0A	sz      Z
 05AF	2DC3	jmp     L05C3
 05B0	0A04	sub     a, 4H
 05B1	3D0A	sz      Z
 05B2	2DE1	jmp     L05E1
-05B3	475B	mov     a, adress[0]
+05B3	4760	mov     a, adress[0]
 05B4	0AC8	sub     a, C8H
 05B5	3D0A	sz      Z
 05B6	2DFF	jmp     L05FF
-05B7	475B	mov     a, adress[0]
+05B7	4760	mov     a, adress[0]
 05B8	0ACA	sub     a, CAH
 05B9	390A	snz     Z
 05BA	2E1D	jmp     L061D
@@ -4196,126 +4248,126 @@
 				;78			case 0xc0 :
 				;79				send_16bit(CODE[NUM] + BarDisplayNum1 );  			
 				L05C3:
-05C3	475A	mov     a, NUM[0]
-05C4	40D0	mov     rb, a
-05C5	5F51	clr     rc
+05C3	475F	mov     a, NUM[0]
+05C4	40D5	mov     rb, a
+05C5	5F56	clr     rc
 05C6	340A	clr     C
-05C7	5AD0	rlc     rb
-05C8	5AD1	rlc     rc
+05C7	5AD5	rlc     rb
+05C8	5AD6	rlc     rc
 05C9	0FE0	mov     a, E0H
-05CA	4350	add     a, rb
+05CA	4355	add     a, rb
 05CB	0083	mov     MP1, a
 05CC	0F89	mov     a, 89H
-05CD	5351	adc     a, rc
+05CD	5356	adc     a, rc
 05CE	0081	mov     MP0, a
-05CF	63CA	call    L0BCA
-05D0	40DC	mov     _SunControl_2, a
-05D1	63C7	call    L0BC7
-05D2	40DD	mov     _SunControl_2[1], a
-05D3	4742	mov     a, BarDisplayNum1[0]
-05D4	435C	add     a, _SunControl_2
-05D5	40D8	mov     Res, a
+05CF	63E1	call    L0BE1
+05D0	40E1	mov     _SunControl_2, a
+05D1	63DE	call    L0BDE
+05D2	40E2	mov     _SunControl_2[1], a
+05D3	4746	mov     a, BarDisplayNum1[0]
+05D4	4361	add     a, _SunControl_2
+05D5	40DD	mov     Res, a
 05D6	1F05	clr     ACC
-05D7	535D	adc     a, _SunControl_2[1]
-05D8	40D9	mov     _DataSave_2, a
+05D7	5362	adc     a, _SunControl_2[1]
+05D8	40DE	mov     _DataSave_2, a
 05D9	257D	call    _send_16bit
 				;80				// send_16bit(CODE[NUM]);  
 				;81				send_16bit(CODE[NUM] + BarDisplayNum2);  		////加上C加上c	
-05DA	4741	mov     a, BarDisplayNum2[0]
-05DB	435C	add     a, _SunControl_2
-05DC	40D8	mov     Res, a
+05DA	4745	mov     a, BarDisplayNum2[0]
+05DB	4361	add     a, _SunControl_2
+05DC	40DD	mov     Res, a
 05DD	1F05	clr     ACC
-05DE	535D	adc     a, _SunControl_2[1]
-05DF	40D9	mov     _DataSave_2, a
+05DE	5362	adc     a, _SunControl_2[1]
+05DF	40DE	mov     _DataSave_2, a
 05E0	2E20	jmp     L0620
 				;82			break;
 				;83			case 0xc4:
 				;84				send_16bit(CODE[NUM] + BarDisplayNum3);  
 				L05E1:
-05E1	475A	mov     a, NUM[0]
-05E2	40D0	mov     rb, a
-05E3	5F51	clr     rc
+05E1	475F	mov     a, NUM[0]
+05E2	40D5	mov     rb, a
+05E3	5F56	clr     rc
 05E4	340A	clr     C
-05E5	5AD0	rlc     rb
-05E6	5AD1	rlc     rc
+05E5	5AD5	rlc     rb
+05E6	5AD6	rlc     rc
 05E7	0FE0	mov     a, E0H
-05E8	4350	add     a, rb
+05E8	4355	add     a, rb
 05E9	0083	mov     MP1, a
 05EA	0F89	mov     a, 89H
-05EB	5351	adc     a, rc
+05EB	5356	adc     a, rc
 05EC	0081	mov     MP0, a
-05ED	63CA	call    L0BCA
-05EE	40DC	mov     _SunControl_2, a
-05EF	63C7	call    L0BC7
-05F0	40DD	mov     _SunControl_2[1], a
-05F1	4740	mov     a, BarDisplayNum3[0]
-05F2	435C	add     a, _SunControl_2
-05F3	40D8	mov     Res, a
+05ED	63E1	call    L0BE1
+05EE	40E1	mov     _SunControl_2, a
+05EF	63DE	call    L0BDE
+05F0	40E2	mov     _SunControl_2[1], a
+05F1	4744	mov     a, BarDisplayNum3[0]
+05F2	4361	add     a, _SunControl_2
+05F3	40DD	mov     Res, a
 05F4	1F05	clr     ACC
-05F5	535D	adc     a, _SunControl_2[1]
-05F6	40D9	mov     _DataSave_2, a
+05F5	5362	adc     a, _SunControl_2[1]
+05F6	40DE	mov     _DataSave_2, a
 05F7	257D	call    _send_16bit
 				;85				send_16bit(CODE[NUM]+ C_Display);  ////加上C加上c		
-05F8	4747	mov     a, C_Display[0]
-05F9	435C	add     a, _SunControl_2
-05FA	40D8	mov     Res, a
+05F8	474B	mov     a, C_Display[0]
+05F9	4361	add     a, _SunControl_2
+05FA	40DD	mov     Res, a
 05FB	1F05	clr     ACC
-05FC	535D	adc     a, _SunControl_2[1]
-05FD	40D9	mov     _DataSave_2, a
+05FC	5362	adc     a, _SunControl_2[1]
+05FD	40DE	mov     _DataSave_2, a
 05FE	2E20	jmp     L0620
 				;86			break;		
 				;87			case 0xc8:
 				;88				send_16bit(CODE[NUM] + C8Value + C8Value2); 
 				L05FF:
-05FF	474A	mov     a, C8Value[0]
-0600	40D2	mov     rd, a
-0601	5F53	clr     re
-0602	4749	mov     a, C8Value2[0]
-0603	43D2	addm    a, rd
+05FF	474E	mov     a, C8Value[0]
+0600	40D7	mov     rd, a
+0601	5F58	clr     re
+0602	474D	mov     a, C8Value2[0]
+0603	43D7	addm    a, rd
 0604	3C0A	sz      C
-0605	54D3	inc     re
+0605	54D8	inc     re
 				;89			break;			
 				;90			case 0xca:
 				;91				send_16bit(CODE[NUM] + BarDisplayNum4 + CaValue); 
-05BB	473F	mov     a, BarDisplayNum4[0]
-05BC	40D2	mov     rd, a
-05BD	5F53	clr     re
-05BE	4748	mov     a, CaValue[0]
-05BF	43D2	addm    a, rd
+05BB	4743	mov     a, BarDisplayNum4[0]
+05BC	40D7	mov     rd, a
+05BD	5F58	clr     re
+05BE	474C	mov     a, CaValue[0]
+05BF	43D7	addm    a, rd
 05C0	3C0A	sz      C
-05C1	54D3	inc     re
+05C1	54D8	inc     re
 05C2	2E06	jmp     L0606
 				L0606:
-0606	475A	mov     a, NUM[0]
-0607	40D0	mov     rb, a
-0608	5F51	clr     rc
+0606	475F	mov     a, NUM[0]
+0607	40D5	mov     rb, a
+0608	5F56	clr     rc
 0609	340A	clr     C
-060A	5AD0	rlc     rb
-060B	5AD1	rlc     rc
+060A	5AD5	rlc     rb
+060B	5AD6	rlc     rc
 060C	0FE0	mov     a, E0H
-060D	4350	add     a, rb
+060D	4355	add     a, rb
 060E	0083	mov     MP1, a
 060F	0F89	mov     a, 89H
-0610	5351	adc     a, rc
+0610	5356	adc     a, rc
 0611	0081	mov     MP0, a
-0612	63CA	call    L0BCA
-0613	40D0	mov     rb, a
-0614	63C7	call    L0BC7
-0615	40D1	mov     rc, a
-0616	4750	mov     a, rb
-0617	4352	add     a, rd
-0618	40D8	mov     Res, a
-0619	4751	mov     a, rc
-061A	5353	adc     a, re
-061B	40D9	mov     _DataSave_2, a
+0612	63E1	call    L0BE1
+0613	40D5	mov     rb, a
+0614	63DE	call    L0BDE
+0615	40D6	mov     rc, a
+0616	4755	mov     a, rb
+0617	4357	add     a, rd
+0618	40DD	mov     Res, a
+0619	4756	mov     a, rc
+061A	5358	adc     a, re
+061B	40DE	mov     _DataSave_2, a
 061C	2E20	jmp     L0620
 				;92			break;		
 				;93			default:
 				;94				send_16bit(0x0040);  
 				L061D:
 061D	0F40	mov     a, 40H
-061E	40D8	mov     Res, a
-061F	5F59	clr     _DataSave_2
+061E	40DD	mov     Res, a
+061F	5F5E	clr     _DataSave_2
 				L0620:
 0620	257D	call    _send_16bit
 0621	0003	ret
@@ -4327,7 +4379,7 @@
 				;100	{ 
 				_displayTwst:
 				_displayTwst:
-0622	40DC	mov     adress[0], a
+0622	40E1	mov     adress[0], a
 				;101	  	command(0x03);      	//设置显示模式，7位10段模式  //	2 6位11段 --	//待修改
 0623	0F03	mov     a, 3H
 0624	258C	call    _command
@@ -4335,13 +4387,13 @@
 0625	0F40	mov     a, 40H
 0626	258C	call    _command
 				;103	  	command(adress);      	//设置显示地址	
-0627	475C	mov     a, adress[0]
+0627	4761	mov     a, adress[0]
 0628	258C	call    _command
 				;104		send_16bit(test);  		//
-0629	475A	mov     a, test[0]
-062A	40D8	mov     Res, a
-062B	475B	mov     a, test[1]
-062C	40D9	mov     _DataSave_2, a
+0629	475F	mov     a, test[0]
+062A	40DD	mov     Res, a
+062B	4760	mov     a, test[1]
+062C	40DE	mov     _DataSave_2, a
 062D	257D	call    _send_16bit
 				;105		command(0x8F);          //
 062E	0F8F	mov     a, 8FH
@@ -4350,7 +4402,7 @@
 0630	30B5	set     PD1
 0631	0003	ret
 				;107	} 
-				;file D:\Users\HOLDMC\Desktop\Sun_touch\LEDX4_V16\Src\Key.c
+				;file E:\MyWork\Sun\HTK_Project\Sun_test1\Sun_touch\LEDX4_V16\Src\Key.c
 				;1	 /*****************************
 				;2	
 				;3		Touch
@@ -4362,253 +4414,268 @@
 				_KeyDownProcess:
 				_KeyDownProcess:
 0632	3194	set     PA3
-				;9		if(1 == NoneFlag)//无人下
-0633	5728	sdza    NoneFlag[0]
+				;9	//	KeyPressFlag = 1;
+				;10		if(1 == NoneFlag)//无人下
+0633	572C	sdza    NoneFlag[0]
 0634	2E3B	jmp     _L28
-				;10		{
-				;11			if(0 == KeyFirstPressFlag)
-0635	50C6	sz      KeyFirstPressFlag[0]
-0636	2E3B	jmp     _L28
-				;12			{
-				;13				KeyFirstPressFlag = 1;//按键按下标记		
+				;11		{
+				;12			if(0 == KeyFirstPressFlag)
+0635	50CA	sz      KeyFirstPressFlag[0]
+0636	2E3D	jmp     _L29
+				;13			{
+				;14				KeyFirstPressFlag = 1;//按键按下标记		
 0637	0F01	mov     a, 1H
-0638	40C6	mov     KeyFirstPressFlag[0], a
-				;14				return 0;
-0639	5F4F	clr     ra
-063A	2E5E	jmp     _L27
-				;15			}
-				;16		}
-				;17		
-				;18		
-				;19		//KeyFirstPressFlag = 1;//按键按下标记
-				;20		if(KeySitchON != KeySwitchStatus)//switch 开启判定
+0638	40CA	mov     KeyFirstPressFlag[0], a
+				;15				return 0;
+0639	5F54	clr     ra
+063A	2E60	jmp     _L27
+				;16			}
+				;17		}
+				;18		else
+				;19			KeyFirstPressFlag = 1;//按键按下标记	
 				_L28:
-063B	574D	sdza    KeySwitchStatus[0]
-063C	2E5C	jmp     _L34
-				;21		{
-				;22			return 1;
-				_L34:
-065C	0F01	mov     a, 1H
-065D	40CF	mov     ra, a
-				;23		}
-				;24		
-				;25	  	LED_DOWN  = LedOpen; 	
-063D	3520	clr     PB2
-				;26		
+063B	0F01	mov     a, 1H
+063C	40CA	mov     KeyFirstPressFlag[0], a
+				;20		
+				;21		
+				;22		//KeyFirstPressFlag = 1;//按键按下标记
+				;23		if(KeySitchON != KeySwitchStatus)//switch 开启判定
+				_L29:
+063D	5751	sdza    KeySwitchStatus[0]
+063E	2E5E	jmp     _L35
+				;24		{
+				;25			return 1;
+				_L35:
+065E	0F01	mov     a, 1H
+065F	40D4	mov     ra, a
+				;26		}
 				;27		
-				;28		if ((0 == Temp_Num1_L)&&(Temp_Num1_H > 0))
-063E	50BE	sz      Temp_Num1_L[0]
-063F	2E4E	jmp     _L30
-0640	50BD	sz      Temp_Num1_H[0]
-0641	2E43	jmp     _LI1
-0642	2E4E	jmp     _L30
-				;29		{
-				;30			Temp_Num1_L = 5;
+				;28	  	LED_DOWN  = LedOpen; 	
+063F	3520	clr     PB2
+				;29		
+				;30		
+				;31		if ((0 == Temp_Num1_L)&&(Temp_Num1_H > 0))
+0640	50C2	sz      Temp_Num1_L[0]
+0641	2E50	jmp     _L31
+0642	50C1	sz      Temp_Num1_H[0]
+0643	2E45	jmp     _LI1
+0644	2E50	jmp     _L31
+				;32		{
+				;33			Temp_Num1_L = 5;
 				_LI1:
-0643	0F05	mov     a, 5H
-0644	40BE	mov     Temp_Num1_L[0], a
-				;31			Temp_Num1_H --;
-0645	57BD	sdz     Temp_Num1_H[0]
-0646	2E49	jmp     _L31
-				;32							
-				;33			if(0 == Temp_Num1_H)
-				;34			{
-				;35				Temp_Num1_H;
-0647	473D	mov     a, Temp_Num1_H[0]
-0648	40CF	mov     ra, a
-				;36			}
-				;37			D_NUM3(Temp_Num1_H);
+0645	0F05	mov     a, 5H
+0646	40C2	mov     Temp_Num1_L[0], a
+				;34			Temp_Num1_H --;
+0647	57C1	sdz     Temp_Num1_H[0]
+0648	2E4B	jmp     _L32
+				;35							
+				;36			if(0 == Temp_Num1_H)
+				;37			{
+				;38				Temp_Num1_H;
+0649	4741	mov     a, Temp_Num1_H[0]
+064A	40D4	mov     ra, a
+				;39			}
+				;40			D_NUM3(Temp_Num1_H);
+				_L32:
+064B	4741	mov     a, Temp_Num1_H[0]
+064C	40DF	mov     high, a
+064D	0FC8	mov     a, C8H
+064E	25A5	call    _display16
+064F	2E59	jmp     _L42
+				;41			D_NUM4(Temp_Num1_L);	
+				;42		}
+				;43		else if((5 == Temp_Num1_L)&&(3 == Temp_Num1_H ))
 				_L31:
-0649	473D	mov     a, Temp_Num1_H[0]
-064A	40DA	mov     high, a
-064B	0FC8	mov     a, C8H
-064C	25A5	call    _display16
-064D	2E57	jmp     _L41
-				;38			D_NUM4(Temp_Num1_L);	
-				;39		}
-				;40		else if((5 == Temp_Num1_L)&&(3 == Temp_Num1_H ))
-				_L30:
-064E	473E	mov     a, Temp_Num1_L[0]
-064F	0A05	sub     a, 5H
-0650	390A	snz     Z
-0651	2E56	jmp     _L33
-0652	473D	mov     a, Temp_Num1_H[0]
-0653	0A03	sub     a, 3H
-0654	3D0A	sz      Z
-0655	2E5E	jmp     _L27
-				;41		{
-				;42						
-				;43		}
-				;44		else
-				;45		{
-				;46			Temp_Num1_L = 0;
-				_L33:
-0656	5F3E	clr     Temp_Num1_L[0]
-				;47			D_NUM4(Temp_Num1_L);
-				_L41:
-0657	473E	mov     a, Temp_Num1_L[0]
-0658	40DA	mov     high, a
-0659	0FCA	mov     a, CAH
-065A	25A5	call    _display16
-065B	2E5E	jmp     _L27
-				;48		}
-				;49	}
-				_L27:
-065E	474F	mov     a, ra
-065F	0003	ret
-				;50	unsigned char KeyUpProcess(void)
-				;51	{	
-				;52	
-				;53		Beep1 = BeepOpen;
-				_KeyUpProcess:
-				_KeyUpProcess:
-0660	3194	set     PA3
-				;54		if(1 == NoneFlag)//无人下
-0661	5728	sdza    NoneFlag[0]
-0662	2E69	jmp     _L43
-				;55		{
-				;56			if(0 == KeyFirstPressFlag)
-0663	50C6	sz      KeyFirstPressFlag[0]
-0664	2E69	jmp     _L43
-				;57			{
-				;58				KeyFirstPressFlag = 1;//按键按下标记		
-0665	0F01	mov     a, 1H
-0666	40C6	mov     KeyFirstPressFlag[0], a
-				;59				return 0;
-0667	5F4F	clr     ra
-0668	2E8F	jmp     _L42
-				;60			}
-				;61		}
-				;62		
-				;63		//KeyFirstPressFlag = 1;//按键按下标记	
-				;64		if(KeySitchON != KeySwitchStatus)
-				_L43:
-0669	574D	sdza    KeySwitchStatus[0]
-066A	2E8D	jmp     _L48
-				;65		{
-				;66			return 1;
-				_L48:
-068D	0F01	mov     a, 1H
-068E	40CF	mov     ra, a
-				;67		}
-				;68		LED_UP    = LedOpen;  	
-066B	34A0	clr     PB1
-				;69	
-				;70	
-				;71		if ((5 == Temp_Num1_L)&&(Temp_Num1_H < 9))
-066C	473E	mov     a, Temp_Num1_L[0]
-066D	0A05	sub     a, 5H
-066E	390A	snz     Z
-066F	2E86	jmp     _L45
-0670	0F08	mov     a, 8H
-0671	423D	sub     a, Temp_Num1_H[0]
-0672	380A	snz     C
-0673	2E86	jmp     _L45
-				;72		{
-				;73			Temp_Num1_L = 0;
-0674	5F3E	clr     Temp_Num1_L[0]
-				;74			Temp_Num1_H ++;
-0675	54BD	inc     Temp_Num1_H[0]
-				;75			if(Temp_Num1_H == 9)
-0676	473D	mov     a, Temp_Num1_H[0]
-0677	0A09	sub     a, 9H
-0678	390A	snz     Z
-0679	2E7E	jmp     _L46
-				;76			{
-				;77				Temp_Num1_H = 8 ;
-067A	0F08	mov     a, 8H
-067B	40BD	mov     Temp_Num1_H[0], a
-				;78				Temp_Num1_L = 5;				
-067C	0F05	mov     a, 5H
-067D	40BE	mov     Temp_Num1_L[0], a
-				;79			}
-				;80			D_NUM3(Temp_Num1_H);
-				_L46:
-067E	473D	mov     a, Temp_Num1_H[0]
-067F	40DA	mov     high, a
-0680	0FC8	mov     a, C8H
-0681	25A5	call    _display16
-				;81			D_NUM4(Temp_Num1_L);	
-0682	473E	mov     a, Temp_Num1_L[0]
-0683	40DA	mov     high, a
-0684	0FCA	mov     a, CAH
-0685	2E8B	jmp     _L49
-				;82		}
-				;83		else 
-				;84		{
-				;85			Temp_Num1_L = 5;
-				_L45:
-0686	0F05	mov     a, 5H
-0687	40BE	mov     Temp_Num1_L[0], a
-				;86			D_NUM3(Temp_Num1_H);//好像有的问题
-0688	473D	mov     a, Temp_Num1_H[0]
-0689	40DA	mov     high, a
-068A	0FC8	mov     a, C8H
-				_L49:
-068B	25A5	call    _display16
-068C	2E8F	jmp     _L42
-				;87		}
-				;88	}
+0650	4742	mov     a, Temp_Num1_L[0]
+0651	0A05	sub     a, 5H
+0652	390A	snz     Z
+0653	2E58	jmp     _L34
+0654	4741	mov     a, Temp_Num1_H[0]
+0655	0A03	sub     a, 3H
+0656	3D0A	sz      Z
+0657	2E60	jmp     _L27
+				;44		{
+				;45						
+				;46		}
+				;47		else
+				;48		{
+				;49			Temp_Num1_L = 0;
+				_L34:
+0658	5F42	clr     Temp_Num1_L[0]
+				;50			D_NUM4(Temp_Num1_L);
 				_L42:
-068F	474F	mov     a, ra
-0690	0003	ret
-				;89	unsigned char KeySwitchProcess(void)
-				;90	{
-				;91	
-				;92		Beep1 = BeepOpen;
-				_KeySwitchProcess:
-				_KeySwitchProcess:
-0691	3194	set     PA3
-				;93		if(1 == NoneFlag)//无人下
-0692	5728	sdza    NoneFlag[0]
-0693	2E9A	jmp     _L51
-				;94		{
-				;95			if(0 == KeyFirstPressFlag)
-0694	50C6	sz      KeyFirstPressFlag[0]
-0695	2E9A	jmp     _L51
-				;96			{
-				;97				KeyFirstPressFlag = 1;//按键按下标记		
-0696	0F01	mov     a, 1H
-0697	40C6	mov     KeyFirstPressFlag[0], a
-				;98				return 0;
-0698	5F4F	clr     ra
-0699	2EA6	jmp     _L50
-				;99			}
-				;100		}	
-				;101		//加热结束或关闭按键后清除
-				;102		if(KeySitchOFF == KeySwitchStatus)
-				_L51:
-069A	50CD	sz      KeySwitchStatus[0]
-069B	2EA2	jmp     _L52
-				;103		{
-				;104	 
-				;105			LEDSwitch = LedOpen;    //  
-069C	3494	clr     PA1
-				;106			KeySwitchStatus = KeySitchON;
-069D	0F01	mov     a, 1H
-069E	40CD	mov     KeySwitchStatus[0], a
-				;107			ControlFlag 	= StatusSwitchON;
-069F	0F01	mov     a, 1H
-06A0	408A	mov     ControlFlag[0], a
-06A1	2EA6	jmp     _L50
-				;108		}
-				;109		else
-				;110		{
-				;111			LEDSwitch = LedClose;    //  
-				_L52:
-06A2	3094	set     PA1
-				;112			KeySwitchStatus = KeySitchOFF;	
-06A3	5F4D	clr     KeySwitchStatus[0]
-				;113			ControlFlag 	= StatusSwitchOFF;
-06A4	0F02	mov     a, 2H
-06A5	408A	mov     ControlFlag[0], a
-				;114		}
-				;115	}
+0659	4742	mov     a, Temp_Num1_L[0]
+065A	40DF	mov     high, a
+065B	0FCA	mov     a, CAH
+065C	25A5	call    _display16
+065D	2E60	jmp     _L27
+				;51		}
+				;52	}
+				_L27:
+0660	4754	mov     a, ra
+0661	0003	ret
+				;53	unsigned char KeyUpProcess(void)
+				;54	{	
+				;55	//	KeyPressFlag = 1;
+				;56		Beep1 = BeepOpen;
+				_KeyUpProcess:
+				_KeyUpProcess:
+0662	3194	set     PA3
+				;57		if(1 == NoneFlag)//无人下
+0663	572C	sdza    NoneFlag[0]
+0664	2E6B	jmp     _L44
+				;58		{
+				;59			if(0 == KeyFirstPressFlag)
+0665	50CA	sz      KeyFirstPressFlag[0]
+0666	2E6D	jmp     _L45
+				;60			{
+				;61				KeyFirstPressFlag = 1;//按键按下标记		
+0667	0F01	mov     a, 1H
+0668	40CA	mov     KeyFirstPressFlag[0], a
+				;62				return 0;
+0669	5F54	clr     ra
+066A	2E93	jmp     _L43
+				;63			}
+				;64		}
+				;65		else
+				;66			KeyFirstPressFlag = 1;//按键按下标记	
+				_L44:
+066B	0F01	mov     a, 1H
+066C	40CA	mov     KeyFirstPressFlag[0], a
+				;67		//KeyFirstPressFlag = 1;//按键按下标记	
+				;68		if(KeySitchON != KeySwitchStatus)
+				_L45:
+066D	5751	sdza    KeySwitchStatus[0]
+066E	2E91	jmp     _L50
+				;69		{
+				;70			return 1;
 				_L50:
-06A6	474F	mov     a, ra
-06A7	0003	ret
-				;116	
-				;file D:\Users\HOLDMC\Desktop\Sun_touch\LEDX4_V16\Src\IRCHQB.c
+0691	0F01	mov     a, 1H
+0692	40D4	mov     ra, a
+				;71		}
+				;72		LED_UP    = LedOpen;  	
+066F	34A0	clr     PB1
+				;73	
+				;74	
+				;75		if ((5 == Temp_Num1_L)&&(Temp_Num1_H < 9))
+0670	4742	mov     a, Temp_Num1_L[0]
+0671	0A05	sub     a, 5H
+0672	390A	snz     Z
+0673	2E8A	jmp     _L47
+0674	0F08	mov     a, 8H
+0675	4241	sub     a, Temp_Num1_H[0]
+0676	380A	snz     C
+0677	2E8A	jmp     _L47
+				;76		{
+				;77			Temp_Num1_L = 0;
+0678	5F42	clr     Temp_Num1_L[0]
+				;78			Temp_Num1_H ++;
+0679	54C1	inc     Temp_Num1_H[0]
+				;79			if(Temp_Num1_H == 9)
+067A	4741	mov     a, Temp_Num1_H[0]
+067B	0A09	sub     a, 9H
+067C	390A	snz     Z
+067D	2E82	jmp     _L48
+				;80			{
+				;81				Temp_Num1_H = 8 ;
+067E	0F08	mov     a, 8H
+067F	40C1	mov     Temp_Num1_H[0], a
+				;82				Temp_Num1_L = 5;				
+0680	0F05	mov     a, 5H
+0681	40C2	mov     Temp_Num1_L[0], a
+				;83			}
+				;84			D_NUM3(Temp_Num1_H);
+				_L48:
+0682	4741	mov     a, Temp_Num1_H[0]
+0683	40DF	mov     high, a
+0684	0FC8	mov     a, C8H
+0685	25A5	call    _display16
+				;85			D_NUM4(Temp_Num1_L);	
+0686	4742	mov     a, Temp_Num1_L[0]
+0687	40DF	mov     high, a
+0688	0FCA	mov     a, CAH
+0689	2E8F	jmp     _L51
+				;86		}
+				;87		else 
+				;88		{
+				;89			Temp_Num1_L = 5;
+				_L47:
+068A	0F05	mov     a, 5H
+068B	40C2	mov     Temp_Num1_L[0], a
+				;90			D_NUM3(Temp_Num1_H);//好像有的问题
+068C	4741	mov     a, Temp_Num1_H[0]
+068D	40DF	mov     high, a
+068E	0FC8	mov     a, C8H
+				_L51:
+068F	25A5	call    _display16
+0690	2E93	jmp     _L43
+				;91		}
+				;92	}
+				_L43:
+0693	4754	mov     a, ra
+0694	0003	ret
+				;93	unsigned char KeySwitchProcess(void)
+				;94	{
+				;95	
+				;96		Beep1 = BeepOpen;
+				_KeySwitchProcess:
+				_KeySwitchProcess:
+0695	3194	set     PA3
+				;97		if(1 == NoneFlag)//无人下
+0696	572C	sdza    NoneFlag[0]
+0697	2E9E	jmp     _L53
+				;98		{
+				;99			if(0 == KeyFirstPressFlag)
+0698	50CA	sz      KeyFirstPressFlag[0]
+0699	2EA0	jmp     _L54
+				;100			{
+				;101				KeyFirstPressFlag = 1;//按键按下标记		
+069A	0F01	mov     a, 1H
+069B	40CA	mov     KeyFirstPressFlag[0], a
+				;102				return 0;
+069C	5F54	clr     ra
+069D	2EAC	jmp     _L52
+				;103			}
+				;104		}
+				;105		else
+				;106			KeyFirstPressFlag = 1;//按键按下标记		
+				_L53:
+069E	0F01	mov     a, 1H
+069F	40CA	mov     KeyFirstPressFlag[0], a
+				;107		//加热结束或关闭按键后清除
+				;108		if(KeySitchOFF == KeySwitchStatus)
+				_L54:
+06A0	50D1	sz      KeySwitchStatus[0]
+06A1	2EA8	jmp     _L55
+				;109		{
+				;110	 
+				;111			LEDSwitch = LedOpen;    //  
+06A2	3494	clr     PA1
+				;112			KeySwitchStatus = KeySitchON;
+06A3	0F01	mov     a, 1H
+06A4	40D1	mov     KeySwitchStatus[0], a
+				;113			ControlFlag 	= StatusSwitchON;
+06A5	0F01	mov     a, 1H
+06A6	408A	mov     ControlFlag[0], a
+06A7	2EAC	jmp     _L52
+				;114		}
+				;115		else
+				;116		{
+				;117			LEDSwitch = LedClose;    //  
+				_L55:
+06A8	3094	set     PA1
+				;118			KeySwitchStatus = KeySitchOFF;	
+06A9	5F51	clr     KeySwitchStatus[0]
+				;119			ControlFlag 	= StatusSwitchOFF;
+06AA	0F02	mov     a, 2H
+06AB	408A	mov     ControlFlag[0], a
+				;120		}
+				;121	}
+				_L52:
+06AC	4754	mov     a, ra
+06AD	0003	ret
+				;122	
+				;file E:\MyWork\Sun\HTK_Project\Sun_test1\Sun_touch\LEDX4_V16\Src\IRCHQB.c
 				;1	/*****************************
 				;2	    红外遥控
 				;3	*****************************/
@@ -4620,32 +4687,32 @@
 				;9	{ 
 				;10	    bit TEMP_Flag = 1; 
 				;11	    while((0 == IR_Out)&&(IRCount<10000))    // 等待高电平避开9毫秒低电平引导脉冲 
-				_L56:
+				_L59:
 				_BOOT_REPEATING_CODE_Judge:
 				_BOOT_REPEATING_CODE_Judge:
-06A8	3EA0	sz      PB5
-06A9	2EBC	jmp     _L57
-06AA	0F0F	mov     a, FH
-06AB	422B	sub     a, IRCount[0]
-06AC	0F27	mov     a, 27H
-06AD	522C	sbc     a, IRCount[1]
-06AE	0F00	mov     a, 0H
-06AF	522D	sbc     a, IRCount[2]
-06B0	0F00	mov     a, 0H
-06B1	522E	sbc     a, IRCount[3]
-06B2	380A	snz     C
-06B3	2EBC	jmp     _L57
+06AE	3EA0	sz      PB5
+06AF	2EC2	jmp     _L60
+06B0	0F0F	mov     a, FH
+06B1	422F	sub     a, IRCount[0]
+06B2	0F27	mov     a, 27H
+06B3	5230	sbc     a, IRCount[1]
+06B4	0F00	mov     a, 0H
+06B5	5231	sbc     a, IRCount[2]
+06B6	0F00	mov     a, 0H
+06B7	5232	sbc     a, IRCount[3]
+06B8	380A	snz     C
+06B9	2EC2	jmp     _L60
 				;12	 	{
 				;13			GCC_CLRWDT();
-06B4	0001	clr     wdt
+06BA	0001	clr     wdt
 				;14			IRCount++; 
-06B5	0F01	mov     a, 1H
-06B6	43AB	addm    a, IRCount[0]
-06B7	0F00	mov     a, 0H
-06B8	53AC	adcm    a, IRCount[1]
-06B9	53AD	adcm    a, IRCount[2]
-06BA	53AE	adcm    a, IRCount[3]
-06BB	2EA8	jmp     _L56
+06BB	0F01	mov     a, 1H
+06BC	43AF	addm    a, IRCount[0]
+06BD	0F00	mov     a, 0H
+06BE	53B0	adcm    a, IRCount[1]
+06BF	53B1	adcm    a, IRCount[2]
+06C0	53B2	adcm    a, IRCount[3]
+06C1	2EAE	jmp     _L59
 				;15		}
 				;16		
 				;17		//GCC_DELAY()  0 <= n < 263690 一个指令周期相当于四个系统时钟周期
@@ -4654,20 +4721,20 @@
 				;20	 	//1ms 		GCC_DELAY(2000)
 				;21	 	//2.272ms   GCC_DELAY(4544)
 				;22	 	Delay2272us;
-				_L57:
-06BC	0F04	mov     a, 4H
-06BD	40D8	mov     Res, a
-06BE	0F6C	mov     a, 6CH
-06BF	6340	call    L0B40
+				_L60:
+06C2	0F04	mov     a, 4H
+06C3	40DD	mov     Res, a
+06C4	0F6C	mov     a, 6CH
+06C5	6357	call    L0B57
 				;23	    if( IR_Out == 0 ) 
-06C0	1120	swapa   PB
-06C1	1985	rr      ACC
-06C2	0E07	and     a, 7H
-06C3	40CF	mov     ra, a
-06C4	0F01	mov     a, 1H
-06C5	44CF	xorm    a, ra
-06C6	0F01	mov     a, 1H
-06C7	46CF	andm    a, ra
+06C6	1120	swapa   PB
+06C7	1985	rr      ACC
+06C8	0E07	and     a, 7H
+06C9	40D4	mov     ra, a
+06CA	0F01	mov     a, 1H
+06CB	44D4	xorm    a, ra
+06CC	0F01	mov     a, 1H
+06CD	46D4	andm    a, ra
 				;24	    { 
 				;25	        TEMP_Flag = 1;      // 是连发码 
 				;26	    } 
@@ -4677,54 +4744,54 @@
 				;30	    } 
 				;31	    return TEMP_Flag; 
 				;32	}
-06C8	474F	mov     a, ra
-06C9	0003	ret
+06CE	4754	mov     a, ra
+06CF	0003	ret
 				;33	unsigned char H_L_LEVEL_Judge()  //单个接收部分
 				;34	{ 
 				;35	    while( (IR_Out == 1)&& (IRCount<1000)) 
-				_L60:
+				_L63:
 				_H_L_LEVEL_Judge:
 				_H_L_LEVEL_Judge:
-06CA	3AA0	snz     PB5
-06CB	2EDE	jmp     _L61
-06CC	0FE7	mov     a, E7H
-06CD	422B	sub     a, IRCount[0]
-06CE	0F03	mov     a, 3H
-06CF	522C	sbc     a, IRCount[1]
-06D0	0F00	mov     a, 0H
-06D1	522D	sbc     a, IRCount[2]
-06D2	0F00	mov     a, 0H
-06D3	522E	sbc     a, IRCount[3]
-06D4	380A	snz     C
-06D5	2EDE	jmp     _L61
+06D0	3AA0	snz     PB5
+06D1	2EE4	jmp     _L64
+06D2	0FE7	mov     a, E7H
+06D3	422F	sub     a, IRCount[0]
+06D4	0F03	mov     a, 3H
+06D5	5230	sbc     a, IRCount[1]
+06D6	0F00	mov     a, 0H
+06D7	5231	sbc     a, IRCount[2]
+06D8	0F00	mov     a, 0H
+06D9	5232	sbc     a, IRCount[3]
+06DA	380A	snz     C
+06DB	2EE4	jmp     _L64
 				;36		{
 				;37			GCC_CLRWDT();
-06D6	0001	clr     wdt
+06DC	0001	clr     wdt
 				;38			IRCount++; 
-06D7	0F01	mov     a, 1H
-06D8	43AB	addm    a, IRCount[0]
-06D9	0F00	mov     a, 0H
-06DA	53AC	adcm    a, IRCount[1]
-06DB	53AD	adcm    a, IRCount[2]
-06DC	53AE	adcm    a, IRCount[3]
-06DD	2ECA	jmp     _L60
+06DD	0F01	mov     a, 1H
+06DE	43AF	addm    a, IRCount[0]
+06DF	0F00	mov     a, 0H
+06E0	53B0	adcm    a, IRCount[1]
+06E1	53B1	adcm    a, IRCount[2]
+06E2	53B2	adcm    a, IRCount[3]
+06E3	2ED0	jmp     _L63
 				;39		}  // 等待地址码第一位的高电平信号 
 				;40		
 				;41		IRCount = 0;
-				_L61:
-06DE	5F2B	clr     IRCount[0]
-06DF	5F2C	clr     IRCount[1]
-06E0	5F2D	clr     IRCount[2]
-06E1	5F2E	clr     IRCount[3]
+				_L64:
+06E4	5F2F	clr     IRCount[0]
+06E5	5F30	clr     IRCount[1]
+06E6	5F31	clr     IRCount[2]
+06E7	5F32	clr     IRCount[3]
 				;42	   	Delay1150us;  // 测试实际延时约为 
-06E2	0F02	mov     a, 2H
-06E3	40D8	mov     Res, a
-06E4	0F3C	mov     a, 3CH
-06E5	6340	call    L0B40
+06E8	0F02	mov     a, 2H
+06E9	40DD	mov     Res, a
+06EA	0F3C	mov     a, 3CH
+06EB	6357	call    L0B57
 				;43	    if ( IR_Out == 1) 
-06E6	5F4F	clr     ra
-06E7	3EA0	sz      PB5
-06E8	54CF	inc     ra
+06EC	5F54	clr     ra
+06ED	3EA0	sz      PB5
+06EE	54D4	inc     ra
 				;44	    { 
 				;45	        return 1; 
 				;46	    } 
@@ -4733,13 +4800,13 @@
 				;49	        return 0; 
 				;50	    } 
 				;51	}
-06E9	474F	mov     a, ra
-06EA	0003	ret
+06EF	4754	mov     a, ra
+06F0	0003	ret
 				;52	unsigned char START_Judge() 
 				;53	{ 
 				;54	    unsigned char TEMP_Flag = 0;  //？？？
-				_L70:
-06FB	5F4F	clr     ra
+				_L73:
+0701	5F54	clr     ra
 				;55	    unsigned char i = 0; 
 				;56	    //在正常无遥控信号时，一体化红外接收头输出是高电平，程序一直在循环。 
 				;57	    //while ( IR_Out == 1) GCC_CLRWDT();    ; 
@@ -4747,31 +4814,31 @@
 				;59	    GCC_CLRWDT();
 				_START_Judge:
 				_START_Judge:
-06EB	0001	clr     wdt
+06F1	0001	clr     wdt
 				;60	 	if(1 != IR_Out)
-06EC	3EA0	sz      PB5
-06ED	2EFB	jmp     _L70
-06EE	0F08	mov     a, 8H
-06EF	40CF	mov     ra, a
+06F2	3EA0	sz      PB5
+06F3	2F01	jmp     _L73
+06F4	0F08	mov     a, 8H
+06F5	40D4	mov     ra, a
 				;61	 	{
 				;62	 		TEMP_Flag = 1;
-06F8	0F01	mov     a, 1H
-06F9	40CF	mov     ra, a
-06FA	2EFC	jmp     _L67
+06FE	0F01	mov     a, 1H
+06FF	40D4	mov     ra, a
+0700	2F02	jmp     _L70
 				;63		    for(i =0;i <8; i++) 
 				;64		    { 
 				;65		        //DELAY_Us(800);      // 测试实际延时约为764~928us 
 				;66				Delay800us;
-				_L68:
-06F0	0F01	mov     a, 1H
-06F1	40D8	mov     Res, a
-06F2	0F8E	mov     a, 8EH
-06F3	6342	call    L0B42
+				_L71:
+06F6	0F01	mov     a, 1H
+06F7	40DD	mov     Res, a
+06F8	0F8E	mov     a, 8EH
+06F9	6359	call    L0B59
 				;67		        if ( IR_Out == 1 ) 
-06F4	3EA0	sz      PB5
-06F5	2EFB	jmp     _L70
-06F6	57CF	sdz     ra
-06F7	2EF0	jmp     _L68
+06FA	3EA0	sz      PB5
+06FB	2F01	jmp     _L73
+06FC	57D4	sdz     ra
+06FD	2EF6	jmp     _L71
 				;68		        { 
 				;69		            TEMP_Flag = 0; 
 				;70		            break; 
@@ -4780,120 +4847,120 @@
 				;73	    }
 				;74	    return TEMP_Flag; 
 				;75	}
-				_L67:
-06FC	474F	mov     a, ra
-06FD	0003	ret
+				_L70:
+0702	4754	mov     a, ra
+0703	0003	ret
 				;76	void DataSave(void)
 				;77	{
 				_DataSave:
 				_DataSave:
-06FE	0F04	mov     a, 4H
-06FF	40D9	mov     _DataSave_2, a
+0704	0F04	mov     a, 4H
+0705	40DE	mov     _DataSave_2, a
 				;78	    unsigned char i;
 				;79		for(i =0;i <4; i++) 
-0700	5F5A	clr     i[0]
-0758	54DA	inc     i[0]
-0759	57D9	sdz     _DataSave_2
-075A	2F01	jmp     _L74
-075B	0003	ret
+0706	5F5F	clr     i[0]
+075E	54DF	inc     i[0]
+075F	57DE	sdz     _DataSave_2
+0760	2F07	jmp     _L77
+0761	0003	ret
 				;80		{                
 				;81			Datachange._bits.b7 = H_L_LEVEL_Judge(); 
-				_L74:
-0701	26CA	call    _L60
-0702	40CF	mov     ra, a
-0703	5BCF	rrc     ra
-0704	5F4F	clr     ra
-0705	5BCF	rrc     ra
-0706	7789	clr     Datachange[0].7
-0707	474F	mov     a, ra
-0708	4589	orm     a, Datachange[0]
+				_L77:
+0707	26D0	call    _L63
+0708	40D4	mov     ra, a
+0709	5BD4	rrc     ra
+070A	5F54	clr     ra
+070B	5BD4	rrc     ra
+070C	7789	clr     Datachange[0].7
+070D	4754	mov     a, ra
+070E	4589	orm     a, Datachange[0]
 				;82			Datachange._bits.b6 = H_L_LEVEL_Judge(); 
-0709	26CA	call    _L60
-070A	40CF	mov     ra, a
-070B	0F01	mov     a, 1H
-070C	46CF	andm    a, ra
-070D	594F	rra     ra
-070E	1985	rr      ACC
-070F	0EC0	and     a, C0H
-0710	40CF	mov     ra, a
-0711	7709	clr     Datachange[0].6
-0712	474F	mov     a, ra
-0713	4589	orm     a, Datachange[0]
+070F	26D0	call    _L63
+0710	40D4	mov     ra, a
+0711	0F01	mov     a, 1H
+0712	46D4	andm    a, ra
+0713	5954	rra     ra
+0714	1985	rr      ACC
+0715	0EC0	and     a, C0H
+0716	40D4	mov     ra, a
+0717	7709	clr     Datachange[0].6
+0718	4754	mov     a, ra
+0719	4589	orm     a, Datachange[0]
 				;83			Datachange._bits.b5 = H_L_LEVEL_Judge(); 
-0714	26CA	call    _L60
-0715	40CF	mov     ra, a
-0716	0F01	mov     a, 1H
-0717	46CF	andm    a, ra
-0718	514F	swapa   ra
-0719	1885	rl      ACC
-071A	0EE0	and     a, E0H
-071B	40CF	mov     ra, a
-071C	7689	clr     Datachange[0].5
-071D	474F	mov     a, ra
-071E	4589	orm     a, Datachange[0]
+071A	26D0	call    _L63
+071B	40D4	mov     ra, a
+071C	0F01	mov     a, 1H
+071D	46D4	andm    a, ra
+071E	5154	swapa   ra
+071F	1885	rl      ACC
+0720	0EE0	and     a, E0H
+0721	40D4	mov     ra, a
+0722	7689	clr     Datachange[0].5
+0723	4754	mov     a, ra
+0724	4589	orm     a, Datachange[0]
 				;84			Datachange._bits.b4 = H_L_LEVEL_Judge(); 
-071F	26CA	call    _L60
-0720	40CF	mov     ra, a
-0721	0F01	mov     a, 1H
-0722	46CF	andm    a, ra
-0723	514F	swapa   ra
-0724	0EF0	and     a, F0H
-0725	40CF	mov     ra, a
-0726	7609	clr     Datachange[0].4
-0727	474F	mov     a, ra
-0728	4589	orm     a, Datachange[0]
+0725	26D0	call    _L63
+0726	40D4	mov     ra, a
+0727	0F01	mov     a, 1H
+0728	46D4	andm    a, ra
+0729	5154	swapa   ra
+072A	0EF0	and     a, F0H
+072B	40D4	mov     ra, a
+072C	7609	clr     Datachange[0].4
+072D	4754	mov     a, ra
+072E	4589	orm     a, Datachange[0]
 				;85			Datachange._bits.b3 = H_L_LEVEL_Judge(); 
-0729	26CA	call    _L60
-072A	40CF	mov     ra, a
-072B	0F01	mov     a, 1H
-072C	46CF	andm    a, ra
-072D	514F	swapa   ra
-072E	1985	rr      ACC
-072F	0EF8	and     a, F8H
-0730	40CF	mov     ra, a
-0731	7589	clr     Datachange[0].3
-0732	474F	mov     a, ra
-0733	4589	orm     a, Datachange[0]
+072F	26D0	call    _L63
+0730	40D4	mov     ra, a
+0731	0F01	mov     a, 1H
+0732	46D4	andm    a, ra
+0733	5154	swapa   ra
+0734	1985	rr      ACC
+0735	0EF8	and     a, F8H
+0736	40D4	mov     ra, a
+0737	7589	clr     Datachange[0].3
+0738	4754	mov     a, ra
+0739	4589	orm     a, Datachange[0]
 				;86			Datachange._bits.b2 = H_L_LEVEL_Judge(); 
-0734	26CA	call    _L60
-0735	40D0	mov     rb, a
-0736	0F01	mov     a, 1H
-0737	46D0	andm    a, rb
-0738	5F4F	clr     ra
-0739	50D0	sz      rb
-073A	714F	set     ra.2
-073B	7509	clr     Datachange[0].2
-073C	474F	mov     a, ra
-073D	4589	orm     a, Datachange[0]
+073A	26D0	call    _L63
+073B	40D5	mov     rb, a
+073C	0F01	mov     a, 1H
+073D	46D5	andm    a, rb
+073E	5F54	clr     ra
+073F	50D5	sz      rb
+0740	7154	set     ra.2
+0741	7509	clr     Datachange[0].2
+0742	4754	mov     a, ra
+0743	4589	orm     a, Datachange[0]
 				;87			Datachange._bits.b1 = H_L_LEVEL_Judge(); 
-073E	26CA	call    _L60
-073F	40CF	mov     ra, a
-0740	0F01	mov     a, 1H
-0741	46CF	andm    a, ra
-0742	474F	mov     a, ra
-0743	43CF	addm    a, ra
-0744	7489	clr     Datachange[0].1
-0745	474F	mov     a, ra
-0746	4589	orm     a, Datachange[0]
+0744	26D0	call    _L63
+0745	40D4	mov     ra, a
+0746	0F01	mov     a, 1H
+0747	46D4	andm    a, ra
+0748	4754	mov     a, ra
+0749	43D4	addm    a, ra
+074A	7489	clr     Datachange[0].1
+074B	4754	mov     a, ra
+074C	4589	orm     a, Datachange[0]
 				;88			Datachange._bits.b0 = H_L_LEVEL_Judge();                              
-0747	26CA	call    _L60
-0748	40CF	mov     ra, a
-0749	0F01	mov     a, 1H
-074A	46CF	andm    a, ra
-074B	7409	clr     Datachange[0].0
-074C	474F	mov     a, ra
-074D	4589	orm     a, Datachange[0]
+074D	26D0	call    _L63
+074E	40D4	mov     ra, a
+074F	0F01	mov     a, 1H
+0750	46D4	andm    a, ra
+0751	7409	clr     Datachange[0].0
+0752	4754	mov     a, ra
+0753	4589	orm     a, Datachange[0]
 				;89			_datasave[i] =  Datachange.data; 
-074E	0F85	mov     a, 85H
-074F	435A	add     a, i[0]
-0750	0083	mov     MP1, a
-0751	0F00	mov     a, 0H
-0752	1F01	clr     MP0
-0753	1381	adcm    a, MP0
-0754	0701	mov     a, MP0
-0755	0084	mov     BP, a
-0756	4709	mov     a, Datachange[0]
-0757	0082	mov     [02H], a
+0754	0F85	mov     a, 85H
+0755	435F	add     a, i[0]
+0756	0083	mov     MP1, a
+0757	0F00	mov     a, 0H
+0758	1F01	clr     MP0
+0759	1381	adcm    a, MP0
+075A	0701	mov     a, MP0
+075B	0084	mov     BP, a
+075C	4709	mov     a, Datachange[0]
+075D	0082	mov     [02H], a
 				;90		} 
 				;91		//功能处理
 				;92	}
@@ -4903,68 +4970,68 @@
 				;96	  	GCC_CLRWDT();     	
 				_IR_FUN:
 				_IR_FUN:
-075C	0001	clr     wdt
+0762	0001	clr     wdt
 				;97		StartFlag = START_Judge();
-075D	26EB	call    _START_Judge
-075E	40CF	mov     ra, a
-075F	474F	mov     a, ra
-0760	40AA	mov     StartFlag[0], a
+0763	26F1	call    _START_Judge
+0764	40D4	mov     ra, a
+0765	4754	mov     a, ra
+0766	40AE	mov     StartFlag[0], a
 				;98		if(1 == StartFlag)
-0761	572A	sdza    StartFlag[0]
-0762	2F67	jmp     _L76
+0767	572E	sdza    StartFlag[0]
+0768	2F6D	jmp     _L79
 				;99		{
 				;100			BOOT_REPEATING_CODE_Flag = BOOT_REPEATING_CODE_Judge(); 			
-0763	26A8	call    _L56
-0764	40CF	mov     ra, a
-0765	474F	mov     a, ra
-0766	40A9	mov     BOOT_REPEATING_CODE_Flag[0], a
+0769	26AE	call    _L59
+076A	40D4	mov     ra, a
+076B	4754	mov     a, ra
+076C	40AD	mov     BOOT_REPEATING_CODE_Flag[0], a
 				;101		}
 				;102		if (StartFlag && !BOOT_REPEATING_CODE_Flag )  
-				_L76:
-0767	50AA	sz      StartFlag[0]
-0768	2F6A	jmp     _LI2
-0769	2F81	jmp     _L75
+				_L79:
+076D	50AE	sz      StartFlag[0]
+076E	2F70	jmp     _LI2
+076F	2F87	jmp     _L78
 				_LI2:
-076A	50A9	sz      BOOT_REPEATING_CODE_Flag[0]
-076B	2F81	jmp     _L75
+0770	50AD	sz      BOOT_REPEATING_CODE_Flag[0]
+0771	2F87	jmp     _L78
 				;103		{
 				;104			DataSave();
-076C	26FE	call    _DataSave
+0772	2704	call    _DataSave
 				;105			KeyCountOpenflag = 1;
-076D	0F01	mov     a, 1H
-076E	40CB	mov     KeyCountOpenflag[0], a
+0773	0F01	mov     a, 1H
+0774	40CF	mov     KeyCountOpenflag[0], a
 				;106			switch(_datasave[2])
-076F	4707	mov     a, _datasave[2]
-0770	40DE	mov     _TouchFun_2, a
-0771	475E	mov     a, _TouchFun_2
-0772	0A10	sub     a, 10H
-0773	3D0A	sz      Z
-0774	2F7E	jmp     _L78
-0775	0A10	sub     a, 10H
-0776	3D0A	sz      Z
-0777	2F80	jmp     _L79
-0778	475E	mov     a, _TouchFun_2
-0779	0A40	sub     a, 40H
-077A	390A	snz     Z
-077B	2F81	jmp     _L75
+0775	4707	mov     a, _datasave[2]
+0776	40E3	mov     _TouchFun_2, a
+0777	4763	mov     a, _TouchFun_2
+0778	0A10	sub     a, 10H
+0779	3D0A	sz      Z
+077A	2F84	jmp     _L81
+077B	0A10	sub     a, 10H
+077C	3D0A	sz      Z
+077D	2F86	jmp     _L82
+077E	4763	mov     a, _TouchFun_2
+077F	0A40	sub     a, 40H
+0780	390A	snz     Z
+0781	2F87	jmp     _L78
 				;107			{
 				;108			 	case 0x40://UP
 				;109			 		KeyUpProcess();
-077C	2660	call    _KeyUpProcess
+0782	2662	call    _KeyUpProcess
 				;110			 	break;
-077D	2F81	jmp     _L75
+0783	2F87	jmp     _L78
 				;111			 	case 0x10://Down
 				;112			 		KeyDownProcess();
-				_L78:
-077E	2632	call    _KeyDownProcess
+				_L81:
+0784	2632	call    _KeyDownProcess
 				;113			 	break;		 	
-077F	2F81	jmp     _L75
+0785	2F87	jmp     _L78
 				;114			 	case 0x20://Open
 				;115			 		KeySwitchProcess()	;
-				_L79:
-0780	2691	call    _KeySwitchProcess
-				_L75:
-0781	0003	ret
+				_L82:
+0786	2695	call    _KeySwitchProcess
+				_L78:
+0787	0003	ret
 				;116			 	break;		 	
 				;117			 	// case 0x60://Set
 				;118			 		
@@ -5006,6 +5073,7 @@
 				T_valueGet DB DUP (?) ; T_valueGet
 				E1WaringFlag DB DUP (?) ; E1WaringFlag
 				E2WaringFlag DB DUP (?) ; E2WaringFlag
+				NoneErrorTimerCount DB 4 DUP (?) ; NoneErrorTimerCount
 				NoneTimerCount DB 4 DUP (?) ; NoneTimerCount
 				personTimerCount DB 2 DUP (?) ; personTimerCount
 				PersonCheckDisable DB DUP (?) ; PersonCheckDisable
@@ -5037,6 +5105,7 @@
 				KeyCountOpenflag DB DUP (?) ; KeyCountOpenflag
 				KeyCount DB DUP (?) ; KeyCount
 				KeySwitchStatus DB DUP (?) ; KeySwitchStatus
+				KeyPressFlag DB DUP (?) ; KeyPressFlag
 				BeepCount DB DUP (?) ; BeepCount
 				ra DB DUP (?)
 				rb DB DUP (?)

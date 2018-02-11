@@ -6,6 +6,7 @@
 unsigned char KeyDownProcess(void)
 {
 	Beep1 = BeepOpen;
+//	KeyPressFlag = 1;
 	if(1 == NoneFlag)//无人下
 	{
 		if(0 == KeyFirstPressFlag)
@@ -14,6 +15,8 @@ unsigned char KeyDownProcess(void)
 			return 0;
 		}
 	}
+	else
+		KeyFirstPressFlag = 1;//按键按下标记	
 	
 	
 	//KeyFirstPressFlag = 1;//按键按下标记
@@ -49,7 +52,7 @@ unsigned char KeyDownProcess(void)
 }
 unsigned char KeyUpProcess(void)
 {	
-
+//	KeyPressFlag = 1;
 	Beep1 = BeepOpen;
 	if(1 == NoneFlag)//无人下
 	{
@@ -59,7 +62,8 @@ unsigned char KeyUpProcess(void)
 			return 0;
 		}
 	}
-	
+	else
+		KeyFirstPressFlag = 1;//按键按下标记	
 	//KeyFirstPressFlag = 1;//按键按下标记	
 	if(KeySitchON != KeySwitchStatus)
 	{
@@ -97,7 +101,9 @@ unsigned char KeySwitchProcess(void)
 			KeyFirstPressFlag = 1;//按键按下标记		
 			return 0;
 		}
-	}	
+	}
+	else
+		KeyFirstPressFlag = 1;//按键按下标记		
 	//加热结束或关闭按键后清除
 	if(KeySitchOFF == KeySwitchStatus)
 	{

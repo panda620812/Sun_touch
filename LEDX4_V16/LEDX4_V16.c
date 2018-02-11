@@ -188,7 +188,7 @@ unsigned char ADC_Check(void)
 		ErrorProcess();
 		return 0;
 	}	
-	else if(( T_valueGet > 90)&&(0 == E1WaringFlag)&&(1 != E2WaringFlag))
+	else if(( T_valueGet > 98)&&(0 == E1WaringFlag)&&(1 != E2WaringFlag))
 	{
 		E1WaringFlag = 1;
 		D_E1;//显示“E1”	
@@ -285,7 +285,7 @@ void LEDX4_V16_INITIAL()
 }
 void HeatCompleteBeep(void)
 {
-	if(timerCount > 1800000 - 300)//计时
+	if(timerCount > 900000 - 300)//计时
 	{
 		Beep1 = BeepOpen;
 		KeyCountOpenflag = 1;
@@ -296,17 +296,13 @@ void PersonCheckDisableFun(void)//红外检测失效处理
 {
 	if((1 == PersonCheck))//有人
 	{
-		RelayPVClose;
-		RelayHeatClose;//电磁阀关闭
-		ND_Heat();
-		ND_PV();
+		ND_Heat();RelayHeatClose;//电磁阀关闭
+		// ND_PV();RelayPVClose;
 	}
 	else
 	{	
-		D_Heat();
-		D_PV();
-		RelayHeatOpen;//电磁阀打开
-		RelayPVOpen;
+		D_Heat();RelayHeatOpen;//电磁阀打开
+		D_PV();RelayPVOpen;		
 	}					
 }
 
@@ -315,31 +311,35 @@ void SunControl(void)
 	switch(ControlFlag)
 	{
 		case StatusIdle:
-			if(T_valueGet  < 35)//内胆温度低于35℃,自动加热，是否有其他开启条件
+			if(T_valueGet  < 30)//内胆温度低于35℃,自动加热，是否有其他开启条件
 			{
 				PersonCheckDisableFun();
 			}
-			else if(T_valueGet < 85)
+			else if(T_valueGet  < 35)
 			{
-				if((1 == PersonCheck))//有人
-				{
-					RelayPVClose;
-					RelayHeatClose;//电磁阀关闭
-					ND_Heat();
-					ND_PV();
-				}
-				else
-				{	
-					D_PV();
-					RelayPVOpen;
-				}
+				D_PV();RelayPVOpen;
+			}
+			else if(T_valueGet < 80)
+			{
+				// if((1 == PersonCheck))//有人
+				// {
+					// ND_PV();RelayPVClose;
+				// }
+				// else
+				// {	
+					D_PV();RelayPVOpen;
+				// }
+				ND_Heat();RelayHeatClose;//电磁阀关闭
+			
+			}
+			else if(T_valueGet <85)
+			{
+				
 			}
 			else
 			{
-				RelayHeatClose;
-				RelayPVClose;
-				ND_PV();
-				ND_Heat();
+				ND_PV();RelayPVClose;
+				ND_Heat();RelayHeatClose;
 			}	
 		break;
 		case StatusSwitchON:
@@ -370,26 +370,24 @@ void SunControl(void)
 			//ND_Heat();//关闭加热显示
 			ND_WarmKeep();//关闭保温显示
 			ControlFlag = StatusIdle;	
-			KeyFirstPressFlag = 0;
+//			KeyFirstPressFlag = 0;
 		break;
 		case StatusHeatOpen:
-			KeyFirstPressFlag = 0;	
+//			KeyFirstPressFlag = 0;	
 			
 			if(Close == timerFlag)//定时器空闲
 			{
 				if(Close == timer1hourFlag)
 				{
 					timer1hourFlag = Open;
-					TimerSetFun(1800000);//30000	
+					TimerSetFun(900000);//30000	1h 1800000
 				}
 				//开始
 			}
 			if(T_valueGet > Temp_Num1)//ADC 加滤波
 			{
-				RelayHeatClose;//关闭加热
-				RelayPVClose;
-				ND_PV();
-				ND_Heat(); 
+				// ND_PV();RelayPVClose;
+				ND_Heat();RelayHeatClose;//关闭加热 
 				
 				D_WarmKeep();
 				ControlFlag = StatusWarmHold;//进入温度保持	
@@ -401,7 +399,7 @@ void SunControl(void)
 			}	
 		break;
 		case StatusWarmHold:
-			KeyFirstPressFlag = 0;			
+//			KeyFirstPressFlag = 0;			
 			if(T_valueGet < Temp_Num1-5)//ADC 加滤波
 			{
 				ND_WarmKeep();
@@ -462,7 +460,7 @@ void NoPersonCheckFun(void)
 		{
 			KeyCount = 0;
 			KeyCountOpenflag = 0;
-			//Beep1 = BeepClose;
+			//Beep1 = Be																					epClose;
 			LED_UP = LED_DOWN = LedClose;//	= LEDSwitch 		
 		}
 	}	
@@ -470,6 +468,7 @@ void NoPersonCheckFun(void)
 	{	
 		NoneTimerCount ++;
 		personTimerCount = 0;
+	
 		if(NoneTimerCount > 20000)//3min   10000 ---》30s
 		{								//60000 --- 》160s
 			NoneFlag = 1;//无人
@@ -487,11 +486,30 @@ void NoPersonCheckFun(void)
 			NoneFlag = 0;
 		}
 	}
-	if((1 == NoneFlag)&&(1 == KeyFirstPressFlag))//屏幕关闭状态下，有按键
-	{
+//	if((1 == NoneFlag)&&(1 == KeyFirstPressFlag))//屏幕关闭状态下，有按键
+//	{
 		// KeyFirstPressFlag = 0;
-		NoneFlag = 0;	
+//		NoneFlag = 0;	
+		// NoneErrorTimerCount++;
+//	}
+	// if(NoneErrorTimerCount > 60000)//时间待确认
+	// {
+		// NoneErrorTimerCount = 0;
+		// KeyFirstPressFlag = 0;
+	// }
+	if(1 == KeyFirstPressFlag)
+	{
+		NoneFlag = 0;
+		NoneErrorTimerCount++;
+		
 	}
+	if(NoneErrorTimerCount>600000)
+	{
+		KeyFirstPressFlag = 0;
+		NoneErrorTimerCount = 0;
+	}	
+		
+	
 	if(0 == NoneFlag)//有人
 	{
 		ScreenDisplay();
